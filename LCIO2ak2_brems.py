@@ -247,6 +247,8 @@ def makeAk(filename, outfilename, maxread, skip):
         totalEnergy = 0.0
         di_quark_energy = 0.0
 
+        dictTrackIds = {}
+
         nsimhit = 0
         colnames = event.getCollectionNames()
 
@@ -541,6 +543,108 @@ def makeAk(filename, outfilename, maxread, skip):
             print("No calohit in the event ", idx)
             continue
 
+        ###################################################################
+        # ここで先にreltrackから適当なdictionaryを作って
+        # MCParticleに紐づいていないtrackはそもそものぞく(labelもfeatもなし)
+        # trackが一つしかないMCParticleのtrackはそのまま
+        # ２つ以上のtrackが同じMCParticleについていたらinnermosthitが一番外側のtrackを採用
+        #   そのさいにMCParticleをmergeしているときにはdecayする前のtrackを採用
+        # 
+        # vertex のmomentumも入れるように変更
+        # MCParticleごとに最も外側のtrackを保持
+        bestTrackForMC = {}
+        for colname in TrackList:
+            if not colname in colnames: continue
+            col = event.getCollection(colname)
+            for track in col:
+                print(track.id(), track.getRadiusOfInnermostHit())
+                trackStates = track.getTrackStates()
+                r_max = -1.0
+                # for ts in trackStates:
+                #     ref = ts.getReferencePoint()
+                #     x, y, z = ref[0], ref[1], ref[2]
+                #     r = math.sqrt(x*x + y*y)
+                #     if r > r_max:
+                #         r_max = r
+                # if r_max < 0:
+                #     continue
+                for ts in trackStates:
+                    # ts = track.getTrackState(4) # at calorimeter
+                    point = ts.getReferencePoint()
+                    print("  track state position : ", point[0], point[1], point[2])
+
+                    ref = ts.getReferencePoint()
+                    x, y, z = ref[0], ref[1], ref[2]
+                    r = math.sqrt(x*x + y*y)
+                    if r > r_max:
+                        r_max = r
+                if r_max < 0:
+                    continue
+                
+                for relcolname in RelTrackList:
+                    if relcolname not in colnames: continue
+
+                    relcol = event.getCollection(relcolname)
+                    nav = LCRelationNavigator(relcol)
+
+                    related = nav.getRelatedToObjects(track)
+                    weights = nav.getRelatedToWeights(track)
+
+                    for rel, w in zip(related, weights):
+                    
+                        if w < 0.5:
+                            continue
+
+                        mcid = rel.id()
+
+                        # 既に登録済みなら r を比較
+                        if mcid in bestTrackForMC:
+                            if r_max > bestTrackForMC[mcid]["r"]:
+                                bestTrackForMC[mcid] = {
+                                    "track": track,
+                                    "r": r_max
+                                }
+                        else:
+                            bestTrackForMC[mcid] = {
+                                "track": track,
+                                "r": r_max
+                            }
+
+            # ===== 選ばれたtrackのみ処理 =====
+            selectedTracks = [v["track"] for v in bestTrackForMC.values()]
+
+            for track in selectedTracks:
+                # ここに既存処理を書く
+                print("Selected track ID:", track.id())
+
+
+
+
+        for relcolname in RelTrackList:
+            if not relcolname in colnames: continue
+            relcol = event.getCollection(relcolname)
+            nav = LCRelationNavigator(relcol)
+            for rel,w in zip(nav.getRelatedToObjects(track),nav.getRelatedToWeights(track)):
+                if w > 0.5:
+                    if w < 1: print (w)
+                    if rel.id() not in dictClusterIdx:
+                        print("MCID", rel.id(), "not found.")
+                        if rel.getEnergy()>1:
+                            print("     trackID : ", track.id(), " ,  energy : ", rel.getEnergy())
+                            if not rel.isStopped():
+                                notStopped = notStopped + 1
+                            if rel.isDecayedInTracker():
+                                decayedInTracker = decayedInTracker + 1
+                            abnormal_virtual_hit = abnormal_virtual_hit + 1
+                            if rel.getPDG() ==211 or rel.getPDG() == -211:
+                                npi = npi+1
+                            if rel.getPDG() == 321 or rel.getPDG() == -321:
+                                nk = nk+1
+                        continue
+                    labels = dictClusterIdx[rel.id()]
+                    hitid = -track.id()
+        ###################################################################
+
 
         for colname in TrackList:
             if not colname in colnames: continue
@@ -614,8 +718,8 @@ def makeAk(filename, outfilename, maxread, skip):
                     b_label.real(hitid)
 
                     #print("Track pos", point[0], point[1], point[2], "momentum", px, py, pz)
-                    # if hitid != 0:
-                    if hitid == 0:
+                    if hitid != 0:
+                    # if hitid == 0:
                         print("Track ", -hitid, " assigned to cluster ", labels["id"])
 
                     if(hitid != 0):
@@ -627,6 +731,10 @@ def makeAk(filename, outfilename, maxread, skip):
                         b_label.real(labels["momentum"][1])
                         b_label.real(labels["momentum"][2])
                         b_label.real(labels["status"])
+                        if not labels["id"] in dictTrackIds.keys():
+                            dictTrackIds[labels["id"]] = -hitid
+                        else:
+                            print("     clusterId ", labels["id"], " have multiple tracks ", dictTrackIds[labels["id"]], "  ", -hitid, "MC momentum ", labels["momentum"][0], labels["momentum"][1], labels["momentum"][2])
                     else:
                         b_label.real(-1) #labels["id"])
                         b_label.real(0) #labels["pdg"])
@@ -636,6 +744,7 @@ def makeAk(filename, outfilename, maxread, skip):
                         b_label.real(0) #labels["momentum"][1])
                         b_label.real(0) #labels["momentum"][2])
                         b_label.real(0) #labels["status"])
+                        print("no matched MCParticle at track ", track.id())
                     b_label.end_list()
 
                     b_pandora.begin_list()

@@ -141,6 +141,8 @@ def makeAk(filename, outfilename, maxread, skip):
         totalEnergy = 0.0
         di_quark_energy = 0.0
 
+        dictTrackIds = {}
+
         nsimhit = 0
         colnames = event.getCollectionNames()
 
@@ -484,8 +486,8 @@ def makeAk(filename, outfilename, maxread, skip):
                     b_label.real(hitid)
 
                     #print("Track pos", point[0], point[1], point[2], "momentum", px, py, pz)
-                    # if hitid != 0:
-                    if hitid == 0:
+                    if hitid != 0:
+                    # if hitid == 0:
                         print("Track ", -hitid, " assigned to cluster ", labels["id"])
 
                     if(hitid != 0):
@@ -497,6 +499,10 @@ def makeAk(filename, outfilename, maxread, skip):
                         b_label.real(labels["momentum"][1])
                         b_label.real(labels["momentum"][2])
                         b_label.real(labels["status"])
+                        if not labels["id"] in dictTrackIds.keys():
+                            dictTrackIds[labels["id"]] = -hitid
+                        else:
+                            print("     clusterId ", labels["id"], " have multiple tracks ", dictTrackIds[labels["id"]], "  ", -hitid, "MC momentum ", labels["momentum"][0], labels["momentum"][1], labels["momentum"][2])
                     else:
                         b_label.real(-1) #labels["id"])
                         b_label.real(0) #labels["pdg"])

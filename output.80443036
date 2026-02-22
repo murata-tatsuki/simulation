@@ -1,0 +1,3782 @@
+Sender: LSF System <lsfadmin@cb024>
+Subject: Job 80443036: <python LCIO2ak2.py /home/ilc/suehara/gpfs/doublePG/example/data/ntau_10GeV_10/reco/ntau_10GeV_10_80000_reco_REC.slcio test_multiTrack.log.h5 100 0> in cluster <centralcluster> Done
+
+Job <python LCIO2ak2.py /home/ilc/suehara/gpfs/doublePG/example/data/ntau_10GeV_10/reco/ntau_10GeV_10_80000_reco_REC.slcio test_multiTrack.log.h5 100 0> was submitted from host <cw04> by user <murata> in cluster <centralcluster> at Tue Feb 10 18:19:30 2026
+Job was executed on host(s) <cb024>, in queue <s>, as user <murata> in cluster <centralcluster> at Tue Feb 10 18:19:32 2026
+</home/ilc/murata> was used as the home directory.
+</home/ilc/murata/simulation> was used as the working directory.
+Started at Tue Feb 10 18:19:32 2026
+Terminated at Tue Feb 10 18:23:07 2026
+Results reported at Tue Feb 10 18:23:07 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python LCIO2ak2.py /home/ilc/suehara/gpfs/doublePG/example/data/ntau_10GeV_10/reco/ntau_10GeV_10_80000_reco_REC.slcio test_multiTrack.log.h5 100 0
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   212.87 sec.
+    Max Memory :                                 816 MB
+    Average Memory :                             518.36 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3184.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                5
+    Run time :                                   215 sec.
+    Turnaround time :                            217 sec.
+
+The output (if any) follows:
+
+Loading LCIO ROOT dictionaries ...
+# Events in the file: 100 , # events to read: 100
+Reading 0 / 100 events...
+  jet energy      0.0
+  non nu energy   58.676003167722364
+something is wrong at this event 0
+MC dictionary finished. #hits = 3826  # clusters = 36
+pandora dictionary finished. #hits = 1651  # clusters = 26
+Track find. #states =  4
+Track  11194  assigned to cluster  15
+Track find. #states =  4
+0.9909502267837524
+Track  11199  assigned to cluster  24
+Track find. #states =  4
+Track  11204  assigned to cluster  19
+Track find. #states =  4
+Track  11209  assigned to cluster  12
+Track find. #states =  4
+Track  11214  assigned to cluster  10
+Track find. #states =  4
+Track  11219  assigned to cluster  0
+Track find. #states =  4
+Track  11224  assigned to cluster  25
+Track find. #states =  4
+Track  11229  assigned to cluster  11
+Track find. #states =  4
+Track  11234  assigned to cluster  14
+Track find. #states =  4
+Track  11239  assigned to cluster  22
+Track find. #states =  4
+Track  11244  assigned to cluster  29
+Reading 1 / 100 events...
+  jet energy      0.0
+  non nu energy   48.508317656844184
+something is wrong at this event 1
+MC dictionary finished. #hits = 3079  # clusters = 27
+pandora dictionary finished. #hits = 1712  # clusters = 25
+Track find. #states =  4
+Track  32517  assigned to cluster  25
+Track find. #states =  4
+Track  32522  assigned to cluster  12
+Track find. #states =  4
+Track  32527  assigned to cluster  17
+Track find. #states =  4
+Track  32532  assigned to cluster  24
+Track find. #states =  4
+Track  32537  assigned to cluster  1
+Track find. #states =  4
+Track  32542  assigned to cluster  19
+Track find. #states =  4
+Track  32547  assigned to cluster  15
+Track find. #states =  4
+Track  32552  assigned to cluster  0
+Track find. #states =  4
+MCID 32348 not found.
+Track find. #states =  4
+Track  32562  assigned to cluster  16
+Track find. #states =  4
+Track  32567  assigned to cluster  18
+Track find. #states =  4
+Track  32572  assigned to cluster  7
+Track find. #states =  4
+Track  32577  assigned to cluster  26
+Track find. #states =  4
+0.9629629850387573
+Track  32582  assigned to cluster  3
+Reading 2 / 100 events...
+  jet energy      0.0
+  non nu energy   75.36113936993165
+something is wrong at this event 2
+MC dictionary finished. #hits = 2683  # clusters = 38
+pandora dictionary finished. #hits = 1889  # clusters = 29
+Track find. #states =  4
+Track  60688  assigned to cluster  5
+Track find. #states =  4
+Track  60693  assigned to cluster  26
+Track find. #states =  4
+Track  60698  assigned to cluster  30
+Track find. #states =  4
+Track  60703  assigned to cluster  25
+Track find. #states =  4
+Track  60708  assigned to cluster  9
+Track find. #states =  4
+Track  60713  assigned to cluster  12
+Track find. #states =  4
+MCID 60486 not found.
+     trackID :  60718  ,  energy :  8.558751356152174
+Track find. #states =  4
+Track  60723  assigned to cluster  6
+Track find. #states =  4
+Track  60728  assigned to cluster  4
+Track find. #states =  4
+MCID 60516 not found.
+Track find. #states =  4
+0.932584285736084
+MCID 60543 not found.
+Track find. #states =  4
+Track  60743  assigned to cluster  24
+Track find. #states =  4
+Track  60748  assigned to cluster  37
+Track find. #states =  4
+Track  60753  assigned to cluster  24
+     clusterId  24  have multiple tracks  60743    60753 MC momentum  1.562294602394104 2.50154447555542 -8.136533737182617
+Reading 3 / 100 events...
+  jet energy      0.0
+  non nu energy   17.090640019799093
+something is wrong at this event 3
+MC dictionary finished. #hits = 2537  # clusters = 16
+pandora dictionary finished. #hits = 1297  # clusters = 15
+Track find. #states =  4
+Track  83396  assigned to cluster  15
+Track find. #states =  4
+Track  83401  assigned to cluster  9
+Track find. #states =  4
+Track  83406  assigned to cluster  5
+Track find. #states =  4
+Track  83411  assigned to cluster  4
+Track find. #states =  4
+Track  83416  assigned to cluster  0
+Track find. #states =  4
+Track  83421  assigned to cluster  6
+Track find. #states =  4
+Track  83426  assigned to cluster  10
+Track find. #states =  4
+Track  83431  assigned to cluster  1
+Track find. #states =  4
+Track  83436  assigned to cluster  1
+     clusterId  1  have multiple tracks  83431    83436 MC momentum  3.1295056343078613 -1.576217770576477 -4.184419631958008
+Track find. #states =  4
+MCID 83284 not found.
+Reading 4 / 100 events...
+  jet energy      0.0
+  non nu energy   37.31431403169744
+something is wrong at this event 4
+MC dictionary finished. #hits = 2799  # clusters = 26
+pandora dictionary finished. #hits = 1620  # clusters = 23
+Track find. #states =  4
+MCID 99357 not found.
+Track find. #states =  4
+Track  99524  assigned to cluster  6
+Track find. #states =  4
+Track  99529  assigned to cluster  4
+Track find. #states =  4
+Track  99534  assigned to cluster  25
+Track find. #states =  4
+Track  99539  assigned to cluster  15
+Track find. #states =  4
+Track  99544  assigned to cluster  22
+Track find. #states =  4
+Track  99549  assigned to cluster  12
+Track find. #states =  4
+Track  99554  assigned to cluster  5
+Track find. #states =  4
+Track  99559  assigned to cluster  11
+Track find. #states =  4
+Track  99564  assigned to cluster  19
+Track find. #states =  4
+Track  99569  assigned to cluster  18
+Track find. #states =  4
+Track  99574  assigned to cluster  17
+Reading 5 / 100 events...
+  jet energy      0.0
+  non nu energy   130.04828922244226
+something is wrong at this event 5
+MC dictionary finished. #hits = 3420  # clusters = 26
+pandora dictionary finished. #hits = 1781  # clusters = 22
+Track find. #states =  4
+Track  121567  assigned to cluster  5
+Track find. #states =  4
+Track  121572  assigned to cluster  10
+Track find. #states =  4
+Track  121577  assigned to cluster  2
+Track find. #states =  4
+Track  121582  assigned to cluster  7
+Track find. #states =  4
+Track  121587  assigned to cluster  24
+Track find. #states =  4
+Track  121592  assigned to cluster  19
+Track find. #states =  4
+Track  121597  assigned to cluster  4
+Track find. #states =  4
+Track  121602  assigned to cluster  11
+Track find. #states =  4
+Track  121607  assigned to cluster  6
+Track find. #states =  4
+Track  121612  assigned to cluster  3
+Track find. #states =  4
+Track  121617  assigned to cluster  22
+Track find. #states =  4
+Track  121622  assigned to cluster  12
+Track find. #states =  4
+Track  121627  assigned to cluster  23
+Track find. #states =  4
+MCID 121452 not found.
+Track find. #states =  4
+Track  121637  assigned to cluster  17
+Track find. #states =  4
+0.9855072498321533
+Track  121642  assigned to cluster  18
+Track find. #states =  4
+Track  121647  assigned to cluster  14
+Reading 6 / 100 events...
+  jet energy      0.0
+  non nu energy   64.93983935813526
+something is wrong at this event 6
+MC dictionary finished. #hits = 3549  # clusters = 33
+pandora dictionary finished. #hits = 1600  # clusters = 26
+Track find. #states =  4
+Track  145299  assigned to cluster  19
+Track find. #states =  4
+Track  145304  assigned to cluster  2
+Track find. #states =  4
+Track  145309  assigned to cluster  5
+Track find. #states =  4
+Track  145314  assigned to cluster  1
+Track find. #states =  4
+Track  145319  assigned to cluster  18
+Track find. #states =  4
+Track  145324  assigned to cluster  3
+Track find. #states =  4
+Track  145329  assigned to cluster  6
+Track find. #states =  4
+Track  145334  assigned to cluster  0
+Track find. #states =  4
+Track  145339  assigned to cluster  20
+Track find. #states =  4
+Track  145344  assigned to cluster  30
+Track find. #states =  4
+Track  145349  assigned to cluster  24
+Track find. #states =  4
+Track  145354  assigned to cluster  13
+Track find. #states =  4
+Track  145359  assigned to cluster  32
+Track find. #states =  4
+0.9836065769195557
+Track  145364  assigned to cluster  17
+Track find. #states =  4
+MCID 145136 not found.
+     trackID :  145369  ,  energy :  1.9437951866815193
+Track find. #states =  4
+0.9945651888847351
+Track  145374  assigned to cluster  10
+Track find. #states =  4
+MCID 145120 not found.
+     trackID :  145379  ,  energy :  5.345091191243309
+Reading 7 / 100 events...
+  jet energy      0.0
+  non nu energy   69.75244926010149
+something is wrong at this event 7
+MC dictionary finished. #hits = 3716  # clusters = 36
+pandora dictionary finished. #hits = 1510  # clusters = 28
+Track find. #states =  4
+MCID 173002 not found.
+Track find. #states =  4
+Track  173269  assigned to cluster  5
+Track find. #states =  4
+Track  173274  assigned to cluster  21
+Track find. #states =  4
+Track  173279  assigned to cluster  17
+Track find. #states =  4
+MCID 173136 not found.
+     trackID :  173284  ,  energy :  1.7099043435881187
+Track find. #states =  4
+Track  173289  assigned to cluster  2
+Track find. #states =  4
+Track  173294  assigned to cluster  0
+Track find. #states =  4
+Track  173299  assigned to cluster  9
+Track find. #states =  4
+Track  173304  assigned to cluster  22
+Track find. #states =  4
+Track  173309  assigned to cluster  20
+Track find. #states =  4
+Track  173314  assigned to cluster  1
+Track find. #states =  4
+Track  173319  assigned to cluster  8
+Track find. #states =  4
+MCID 173048 not found.
+Track find. #states =  4
+Track  173329  assigned to cluster  32
+Track find. #states =  4
+MCID 173105 not found.
+Track find. #states =  4
+MCID 173055 not found.
+Track find. #states =  4
+MCID 173055 not found.
+Track find. #states =  4
+MCID 173048 not found.
+Track find. #states =  4
+Track  173354  assigned to cluster  23
+Track find. #states =  4
+Track  173359  assigned to cluster  31
+Track find. #states =  4
+Track  173364  assigned to cluster  15
+Track find. #states =  4
+Track  173369  assigned to cluster  23
+     clusterId  23  have multiple tracks  173354    173369 MC momentum  0.04695066437125206 0.06500779837369919 -0.12299954146146774
+Track find. #states =  4
+MCID 173048 not found.
+Track find. #states =  4
+MCID 173048 not found.
+Track find. #states =  4
+Track  173384  assigned to cluster  26
+Track find. #states =  4
+Track  173389  assigned to cluster  27
+Track find. #states =  4
+Track  173394  assigned to cluster  30
+Track find. #states =  4
+0.7857142686843872
+MCID 173048 not found.
+Track find. #states =  4
+Track  173404  assigned to cluster  26
+     clusterId  26  have multiple tracks  173384    173404 MC momentum  0.3022463023662567 0.3364187180995941 0.9022642970085144
+Track find. #states =  4
+Track  173409  assigned to cluster  27
+     clusterId  27  have multiple tracks  173389    173409 MC momentum  0.7383731603622437 0.09650477021932602 1.1313714981079102
+Reading 8 / 100 events...
+  jet energy      0.0
+  non nu energy   46.41915908505884
+something is wrong at this event 8
+MC dictionary finished. #hits = 3466  # clusters = 32
+pandora dictionary finished. #hits = 2252  # clusters = 26
+Track find. #states =  4
+Track  245202  assigned to cluster  3
+Track find. #states =  4
+Track  245207  assigned to cluster  2
+Track find. #states =  4
+Track  245212  assigned to cluster  11
+Track find. #states =  4
+Track  245217  assigned to cluster  18
+Track find. #states =  4
+Track  245222  assigned to cluster  0
+Track find. #states =  4
+Track  245227  assigned to cluster  17
+Track find. #states =  4
+Track  245232  assigned to cluster  16
+Track find. #states =  4
+Track  245237  assigned to cluster  1
+Track find. #states =  4
+Track  245242  assigned to cluster  21
+Track find. #states =  4
+Track  245247  assigned to cluster  23
+Track find. #states =  4
+Track  245252  assigned to cluster  31
+Track find. #states =  4
+Track  245257  assigned to cluster  26
+Track find. #states =  4
+Track  245262  assigned to cluster  15
+Track find. #states =  4
+MCID 244990 not found.
+Track find. #states =  4
+MCID 244990 not found.
+Reading 9 / 100 events...
+  jet energy      0.0
+  non nu energy   66.68011344483354
+something is wrong at this event 9
+MC dictionary finished. #hits = 2669  # clusters = 20
+pandora dictionary finished. #hits = 1383  # clusters = 20
+Track find. #states =  4
+Track  267572  assigned to cluster  9
+Track find. #states =  4
+Track  267577  assigned to cluster  1
+Track find. #states =  4
+Track  267582  assigned to cluster  10
+Track find. #states =  4
+Track  267587  assigned to cluster  4
+Track find. #states =  4
+Track  267592  assigned to cluster  11
+Track find. #states =  4
+Track  267597  assigned to cluster  17
+Track find. #states =  4
+Track  267602  assigned to cluster  5
+Track find. #states =  4
+Track  267607  assigned to cluster  15
+Track find. #states =  4
+Track  267612  assigned to cluster  8
+Track find. #states =  4
+Track  267617  assigned to cluster  14
+Track find. #states =  4
+Track  267622  assigned to cluster  14
+     clusterId  14  have multiple tracks  267617    267622 MC momentum  -0.5073609948158264 0.4960077404975891 -1.4172101020812988
+Track find. #states =  4
+Track  267627  assigned to cluster  16
+Reading 10 / 100 events...
+  jet energy      0.0
+  non nu energy   63.944395940136104
+something is wrong at this event 10
+MC dictionary finished. #hits = 3805  # clusters = 30
+pandora dictionary finished. #hits = 1554  # clusters = 25
+Track find. #states =  4
+Track  291069  assigned to cluster  3
+Track find. #states =  4
+Track  291074  assigned to cluster  0
+Track find. #states =  4
+Track  291079  assigned to cluster  6
+Track find. #states =  4
+Track  291084  assigned to cluster  18
+Track find. #states =  4
+Track  291089  assigned to cluster  9
+Track find. #states =  4
+Track  291094  assigned to cluster  23
+Track find. #states =  4
+Track  291099  assigned to cluster  7
+Track find. #states =  4
+MCID 290925 not found.
+     trackID :  291104  ,  energy :  1.6743066880188497
+Track find. #states =  4
+Track  291109  assigned to cluster  11
+Track find. #states =  4
+MCID 290955 not found.
+     trackID :  291114  ,  energy :  2.219532929873947
+Track find. #states =  4
+MCID 290955 not found.
+     trackID :  291119  ,  energy :  2.219532929873947
+Track find. #states =  4
+Track  291124  assigned to cluster  12
+Reading 11 / 100 events...
+  jet energy      0.0
+  non nu energy   85.82251002432129
+something is wrong at this event 11
+MC dictionary finished. #hits = 2674  # clusters = 38
+pandora dictionary finished. #hits = 1534  # clusters = 31
+Track find. #states =  4
+Track  315360  assigned to cluster  31
+Track find. #states =  4
+Track  315365  assigned to cluster  14
+Track find. #states =  4
+Track  315370  assigned to cluster  0
+Track find. #states =  4
+Track  315375  assigned to cluster  9
+Track find. #states =  4
+MCID 315088 not found.
+Track find. #states =  4
+Track  315385  assigned to cluster  6
+Track find. #states =  4
+Track  315390  assigned to cluster  22
+Track find. #states =  4
+MCID 315210 not found.
+     trackID :  315395  ,  energy :  2.422015408857455
+Track find. #states =  4
+Track  315400  assigned to cluster  10
+Track find. #states =  4
+Track  315405  assigned to cluster  28
+Track find. #states =  4
+Track  315410  assigned to cluster  20
+Track find. #states =  4
+MCID 315126 not found.
+Track find. #states =  4
+MCID 315087 not found.
+Reading 12 / 100 events...
+  jet energy      0.0
+  non nu energy   37.11635322132809
+something is wrong at this event 12
+MC dictionary finished. #hits = 3356  # clusters = 25
+pandora dictionary finished. #hits = 1341  # clusters = 23
+Track find. #states =  4
+Track  349924  assigned to cluster  7
+Track find. #states =  4
+Track  349929  assigned to cluster  5
+Track find. #states =  4
+Track  349934  assigned to cluster  24
+Track find. #states =  4
+Track  349939  assigned to cluster  16
+Track find. #states =  4
+Track  349944  assigned to cluster  3
+Track find. #states =  4
+Track  349949  assigned to cluster  12
+Track find. #states =  4
+Track  349954  assigned to cluster  15
+Track find. #states =  4
+Track  349959  assigned to cluster  21
+Track find. #states =  4
+Track  349964  assigned to cluster  23
+Track find. #states =  4
+Track  349969  assigned to cluster  17
+Track find. #states =  4
+Track  349974  assigned to cluster  4
+Track find. #states =  4
+Track  349979  assigned to cluster  18
+Track find. #states =  4
+MCID 349725 not found.
+Track find. #states =  4
+Track  349989  assigned to cluster  19
+Reading 13 / 100 events...
+  jet energy      0.0
+  non nu energy   94.30929713050995
+something is wrong at this event 13
+MC dictionary finished. #hits = 2827  # clusters = 27
+pandora dictionary finished. #hits = 1470  # clusters = 21
+Track find. #states =  4
+Track  374467  assigned to cluster  12
+Track find. #states =  4
+Track  374472  assigned to cluster  15
+Track find. #states =  4
+Track  374477  assigned to cluster  17
+Track find. #states =  4
+Track  374482  assigned to cluster  11
+Track find. #states =  4
+Track  374487  assigned to cluster  3
+Track find. #states =  4
+Track  374492  assigned to cluster  6
+Track find. #states =  4
+MCID 374383 not found.
+Track find. #states =  4
+Track  374502  assigned to cluster  2
+Track find. #states =  4
+Track  374507  assigned to cluster  1
+Track find. #states =  4
+MCID 374310 not found.
+Track find. #states =  4
+Track  374517  assigned to cluster  23
+Track find. #states =  4
+Track  374522  assigned to cluster  25
+Track find. #states =  4
+Track  374527  assigned to cluster  20
+Track find. #states =  4
+MCID 374278 not found.
+Reading 14 / 100 events...
+  jet energy      0.0
+  non nu energy   48.76731517001069
+something is wrong at this event 14
+MC dictionary finished. #hits = 3022  # clusters = 27
+pandora dictionary finished. #hits = 1270  # clusters = 21
+Track find. #states =  4
+Track  400613  assigned to cluster  8
+Track find. #states =  4
+Track  400618  assigned to cluster  12
+Track find. #states =  4
+Track  400623  assigned to cluster  2
+Track find. #states =  4
+Track  400628  assigned to cluster  15
+Track find. #states =  4
+Track  400633  assigned to cluster  10
+Track find. #states =  4
+Track  400638  assigned to cluster  16
+Track find. #states =  4
+Track  400643  assigned to cluster  9
+Track find. #states =  4
+Track  400648  assigned to cluster  11
+Track find. #states =  4
+MCID 400476 not found.
+     trackID :  400653  ,  energy :  2.337943224610883
+Track find. #states =  4
+Track  400658  assigned to cluster  20
+Reading 15 / 100 events...
+  jet energy      0.0
+  non nu energy   85.84556647485297
+something is wrong at this event 15
+MC dictionary finished. #hits = 2789  # clusters = 44
+pandora dictionary finished. #hits = 1520  # clusters = 27
+Track find. #states =  4
+Track  417905  assigned to cluster  31
+Track find. #states =  4
+0.9913420081138611
+MCID 417613 not found.
+     trackID :  417910  ,  energy :  4.407018099593921
+Track find. #states =  4
+Track  417915  assigned to cluster  9
+Track find. #states =  4
+Track  417920  assigned to cluster  28
+Track find. #states =  4
+Track  417925  assigned to cluster  41
+Track find. #states =  4
+Track  417930  assigned to cluster  25
+Track find. #states =  4
+Track  417935  assigned to cluster  23
+Track find. #states =  4
+Track  417940  assigned to cluster  24
+Track find. #states =  4
+Track  417945  assigned to cluster  21
+Track find. #states =  4
+Track  417950  assigned to cluster  36
+Track find. #states =  4
+Track  417955  assigned to cluster  22
+Track find. #states =  4
+Track  417960  assigned to cluster  29
+Track find. #states =  4
+Track  417965  assigned to cluster  18
+Track find. #states =  4
+Track  417970  assigned to cluster  38
+Track find. #states =  4
+Track  417975  assigned to cluster  40
+Track find. #states =  4
+Track  417980  assigned to cluster  33
+Track find. #states =  4
+Track  417985  assigned to cluster  34
+Reading 16 / 100 events...
+  jet energy      0.0
+  non nu energy   60.09477825607154
+something is wrong at this event 16
+MC dictionary finished. #hits = 2645  # clusters = 26
+pandora dictionary finished. #hits = 1232  # clusters = 20
+Track find. #states =  4
+Track  447006  assigned to cluster  13
+Track find. #states =  4
+Track  447011  assigned to cluster  24
+Track find. #states =  4
+Track  447016  assigned to cluster  3
+Track find. #states =  4
+MCID 446827 not found.
+Track find. #states =  4
+Track  447026  assigned to cluster  12
+Track find. #states =  4
+Track  447031  assigned to cluster  15
+Track find. #states =  4
+Track  447036  assigned to cluster  10
+Track find. #states =  4
+Track  447041  assigned to cluster  11
+Track find. #states =  4
+Track  447046  assigned to cluster  0
+Track find. #states =  4
+Track  447051  assigned to cluster  22
+Track find. #states =  4
+Track  447056  assigned to cluster  4
+Track find. #states =  4
+Track  447061  assigned to cluster  14
+Track find. #states =  4
+Track  447066  assigned to cluster  5
+Track find. #states =  4
+Track  447071  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447071 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447076  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447076 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447081  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447081 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447086  assigned to cluster  2
+Track find. #states =  4
+Track  447091  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447091 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447096  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447096 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447101  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447101 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447106  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447106 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447111  assigned to cluster  15
+     clusterId  15  have multiple tracks  447031    447111 MC momentum  0.8566237688064575 -0.32874947786331177 -0.026552023366093636
+Track find. #states =  4
+Track  447116  assigned to cluster  2
+     clusterId  2  have multiple tracks  447086    447116 MC momentum  0.6084230542182922 -0.6581103205680847 0.7505214214324951
+Reading 17 / 100 events...
+  jet energy      0.0
+  non nu energy   51.52108458330439
+something is wrong at this event 17
+MC dictionary finished. #hits = 3161  # clusters = 30
+pandora dictionary finished. #hits = 1450  # clusters = 25
+Track find. #states =  4
+MCID 482418 not found.
+Track find. #states =  4
+Track  482536  assigned to cluster  8
+Track find. #states =  4
+Track  482541  assigned to cluster  23
+Track find. #states =  4
+Track  482546  assigned to cluster  11
+Track find. #states =  4
+Track  482551  assigned to cluster  1
+Track find. #states =  4
+Track  482556  assigned to cluster  22
+Track find. #states =  4
+Track  482561  assigned to cluster  29
+Track find. #states =  4
+Track  482566  assigned to cluster  0
+Track find. #states =  4
+MCID 482417 not found.
+Track find. #states =  4
+Track  482576  assigned to cluster  7
+Track find. #states =  4
+Track  482581  assigned to cluster  13
+Track find. #states =  4
+Track  482586  assigned to cluster  4
+Track find. #states =  4
+MCID 482381 not found.
+     trackID :  482591  ,  energy :  3.4297212607115073
+Track find. #states =  4
+Track  482596  assigned to cluster  5
+Track find. #states =  4
+MCID 482417 not found.
+Reading 18 / 100 events...
+  jet energy      0.0
+  non nu energy   105.30489034195814
+something is wrong at this event 18
+MC dictionary finished. #hits = 3392  # clusters = 28
+pandora dictionary finished. #hits = 1673  # clusters = 20
+Track find. #states =  4
+Track  530021  assigned to cluster  0
+Track find. #states =  4
+Track  530026  assigned to cluster  13
+Track find. #states =  4
+Track  530031  assigned to cluster  10
+Track find. #states =  4
+Track  530036  assigned to cluster  25
+Track find. #states =  4
+Track  530041  assigned to cluster  5
+Track find. #states =  4
+Track  530046  assigned to cluster  1
+Track find. #states =  4
+Track  530051  assigned to cluster  3
+Track find. #states =  4
+Track  530056  assigned to cluster  2
+Track find. #states =  4
+MCID 529832 not found.
+     trackID :  530061  ,  energy :  8.034192987662387
+Track find. #states =  4
+MCID 529829 not found.
+Track find. #states =  4
+Track  530071  assigned to cluster  12
+Track find. #states =  4
+Track  530076  assigned to cluster  17
+Track find. #states =  4
+Track  530081  assigned to cluster  4
+Track find. #states =  4
+0.8318965435028076
+MCID 529875 not found.
+     trackID :  530086  ,  energy :  6.595905019932781
+Track find. #states =  4
+Track  530091  assigned to cluster  27
+Track find. #states =  4
+Track  530096  assigned to cluster  21
+Reading 19 / 100 events...
+  jet energy      0.0
+  non nu energy   145.32215788843575
+something is wrong at this event 19
+MC dictionary finished. #hits = 3321  # clusters = 35
+pandora dictionary finished. #hits = 1725  # clusters = 29
+Track find. #states =  4
+Track  554742  assigned to cluster  2
+Track find. #states =  4
+Track  554747  assigned to cluster  4
+Track find. #states =  4
+Track  554752  assigned to cluster  23
+Track find. #states =  4
+Track  554757  assigned to cluster  16
+Track find. #states =  4
+Track  554762  assigned to cluster  0
+Track find. #states =  4
+Track  554767  assigned to cluster  24
+Track find. #states =  4
+Track  554772  assigned to cluster  3
+Track find. #states =  4
+Track  554777  assigned to cluster  20
+Track find. #states =  4
+Track  554782  assigned to cluster  1
+Track find. #states =  4
+Track  554787  assigned to cluster  25
+Track find. #states =  4
+0.9954954981803894
+Track  554792  assigned to cluster  17
+Track find. #states =  4
+MCID 554523 not found.
+     trackID :  554797  ,  energy :  1.2695618390933023
+Track find. #states =  4
+MCID 554523 not found.
+     trackID :  554802  ,  energy :  1.2695618390933023
+Track find. #states =  4
+MCID 554525 not found.
+Track find. #states =  4
+Track  554812  assigned to cluster  33
+Track find. #states =  4
+MCID 554523 not found.
+     trackID :  554817  ,  energy :  1.2695618390933023
+Track find. #states =  4
+0.9836065769195557
+Track  554822  assigned to cluster  34
+Track find. #states =  4
+MCID 554523 not found.
+     trackID :  554827  ,  energy :  1.2695618390933023
+Track find. #states =  4
+Track  554832  assigned to cluster  12
+Track find. #states =  4
+MCID 554523 not found.
+     trackID :  554837  ,  energy :  1.2695618390933023
+Track find. #states =  4
+Track  554842  assigned to cluster  30
+Track find. #states =  4
+MCID 554523 not found.
+     trackID :  554847  ,  energy :  1.2695618390933023
+Track find. #states =  4
+MCID 554523 not found.
+     trackID :  554852  ,  energy :  1.2695618390933023
+Track find. #states =  4
+Track  554857  assigned to cluster  25
+     clusterId  25  have multiple tracks  554787    554857 MC momentum  5.16878080368042 -5.529614448547363 4.544629096984863
+Track find. #states =  4
+MCID 554516 not found.
+     trackID :  554862  ,  energy :  3.233476772359652
+Reading 20 / 100 events...
+  jet energy      0.0
+  non nu energy   87.20463823632784
+something is wrong at this event 20
+MC dictionary finished. #hits = 2574  # clusters = 32
+pandora dictionary finished. #hits = 1949  # clusters = 25
+Track find. #states =  4
+Track  599645  assigned to cluster  31
+Track find. #states =  4
+Track  599650  assigned to cluster  13
+Track find. #states =  4
+Track  599655  assigned to cluster  4
+Track find. #states =  4
+Track  599660  assigned to cluster  3
+Track find. #states =  4
+Track  599665  assigned to cluster  19
+Track find. #states =  4
+Track  599670  assigned to cluster  26
+Track find. #states =  4
+Track  599675  assigned to cluster  15
+Track find. #states =  4
+Track  599680  assigned to cluster  14
+Track find. #states =  4
+MCID 599483 not found.
+Track find. #states =  4
+0.9823788404464722
+Track  599690  assigned to cluster  8
+Track find. #states =  4
+0.9473684430122375
+Track  599695  assigned to cluster  25
+Track find. #states =  4
+0.9930555820465088
+Track  599700  assigned to cluster  24
+Track find. #states =  4
+Track  599705  assigned to cluster  0
+Track find. #states =  4
+0.984375
+Track  599710  assigned to cluster  27
+Reading 21 / 100 events...
+  jet energy      0.0
+  non nu energy   52.05383506752949
+something is wrong at this event 21
+MC dictionary finished. #hits = 2819  # clusters = 22
+pandora dictionary finished. #hits = 1436  # clusters = 22
+Track find. #states =  4
+Track  624333  assigned to cluster  20
+Track find. #states =  4
+Track  624338  assigned to cluster  2
+Track find. #states =  4
+Track  624343  assigned to cluster  16
+Track find. #states =  4
+Track  624348  assigned to cluster  9
+Track find. #states =  4
+Track  624353  assigned to cluster  18
+Track find. #states =  4
+Track  624358  assigned to cluster  8
+Track find. #states =  4
+Track  624363  assigned to cluster  7
+Track find. #states =  4
+Track  624368  assigned to cluster  3
+Track find. #states =  4
+Track  624373  assigned to cluster  14
+Track find. #states =  4
+Track  624378  assigned to cluster  15
+Track find. #states =  4
+0.9912280440330505
+Track  624383  assigned to cluster  19
+Track find. #states =  4
+MCID 624179 not found.
+     trackID :  624388  ,  energy :  1.3164592013456908
+Track find. #states =  4
+MCID 624202 not found.
+Reading 22 / 100 events...
+  jet energy      0.0
+  non nu energy   70.44256975652358
+something is wrong at this event 22
+MC dictionary finished. #hits = 3311  # clusters = 34
+pandora dictionary finished. #hits = 1785  # clusters = 23
+Track find. #states =  4
+Track  654877  assigned to cluster  20
+Track find. #states =  4
+Track  654882  assigned to cluster  10
+Track find. #states =  4
+Track  654887  assigned to cluster  21
+Track find. #states =  4
+Track  654892  assigned to cluster  7
+Track find. #states =  4
+Track  654897  assigned to cluster  5
+Track find. #states =  4
+MCID 654751 not found.
+Track find. #states =  4
+Track  654907  assigned to cluster  16
+Track find. #states =  4
+Track  654912  assigned to cluster  32
+Track find. #states =  4
+Track  654917  assigned to cluster  13
+Track find. #states =  4
+Track  654922  assigned to cluster  12
+Track find. #states =  4
+Track  654927  assigned to cluster  27
+Track find. #states =  4
+Track  654932  assigned to cluster  31
+Track find. #states =  4
+Track  654937  assigned to cluster  12
+     clusterId  12  have multiple tracks  654922    654937 MC momentum  -0.4206904172897339 -0.3446662127971649 0.41642388701438904
+Reading 23 / 100 events...
+  jet energy      0.0
+  non nu energy   37.81815038466149
+something is wrong at this event 23
+MC dictionary finished. #hits = 3224  # clusters = 25
+pandora dictionary finished. #hits = 1304  # clusters = 20
+Track find. #states =  4
+Track  675257  assigned to cluster  11
+Track find. #states =  4
+Track  675262  assigned to cluster  0
+Track find. #states =  4
+Track  675267  assigned to cluster  5
+Track find. #states =  4
+Track  675272  assigned to cluster  22
+Track find. #states =  4
+Track  675277  assigned to cluster  9
+Track find. #states =  4
+Track  675282  assigned to cluster  17
+Track find. #states =  4
+Track  675287  assigned to cluster  15
+Track find. #states =  4
+Track  675292  assigned to cluster  21
+Track find. #states =  4
+Track  675297  assigned to cluster  18
+Track find. #states =  4
+MCID 675145 not found.
+Track find. #states =  4
+Track  675307  assigned to cluster  8
+Track find. #states =  4
+Track  675312  assigned to cluster  10
+Reading 24 / 100 events...
+  jet energy      0.0
+  non nu energy   47.448322016096455
+something is wrong at this event 24
+MC dictionary finished. #hits = 4176  # clusters = 22
+pandora dictionary finished. #hits = 1507  # clusters = 23
+Track find. #states =  4
+Track  701651  assigned to cluster  18
+Track find. #states =  4
+Track  701656  assigned to cluster  4
+Track find. #states =  4
+Track  701661  assigned to cluster  11
+Track find. #states =  4
+Track  701666  assigned to cluster  19
+Track find. #states =  4
+Track  701671  assigned to cluster  3
+Track find. #states =  4
+Track  701676  assigned to cluster  20
+Track find. #states =  4
+Track  701681  assigned to cluster  16
+Track find. #states =  4
+Track  701686  assigned to cluster  17
+Track find. #states =  4
+Track  701691  assigned to cluster  21
+Track find. #states =  4
+Track  701696  assigned to cluster  10
+Track find. #states =  4
+Track  701701  assigned to cluster  2
+Track find. #states =  4
+0.9955357313156128
+Track  701706  assigned to cluster  8
+Track find. #states =  4
+0.9955357313156128
+Track  701711  assigned to cluster  7
+Track find. #states =  4
+MCID 701556 not found.
+Track find. #states =  4
+0.6666666865348816
+Track  701721  assigned to cluster  6
+Reading 25 / 100 events...
+  jet energy      0.0
+  non nu energy   163.4986406387416
+something is wrong at this event 25
+MC dictionary finished. #hits = 3630  # clusters = 23
+pandora dictionary finished. #hits = 1628  # clusters = 23
+Track find. #states =  4
+Track  722894  assigned to cluster  17
+Track find. #states =  4
+Track  722899  assigned to cluster  1
+Track find. #states =  4
+Track  722904  assigned to cluster  19
+Track find. #states =  4
+Track  722909  assigned to cluster  10
+Track find. #states =  4
+Track  722914  assigned to cluster  14
+Track find. #states =  4
+Track  722919  assigned to cluster  8
+Track find. #states =  4
+Track  722924  assigned to cluster  7
+Track find. #states =  4
+Track  722929  assigned to cluster  0
+Track find. #states =  4
+Track  722934  assigned to cluster  18
+Track find. #states =  4
+Track  722939  assigned to cluster  5
+Track find. #states =  4
+Track  722944  assigned to cluster  6
+Track find. #states =  4
+Track  722949  assigned to cluster  13
+Track find. #states =  4
+Track  722954  assigned to cluster  20
+Track find. #states =  4
+Track  722959  assigned to cluster  22
+Track find. #states =  4
+Track  722964  assigned to cluster  22
+     clusterId  22  have multiple tracks  722959    722964 MC momentum  0.27809441089630127 -0.4310111105442047 -0.9767086505889893
+Reading 26 / 100 events...
+  jet energy      0.0
+  non nu energy   50.43189088584011
+something is wrong at this event 26
+MC dictionary finished. #hits = 4230  # clusters = 39
+pandora dictionary finished. #hits = 2035  # clusters = 31
+Track find. #states =  4
+Track  748646  assigned to cluster  15
+Track find. #states =  4
+Track  748651  assigned to cluster  31
+Track find. #states =  4
+Track  748656  assigned to cluster  19
+Track find. #states =  4
+Track  748661  assigned to cluster  4
+Track find. #states =  4
+Track  748666  assigned to cluster  22
+Track find. #states =  4
+Track  748671  assigned to cluster  27
+Track find. #states =  4
+Track  748676  assigned to cluster  16
+Track find. #states =  4
+Track  748681  assigned to cluster  38
+Track find. #states =  4
+Track  748686  assigned to cluster  32
+Track find. #states =  4
+Track  748691  assigned to cluster  11
+Track find. #states =  4
+Track  748696  assigned to cluster  18
+Reading 27 / 100 events...
+  jet energy      0.0
+  non nu energy   17.285655034202527
+something is wrong at this event 27
+MC dictionary finished. #hits = 1715  # clusters = 16
+pandora dictionary finished. #hits = 1087  # clusters = 13
+Track find. #states =  4
+MCID 764367 not found.
+Track find. #states =  4
+Track  764424  assigned to cluster  4
+Track find. #states =  4
+Track  764429  assigned to cluster  3
+Track find. #states =  4
+Track  764434  assigned to cluster  2
+Track find. #states =  4
+Track  764439  assigned to cluster  1
+Track find. #states =  4
+Track  764444  assigned to cluster  5
+Track find. #states =  4
+Track  764449  assigned to cluster  9
+Track find. #states =  4
+Track  764454  assigned to cluster  7
+Track find. #states =  4
+Track  764459  assigned to cluster  10
+Track find. #states =  4
+Track  764464  assigned to cluster  6
+Track find. #states =  4
+Track  764469  assigned to cluster  14
+Track find. #states =  4
+Track  764474  assigned to cluster  0
+Track find. #states =  4
+Track  764479  assigned to cluster  12
+Track find. #states =  4
+MCID 764367 not found.
+Track find. #states =  4
+0.9245283007621765
+MCID 764367 not found.
+Reading 28 / 100 events...
+  jet energy      0.0
+  non nu energy   16.989929353748483
+something is wrong at this event 28
+MC dictionary finished. #hits = 2851  # clusters = 24
+pandora dictionary finished. #hits = 1462  # clusters = 21
+Track find. #states =  4
+Track  799853  assigned to cluster  19
+Track find. #states =  4
+Track  799858  assigned to cluster  8
+Track find. #states =  4
+Track  799863  assigned to cluster  17
+Track find. #states =  4
+Track  799868  assigned to cluster  3
+Track find. #states =  4
+Track  799873  assigned to cluster  23
+Track find. #states =  4
+Track  799878  assigned to cluster  2
+Track find. #states =  4
+Track  799883  assigned to cluster  12
+Track find. #states =  4
+Track  799888  assigned to cluster  21
+Track find. #states =  4
+Track  799893  assigned to cluster  16
+Track find. #states =  4
+Track  799898  assigned to cluster  15
+Track find. #states =  4
+Track  799903  assigned to cluster  16
+     clusterId  16  have multiple tracks  799893    799903 MC momentum  -0.4670030176639557 0.15905305743217468 -0.17475320398807526
+Reading 29 / 100 events...
+  jet energy      0.0
+  non nu energy   44.569323432261996
+something is wrong at this event 29
+MC dictionary finished. #hits = 4798  # clusters = 34
+pandora dictionary finished. #hits = 2229  # clusters = 30
+Track find. #states =  4
+Track  824289  assigned to cluster  20
+Track find. #states =  4
+Track  824294  assigned to cluster  17
+Track find. #states =  4
+Track  824299  assigned to cluster  14
+Track find. #states =  4
+Track  824304  assigned to cluster  8
+Track find. #states =  4
+Track  824309  assigned to cluster  1
+Track find. #states =  4
+Track  824314  assigned to cluster  10
+Track find. #states =  4
+Track  824319  assigned to cluster  4
+Track find. #states =  4
+Track  824324  assigned to cluster  25
+Track find. #states =  4
+Track  824329  assigned to cluster  22
+Track find. #states =  4
+Track  824334  assigned to cluster  13
+Track find. #states =  4
+Track  824339  assigned to cluster  21
+Track find. #states =  4
+Track  824344  assigned to cluster  24
+Track find. #states =  4
+Track  824349  assigned to cluster  6
+Track find. #states =  4
+Track  824354  assigned to cluster  7
+Track find. #states =  4
+Track  824359  assigned to cluster  31
+Track find. #states =  4
+MCID 824181 not found.
+Reading 30 / 100 events...
+  jet energy      0.0
+  non nu energy   44.60684369414165
+something is wrong at this event 30
+MC dictionary finished. #hits = 3556  # clusters = 26
+pandora dictionary finished. #hits = 2002  # clusters = 25
+Track find. #states =  4
+Track  857487  assigned to cluster  13
+Track find. #states =  4
+Track  857492  assigned to cluster  24
+Track find. #states =  4
+Track  857497  assigned to cluster  11
+Track find. #states =  4
+Track  857502  assigned to cluster  2
+Track find. #states =  4
+Track  857507  assigned to cluster  14
+Track find. #states =  4
+Track  857512  assigned to cluster  12
+Track find. #states =  4
+Track  857517  assigned to cluster  20
+Track find. #states =  4
+Track  857522  assigned to cluster  21
+Track find. #states =  4
+Track  857527  assigned to cluster  10
+Track find. #states =  4
+Track  857532  assigned to cluster  7
+Track find. #states =  4
+Track  857537  assigned to cluster  17
+Track find. #states =  4
+Track  857542  assigned to cluster  16
+Track find. #states =  4
+Track  857547  assigned to cluster  16
+     clusterId  16  have multiple tracks  857542    857547 MC momentum  0.4909220039844513 0.38369789719581604 -0.0496317520737648
+Reading 31 / 100 events...
+  jet energy      0.0
+  non nu energy   39.73326539491328
+something is wrong at this event 31
+MC dictionary finished. #hits = 3028  # clusters = 28
+pandora dictionary finished. #hits = 1654  # clusters = 26
+Track find. #states =  4
+Track  887169  assigned to cluster  27
+Track find. #states =  4
+Track  887174  assigned to cluster  25
+Track find. #states =  4
+Track  887179  assigned to cluster  7
+Track find. #states =  4
+Track  887184  assigned to cluster  2
+Track find. #states =  4
+Track  887189  assigned to cluster  24
+Track find. #states =  4
+Track  887194  assigned to cluster  4
+Track find. #states =  4
+Track  887199  assigned to cluster  15
+Track find. #states =  4
+Track  887204  assigned to cluster  18
+Track find. #states =  4
+0.9503546357154846
+MCID 886986 not found.
+     trackID :  887209  ,  energy :  1.5313085376997178
+Track find. #states =  4
+0.6129032373428345
+MCID 887011 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+Track  887229  assigned to cluster  11
+Track find. #states =  4
+Track  887234  assigned to cluster  11
+     clusterId  11  have multiple tracks  887229    887234 MC momentum  0.2928641736507416 -0.4499768614768982 -0.013711628504097462
+Track find. #states =  4
+Track  887239  assigned to cluster  11
+     clusterId  11  have multiple tracks  887229    887239 MC momentum  0.2928641736507416 -0.4499768614768982 -0.013711628504097462
+Track find. #states =  4
+Track  887244  assigned to cluster  11
+     clusterId  11  have multiple tracks  887229    887244 MC momentum  0.2928641736507416 -0.4499768614768982 -0.013711628504097462
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+Track  887279  assigned to cluster  11
+     clusterId  11  have multiple tracks  887229    887279 MC momentum  0.2928641736507416 -0.4499768614768982 -0.013711628504097462
+Track find. #states =  4
+Track  887284  assigned to cluster  11
+     clusterId  11  have multiple tracks  887229    887284 MC momentum  0.2928641736507416 -0.4499768614768982 -0.013711628504097462
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+Track  887309  assigned to cluster  18
+     clusterId  18  have multiple tracks  887204    887309 MC momentum  -1.887524127960205 0.12433726340532303 0.7231705188751221
+Track find. #states =  4
+MCID 887018 not found.
+Track find. #states =  4
+MCID 887018 not found.
+Reading 32 / 100 events...
+  jet energy      0.0
+  non nu energy   55.42498814453239
+something is wrong at this event 32
+MC dictionary finished. #hits = 2291  # clusters = 25
+pandora dictionary finished. #hits = 1427  # clusters = 25
+Track find. #states =  4
+Track  946001  assigned to cluster  5
+Track find. #states =  4
+Track  946006  assigned to cluster  17
+Track find. #states =  4
+0.9913420081138611
+Track  946011  assigned to cluster  7
+Track find. #states =  4
+Track  946016  assigned to cluster  4
+Track find. #states =  4
+0.9956896305084229
+Track  946021  assigned to cluster  15
+Track find. #states =  4
+Track  946026  assigned to cluster  3
+Track find. #states =  4
+Track  946031  assigned to cluster  10
+Track find. #states =  4
+Track  946036  assigned to cluster  6
+Track find. #states =  4
+Track  946041  assigned to cluster  16
+Track find. #states =  4
+Track  946046  assigned to cluster  20
+Track find. #states =  4
+Track  946051  assigned to cluster  23
+Track find. #states =  4
+Track  946056  assigned to cluster  0
+Track find. #states =  4
+Track  946061  assigned to cluster  22
+Track find. #states =  4
+MCID 945836 not found.
+Track find. #states =  4
+0.8333333134651184
+Track  946071  assigned to cluster  9
+Reading 33 / 100 events...
+  jet energy      0.0
+  non nu energy   67.3731348363072
+something is wrong at this event 33
+MC dictionary finished. #hits = 3210  # clusters = 15
+pandora dictionary finished. #hits = 1642  # clusters = 17
+Track find. #states =  4
+Track  969006  assigned to cluster  9
+Track find. #states =  4
+Track  969011  assigned to cluster  5
+Track find. #states =  4
+Track  969016  assigned to cluster  10
+Track find. #states =  4
+MCID 968875 not found.
+Track find. #states =  4
+Track  969026  assigned to cluster  11
+Track find. #states =  4
+Track  969031  assigned to cluster  4
+Track find. #states =  4
+Track  969036  assigned to cluster  0
+Track find. #states =  4
+Track  969041  assigned to cluster  14
+Track find. #states =  4
+Track  969046  assigned to cluster  1
+Track find. #states =  4
+Track  969051  assigned to cluster  6
+Track find. #states =  4
+Track  969056  assigned to cluster  13
+Track find. #states =  4
+MCID 968883 not found.
+Reading 34 / 100 events...
+  jet energy      0.0
+  non nu energy   33.601805220469075
+something is wrong at this event 34
+MC dictionary finished. #hits = 4103  # clusters = 31
+pandora dictionary finished. #hits = 2237  # clusters = 27
+Track find. #states =  4
+Track  993123  assigned to cluster  16
+Track find. #states =  4
+Track  993128  assigned to cluster  20
+Track find. #states =  4
+Track  993133  assigned to cluster  29
+Track find. #states =  4
+Track  993138  assigned to cluster  24
+Track find. #states =  4
+Track  993143  assigned to cluster  21
+Track find. #states =  4
+Track  993148  assigned to cluster  0
+Track find. #states =  4
+MCID 992956 not found.
+     trackID :  993153  ,  energy :  4.417742540817024
+Track find. #states =  4
+0.977142870426178
+MCID 992918 not found.
+     trackID :  993158  ,  energy :  1.169218968560987
+Track find. #states =  4
+Track  993163  assigned to cluster  6
+Track find. #states =  4
+Track  993168  assigned to cluster  7
+Track find. #states =  4
+Track  993173  assigned to cluster  30
+Track find. #states =  4
+Track  993178  assigned to cluster  17
+Track find. #states =  4
+Track  993183  assigned to cluster  26
+Track find. #states =  4
+MCID 992925 not found.
+Track find. #states =  4
+Track find. #states =  4
+Track  993198  assigned to cluster  15
+Reading 35 / 100 events...
+  jet energy      0.0
+  non nu energy   131.54630486216007
+something is wrong at this event 35
+MC dictionary finished. #hits = 3415  # clusters = 21
+pandora dictionary finished. #hits = 1393  # clusters = 18
+Track find. #states =  4
+Track  1024928  assigned to cluster  5
+Track find. #states =  4
+Track  1024933  assigned to cluster  16
+Track find. #states =  4
+Track  1024938  assigned to cluster  9
+Track find. #states =  4
+Track  1024943  assigned to cluster  13
+Track find. #states =  4
+Track  1024948  assigned to cluster  0
+Track find. #states =  4
+Track  1024953  assigned to cluster  1
+Track find. #states =  4
+Track  1024958  assigned to cluster  15
+Track find. #states =  4
+Track  1024963  assigned to cluster  14
+Track find. #states =  4
+Track  1024968  assigned to cluster  2
+Track find. #states =  4
+Track  1024973  assigned to cluster  6
+Track find. #states =  4
+Track  1024978  assigned to cluster  7
+Track find. #states =  4
+Track  1024983  assigned to cluster  8
+Track find. #states =  4
+Track  1024988  assigned to cluster  10
+Track find. #states =  4
+MCID 1024843 not found.
+Reading 36 / 100 events...
+  jet energy      0.0
+  non nu energy   192.79310444984088
+something is wrong at this event 36
+MC dictionary finished. #hits = 4452  # clusters = 23
+pandora dictionary finished. #hits = 1553  # clusters = 21
+Track find. #states =  4
+Track  1045414  assigned to cluster  20
+Track find. #states =  4
+Track  1045419  assigned to cluster  22
+Track find. #states =  4
+Track  1045424  assigned to cluster  15
+Track find. #states =  4
+Track  1045429  assigned to cluster  9
+Track find. #states =  4
+Track  1045434  assigned to cluster  3
+Track find. #states =  4
+Track  1045439  assigned to cluster  10
+Track find. #states =  4
+Track  1045444  assigned to cluster  2
+Track find. #states =  4
+Track  1045449  assigned to cluster  8
+Track find. #states =  4
+Track  1045454  assigned to cluster  0
+Track find. #states =  4
+Track  1045459  assigned to cluster  21
+Track find. #states =  4
+Track  1045464  assigned to cluster  4
+Track find. #states =  4
+Track  1045469  assigned to cluster  5
+Track find. #states =  4
+Track  1045474  assigned to cluster  14
+Track find. #states =  4
+Track  1045479  assigned to cluster  7
+Track find. #states =  4
+Track  1045484  assigned to cluster  11
+Track find. #states =  4
+MCID 1045238 not found.
+     trackID :  1045489  ,  energy :  5.231429025157239
+Reading 37 / 100 events...
+  jet energy      0.0
+  non nu energy   152.2143905674617
+something is wrong at this event 37
+MC dictionary finished. #hits = 3044  # clusters = 33
+pandora dictionary finished. #hits = 1582  # clusters = 22
+Track find. #states =  4
+Track  1068579  assigned to cluster  17
+Track find. #states =  4
+Track  1068584  assigned to cluster  14
+Track find. #states =  4
+Track  1068589  assigned to cluster  21
+Track find. #states =  4
+Track  1068594  assigned to cluster  30
+Track find. #states =  4
+Track  1068599  assigned to cluster  31
+Track find. #states =  4
+MCID 1068368 not found.
+     trackID :  1068604  ,  energy :  4.781733728260796
+Track find. #states =  4
+Track  1068609  assigned to cluster  10
+Track find. #states =  4
+Track  1068614  assigned to cluster  15
+Track find. #states =  4
+Track  1068619  assigned to cluster  18
+Track find. #states =  4
+Track  1068624  assigned to cluster  13
+Track find. #states =  4
+Track  1068629  assigned to cluster  11
+Track find. #states =  4
+Track  1068634  assigned to cluster  11
+     clusterId  11  have multiple tracks  1068629    1068634 MC momentum  -3.7516891956329346 -3.054145097732544 -0.4184810221195221
+Track find. #states =  4
+Track  1068639  assigned to cluster  24
+Reading 38 / 100 events...
+  jet energy      0.0
+  non nu energy   44.691142150603206
+something is wrong at this event 38
+MC dictionary finished. #hits = 2951  # clusters = 20
+pandora dictionary finished. #hits = 1326  # clusters = 18
+Track find. #states =  4
+Track  1088039  assigned to cluster  18
+Track find. #states =  4
+Track  1088044  assigned to cluster  7
+Track find. #states =  4
+Track  1088049  assigned to cluster  3
+Track find. #states =  4
+Track  1088054  assigned to cluster  9
+Track find. #states =  4
+Track  1088059  assigned to cluster  15
+Track find. #states =  4
+Track  1088064  assigned to cluster  2
+Track find. #states =  4
+Track  1088069  assigned to cluster  8
+Track find. #states =  4
+Track  1088074  assigned to cluster  10
+Track find. #states =  4
+Track  1088079  assigned to cluster  4
+Track find. #states =  4
+Track  1088084  assigned to cluster  16
+Track find. #states =  4
+Track  1088089  assigned to cluster  16
+     clusterId  16  have multiple tracks  1088084    1088089 MC momentum  0.6399146318435669 -0.5886856913566589 0.38861462473869324
+Reading 39 / 100 events...
+  jet energy      0.0
+  non nu energy   61.938936800288445
+something is wrong at this event 39
+MC dictionary finished. #hits = 3680  # clusters = 29
+pandora dictionary finished. #hits = 1975  # clusters = 21
+Track find. #states =  4
+Track  1111023  assigned to cluster  15
+Track find. #states =  4
+Track  1111028  assigned to cluster  9
+Track find. #states =  4
+Track  1111033  assigned to cluster  13
+Track find. #states =  4
+Track  1111038  assigned to cluster  3
+Track find. #states =  4
+Track  1111043  assigned to cluster  14
+Track find. #states =  4
+Track  1111048  assigned to cluster  1
+Track find. #states =  4
+0.9956331849098206
+Track  1111053  assigned to cluster  8
+Track find. #states =  4
+Track  1111058  assigned to cluster  0
+Track find. #states =  4
+Track  1111063  assigned to cluster  25
+Track find. #states =  4
+Track  1111068  assigned to cluster  22
+Track find. #states =  4
+Track  1111073  assigned to cluster  11
+Track find. #states =  4
+Track  1111078  assigned to cluster  16
+Reading 40 / 100 events...
+  jet energy      0.0
+  non nu energy   73.60780221833863
+something is wrong at this event 40
+MC dictionary finished. #hits = 3972  # clusters = 27
+pandora dictionary finished. #hits = 1837  # clusters = 24
+Track find. #states =  4
+Track  1133147  assigned to cluster  12
+Track find. #states =  4
+Track  1133152  assigned to cluster  19
+Track find. #states =  4
+Track  1133157  assigned to cluster  14
+Track find. #states =  4
+Track  1133162  assigned to cluster  17
+Track find. #states =  4
+Track  1133167  assigned to cluster  16
+Track find. #states =  4
+Track  1133172  assigned to cluster  18
+Track find. #states =  4
+Track  1133177  assigned to cluster  2
+Track find. #states =  4
+Track  1133182  assigned to cluster  20
+Track find. #states =  4
+Track  1133187  assigned to cluster  3
+Track find. #states =  4
+Track  1133192  assigned to cluster  7
+Track find. #states =  4
+Track  1133197  assigned to cluster  13
+Track find. #states =  4
+Track  1133202  assigned to cluster  4
+Track find. #states =  4
+Track  1133207  assigned to cluster  25
+Track find. #states =  4
+Track  1133212  assigned to cluster  25
+     clusterId  25  have multiple tracks  1133207    1133212 MC momentum  -2.151153087615967 -3.9395995140075684 -3.251063346862793
+Track find. #states =  4
+Track  1133217  assigned to cluster  23
+Reading 41 / 100 events...
+  jet energy      0.0
+  non nu energy   49.47387816024653
+something is wrong at this event 41
+MC dictionary finished. #hits = 4205  # clusters = 23
+pandora dictionary finished. #hits = 1908  # clusters = 20
+Track find. #states =  4
+Track  1158901  assigned to cluster  21
+Track find. #states =  4
+Track  1158906  assigned to cluster  0
+Track find. #states =  4
+Track  1158911  assigned to cluster  1
+Track find. #states =  4
+Track  1158916  assigned to cluster  8
+Track find. #states =  4
+0.9956709742546082
+Track  1158921  assigned to cluster  5
+Track find. #states =  4
+Track  1158926  assigned to cluster  13
+Track find. #states =  4
+Track  1158931  assigned to cluster  6
+Track find. #states =  4
+Track  1158936  assigned to cluster  12
+Track find. #states =  4
+Track  1158941  assigned to cluster  2
+Track find. #states =  4
+Track  1158946  assigned to cluster  16
+Track find. #states =  4
+Track  1158951  assigned to cluster  17
+Track find. #states =  4
+Track  1158956  assigned to cluster  15
+Track find. #states =  4
+Track  1158961  assigned to cluster  3
+Track find. #states =  4
+Track  1158966  assigned to cluster  20
+Track find. #states =  4
+Track  1158971  assigned to cluster  20
+     clusterId  20  have multiple tracks  1158966    1158971 MC momentum  2.346998691558838 8.164826393127441 4.504969596862793
+Reading 42 / 100 events...
+  jet energy      0.0
+  non nu energy   123.72944960423487
+something is wrong at this event 42
+MC dictionary finished. #hits = 5227  # clusters = 40
+pandora dictionary finished. #hits = 2333  # clusters = 36
+Track find. #states =  4
+Track  1185293  assigned to cluster  17
+Track find. #states =  4
+Track  1185298  assigned to cluster  1
+Track find. #states =  4
+Track  1185303  assigned to cluster  31
+Track find. #states =  4
+Track  1185308  assigned to cluster  26
+Track find. #states =  4
+Track  1185313  assigned to cluster  19
+Track find. #states =  4
+Track  1185318  assigned to cluster  10
+Track find. #states =  4
+Track  1185323  assigned to cluster  9
+Track find. #states =  4
+Track  1185328  assigned to cluster  16
+Track find. #states =  4
+Track  1185333  assigned to cluster  28
+Track find. #states =  4
+Track  1185338  assigned to cluster  13
+Track find. #states =  4
+Track  1185343  assigned to cluster  20
+Track find. #states =  4
+0.9956709742546082
+MCID 1185064 not found.
+     trackID :  1185348  ,  energy :  2.5792462665991183
+Track find. #states =  4
+Track  1185353  assigned to cluster  38
+Track find. #states =  4
+Track  1185358  assigned to cluster  18
+Track find. #states =  4
+Track  1185363  assigned to cluster  0
+Reading 43 / 100 events...
+  jet energy      0.0
+  non nu energy   85.14358526125206
+something is wrong at this event 43
+MC dictionary finished. #hits = 2520  # clusters = 34
+pandora dictionary finished. #hits = 1682  # clusters = 23
+Track find. #states =  4
+Track  1210141  assigned to cluster  13
+Track find. #states =  4
+Track  1210146  assigned to cluster  24
+Track find. #states =  4
+Track  1210151  assigned to cluster  16
+Track find. #states =  4
+MCID 1210023 not found.
+Track find. #states =  4
+MCID 1209966 not found.
+     trackID :  1210161  ,  energy :  1.1920472201334251
+Track find. #states =  4
+Track  1210166  assigned to cluster  25
+Track find. #states =  4
+Track  1210171  assigned to cluster  2
+Track find. #states =  4
+Track  1210176  assigned to cluster  18
+Track find. #states =  4
+Track  1210181  assigned to cluster  3
+Reading 44 / 100 events...
+  jet energy      0.0
+  non nu energy   73.07060101048945
+something is wrong at this event 44
+MC dictionary finished. #hits = 1890  # clusters = 21
+pandora dictionary finished. #hits = 1210  # clusters = 19
+Track find. #states =  4
+MCID 1228126 not found.
+Track find. #states =  4
+Track  1228264  assigned to cluster  0
+Track find. #states =  4
+Track  1228269  assigned to cluster  3
+Track find. #states =  4
+Track  1228274  assigned to cluster  9
+Track find. #states =  4
+Track  1228279  assigned to cluster  8
+Track find. #states =  4
+Track  1228284  assigned to cluster  13
+Track find. #states =  4
+Track  1228289  assigned to cluster  17
+Track find. #states =  4
+Track  1228294  assigned to cluster  12
+Track find. #states =  4
+Track  1228299  assigned to cluster  16
+Track find. #states =  4
+Track  1228304  assigned to cluster  4
+Track find. #states =  4
+MCID 1228126 not found.
+Track find. #states =  4
+MCID 1228126 not found.
+Reading 45 / 100 events...
+  jet energy      0.0
+  non nu energy   84.03375021999346
+something is wrong at this event 45
+MC dictionary finished. #hits = 4623  # clusters = 39
+pandora dictionary finished. #hits = 1844  # clusters = 31
+Track find. #states =  4
+Track  1273779  assigned to cluster  4
+Track find. #states =  4
+Track  1273784  assigned to cluster  10
+Track find. #states =  4
+Track  1273789  assigned to cluster  13
+Track find. #states =  4
+Track  1273794  assigned to cluster  16
+Track find. #states =  4
+Track  1273799  assigned to cluster  27
+Track find. #states =  4
+Track  1273804  assigned to cluster  28
+Track find. #states =  4
+Track  1273809  assigned to cluster  38
+Track find. #states =  4
+Track  1273814  assigned to cluster  7
+Track find. #states =  4
+Track  1273819  assigned to cluster  1
+Track find. #states =  4
+Track  1273824  assigned to cluster  32
+Track find. #states =  4
+Track  1273829  assigned to cluster  31
+Track find. #states =  4
+Track  1273834  assigned to cluster  23
+Track find. #states =  4
+Track  1273839  assigned to cluster  26
+Track find. #states =  4
+Track  1273844  assigned to cluster  19
+Track find. #states =  4
+Track  1273849  assigned to cluster  1
+     clusterId  1  have multiple tracks  1273819    1273849 MC momentum  -0.23983220756053925 0.5070067644119263 0.0042326804250478745
+Track find. #states =  4
+Track  1273854  assigned to cluster  1
+     clusterId  1  have multiple tracks  1273819    1273854 MC momentum  -0.23983220756053925 0.5070067644119263 0.0042326804250478745
+Track find. #states =  4
+Track  1273859  assigned to cluster  1
+     clusterId  1  have multiple tracks  1273819    1273859 MC momentum  -0.23983220756053925 0.5070067644119263 0.0042326804250478745
+Track find. #states =  4
+Track  1273864  assigned to cluster  1
+     clusterId  1  have multiple tracks  1273819    1273864 MC momentum  -0.23983220756053925 0.5070067644119263 0.0042326804250478745
+Track find. #states =  4
+Track  1273869  assigned to cluster  1
+     clusterId  1  have multiple tracks  1273819    1273869 MC momentum  -0.23983220756053925 0.5070067644119263 0.0042326804250478745
+Reading 46 / 100 events...
+  jet energy      0.0
+  non nu energy   45.625545210661656
+something is wrong at this event 46
+MC dictionary finished. #hits = 2256  # clusters = 23
+pandora dictionary finished. #hits = 1114  # clusters = 21
+Track find. #states =  4
+Track  1297907  assigned to cluster  13
+Track find. #states =  4
+Track  1297912  assigned to cluster  3
+Track find. #states =  4
+Track  1297917  assigned to cluster  5
+Track find. #states =  4
+Track  1297922  assigned to cluster  14
+Track find. #states =  4
+Track  1297927  assigned to cluster  6
+Track find. #states =  4
+Track  1297932  assigned to cluster  10
+Track find. #states =  4
+Track  1297937  assigned to cluster  11
+Track find. #states =  4
+Track  1297942  assigned to cluster  2
+Track find. #states =  4
+Track  1297947  assigned to cluster  7
+Track find. #states =  4
+MCID 1297786 not found.
+Track find. #states =  4
+Track  1297957  assigned to cluster  15
+Track find. #states =  4
+Track  1297962  assigned to cluster  18
+Reading 47 / 100 events...
+  jet energy      0.0
+  non nu energy   103.85396067980601
+something is wrong at this event 47
+MC dictionary finished. #hits = 4026  # clusters = 23
+pandora dictionary finished. #hits = 2235  # clusters = 24
+Track find. #states =  4
+Track  1324225  assigned to cluster  7
+Track find. #states =  4
+Track  1324230  assigned to cluster  8
+Track find. #states =  4
+Track  1324235  assigned to cluster  3
+Track find. #states =  4
+Track  1324240  assigned to cluster  9
+Track find. #states =  4
+Track  1324245  assigned to cluster  11
+Track find. #states =  4
+Track  1324250  assigned to cluster  10
+Track find. #states =  4
+MCID 1324040 not found.
+Track find. #states =  4
+0.9523809552192688
+MCID 1324110 not found.
+     trackID :  1324260  ,  energy :  1.4809188938052664
+Track find. #states =  4
+Track  1324265  assigned to cluster  4
+Track find. #states =  4
+Track  1324270  assigned to cluster  18
+Track find. #states =  4
+Track  1324275  assigned to cluster  0
+Track find. #states =  4
+Track  1324280  assigned to cluster  14
+Track find. #states =  4
+MCID 1324046 not found.
+Track find. #states =  4
+MCID 1324046 not found.
+Track find. #states =  4
+MCID 1324046 not found.
+Track find. #states =  4
+MCID 1324046 not found.
+Track find. #states =  4
+MCID 1324046 not found.
+Track find. #states =  4
+MCID 1324040 not found.
+Track find. #states =  4
+Track  1324315  assigned to cluster  22
+Track find. #states =  4
+MCID 1324040 not found.
+Track find. #states =  4
+0.9920634627342224
+MCID 1324040 not found.
+Reading 48 / 100 events...
+  jet energy      0.0
+  non nu energy   43.21086380842278
+something is wrong at this event 48
+MC dictionary finished. #hits = 3527  # clusters = 19
+pandora dictionary finished. #hits = 1693  # clusters = 16
+Track find. #states =  4
+MCID 1360554 not found.
+Track find. #states =  4
+Track  1360677  assigned to cluster  10
+Track find. #states =  4
+Track  1360682  assigned to cluster  14
+Track find. #states =  4
+Track  1360687  assigned to cluster  5
+Track find. #states =  4
+Track  1360692  assigned to cluster  9
+Track find. #states =  4
+Track  1360697  assigned to cluster  16
+Track find. #states =  4
+Track  1360702  assigned to cluster  17
+Track find. #states =  4
+Track  1360707  assigned to cluster  15
+Track find. #states =  4
+Track  1360712  assigned to cluster  4
+Track find. #states =  4
+Track  1360717  assigned to cluster  11
+Reading 49 / 100 events...
+  jet energy      0.0
+  non nu energy   102.9977983611357
+something is wrong at this event 49
+MC dictionary finished. #hits = 3359  # clusters = 27
+pandora dictionary finished. #hits = 1288  # clusters = 20
+Track find. #states =  4
+Track  1382674  assigned to cluster  6
+Track find. #states =  4
+Track  1382679  assigned to cluster  5
+Track find. #states =  4
+Track  1382684  assigned to cluster  0
+Track find. #states =  4
+MCID 1382526 not found.
+     trackID :  1382689  ,  energy :  1.454601907096809
+Track find. #states =  4
+Track  1382694  assigned to cluster  13
+Track find. #states =  4
+Track  1382699  assigned to cluster  24
+Track find. #states =  4
+Track  1382704  assigned to cluster  4
+Track find. #states =  4
+MCID 1382491 not found.
+Track find. #states =  4
+Track  1382714  assigned to cluster  1
+Track find. #states =  4
+MCID 1382543 not found.
+     trackID :  1382719  ,  energy :  1.7426043469657857
+Track find. #states =  4
+Track  1382724  assigned to cluster  7
+Track find. #states =  4
+Track  1382729  assigned to cluster  23
+Track find. #states =  4
+Track  1382734  assigned to cluster  16
+Track find. #states =  4
+Track  1382739  assigned to cluster  14
+Track find. #states =  4
+MCID 1382491 not found.
+Track find. #states =  4
+MCID 1382491 not found.
+Track find. #states =  4
+Track  1382754  assigned to cluster  14
+     clusterId  14  have multiple tracks  1382739    1382754 MC momentum  2.5722107887268066 -2.7501606941223145 -2.115781307220459
+Reading 50 / 100 events...
+  jet energy      0.0
+  non nu energy   77.42760818552077
+something is wrong at this event 50
+MC dictionary finished. #hits = 2349  # clusters = 32
+pandora dictionary finished. #hits = 1247  # clusters = 23
+Track find. #states =  4
+Track  1415044  assigned to cluster  1
+Track find. #states =  4
+Track  1415049  assigned to cluster  15
+Track find. #states =  4
+Track  1415054  assigned to cluster  5
+Track find. #states =  4
+Track  1415059  assigned to cluster  29
+Track find. #states =  4
+Track  1415064  assigned to cluster  2
+Track find. #states =  4
+Track  1415069  assigned to cluster  11
+Track find. #states =  4
+Track  1415074  assigned to cluster  6
+Track find. #states =  4
+MCID 1414813 not found.
+Track find. #states =  4
+Track  1415084  assigned to cluster  3
+Track find. #states =  4
+Track  1415089  assigned to cluster  7
+Track find. #states =  4
+Track  1415094  assigned to cluster  16
+Track find. #states =  4
+Track  1415099  assigned to cluster  14
+Track find. #states =  4
+Track  1415104  assigned to cluster  21
+Track find. #states =  4
+Track  1415109  assigned to cluster  17
+Track find. #states =  4
+MCID 1414921 not found.
+Track find. #states =  4
+MCID 1414826 not found.
+Track find. #states =  4
+MCID 1414826 not found.
+Track find. #states =  4
+Track  1415129  assigned to cluster  23
+Track find. #states =  4
+MCID 1414826 not found.
+Track find. #states =  4
+MCID 1414826 not found.
+Track find. #states =  4
+MCID 1414826 not found.
+Track find. #states =  4
+MCID 1414826 not found.
+Track find. #states =  4
+MCID 1414826 not found.
+Track find. #states =  4
+Track  1415159  assigned to cluster  23
+     clusterId  23  have multiple tracks  1415129    1415159 MC momentum  -0.3194352984428406 0.6353719234466553 -0.1572839915752411
+Reading 51 / 100 events...
+  jet energy      0.0
+  non nu energy   56.22501261293526
+something is wrong at this event 51
+MC dictionary finished. #hits = 2968  # clusters = 36
+pandora dictionary finished. #hits = 1635  # clusters = 28
+Track find. #states =  4
+Track  1444306  assigned to cluster  12
+Track find. #states =  4
+Track  1444311  assigned to cluster  33
+Track find. #states =  4
+Track  1444316  assigned to cluster  11
+Track find. #states =  4
+Track  1444321  assigned to cluster  32
+Track find. #states =  4
+Track  1444326  assigned to cluster  1
+Track find. #states =  4
+Track  1444331  assigned to cluster  15
+Track find. #states =  4
+Track  1444336  assigned to cluster  6
+Track find. #states =  4
+Track  1444341  assigned to cluster  7
+Track find. #states =  4
+Track  1444346  assigned to cluster  8
+Track find. #states =  4
+Track  1444351  assigned to cluster  30
+Track find. #states =  4
+Track  1444356  assigned to cluster  24
+Track find. #states =  4
+Track  1444361  assigned to cluster  3
+Track find. #states =  4
+Track  1444366  assigned to cluster  8
+     clusterId  8  have multiple tracks  1444346    1444366 MC momentum  -1.6115522384643555 -2.8263347148895264 -1.4976937770843506
+Track find. #states =  4
+Track  1444371  assigned to cluster  16
+Track find. #states =  4
+Track  1444376  assigned to cluster  3
+     clusterId  3  have multiple tracks  1444361    1444376 MC momentum  -0.3760277032852173 -0.4375908374786377 -0.22255246341228485
+Track find. #states =  4
+Track  1444381  assigned to cluster  17
+Track find. #states =  4
+Track  1444386  assigned to cluster  18
+Track find. #states =  4
+Track  1444391  assigned to cluster  13
+Track find. #states =  4
+MCID 1444171 not found.
+Track find. #states =  4
+Track  1444401  assigned to cluster  0
+Reading 52 / 100 events...
+  jet energy      0.0
+  non nu energy   65.92778086210453
+something is wrong at this event 52
+MC dictionary finished. #hits = 3106  # clusters = 18
+pandora dictionary finished. #hits = 1357  # clusters = 18
+Track find. #states =  4
+Track  1463791  assigned to cluster  14
+Track find. #states =  4
+Track  1463796  assigned to cluster  4
+Track find. #states =  4
+0.991304337978363
+Track  1463801  assigned to cluster  7
+Track find. #states =  4
+Track  1463806  assigned to cluster  9
+Track find. #states =  4
+Track  1463811  assigned to cluster  13
+Track find. #states =  4
+Track  1463816  assigned to cluster  15
+Track find. #states =  4
+Track  1463821  assigned to cluster  10
+Track find. #states =  4
+Track  1463826  assigned to cluster  1
+Track find. #states =  4
+Track  1463831  assigned to cluster  6
+Track find. #states =  4
+Track  1463836  assigned to cluster  5
+Track find. #states =  4
+Track  1463841  assigned to cluster  0
+Track find. #states =  4
+Track  1463846  assigned to cluster  16
+Track find. #states =  4
+Track  1463851  assigned to cluster  16
+     clusterId  16  have multiple tracks  1463846    1463851 MC momentum  0.19651617109775543 2.5850942134857178 -1.43361496925354
+Reading 53 / 100 events...
+  jet energy      0.0
+  non nu energy   68.17970339138962
+something is wrong at this event 53
+MC dictionary finished. #hits = 2338  # clusters = 21
+pandora dictionary finished. #hits = 1365  # clusters = 17
+Track find. #states =  4
+Track  1482524  assigned to cluster  17
+Track find. #states =  4
+Track  1482529  assigned to cluster  4
+Track find. #states =  4
+Track  1482534  assigned to cluster  19
+Track find. #states =  4
+Track  1482539  assigned to cluster  11
+Track find. #states =  4
+Track  1482544  assigned to cluster  6
+Track find. #states =  4
+Track  1482549  assigned to cluster  3
+Track find. #states =  4
+Track  1482554  assigned to cluster  12
+Track find. #states =  4
+MCID 1482380 not found.
+Track find. #states =  4
+Track  1482564  assigned to cluster  16
+Track find. #states =  4
+Track  1482569  assigned to cluster  18
+Track find. #states =  4
+Track  1482574  assigned to cluster  14
+Track find. #states =  4
+Track  1482579  assigned to cluster  5
+Reading 54 / 100 events...
+  jet energy      0.0
+  non nu energy   69.88459589768915
+something is wrong at this event 54
+MC dictionary finished. #hits = 3253  # clusters = 22
+pandora dictionary finished. #hits = 1576  # clusters = 21
+Track find. #states =  4
+Track  1503568  assigned to cluster  10
+Track find. #states =  4
+0.9913793206214905
+Track  1503573  assigned to cluster  0
+Track find. #states =  4
+Track  1503578  assigned to cluster  8
+Track find. #states =  4
+Track  1503583  assigned to cluster  12
+Track find. #states =  4
+Track  1503588  assigned to cluster  17
+Track find. #states =  4
+Track  1503593  assigned to cluster  5
+Track find. #states =  4
+Track  1503598  assigned to cluster  18
+Track find. #states =  4
+Track  1503603  assigned to cluster  11
+Track find. #states =  4
+Track  1503608  assigned to cluster  16
+Track find. #states =  4
+Track  1503613  assigned to cluster  6
+Track find. #states =  4
+Track  1503618  assigned to cluster  9
+Track find. #states =  4
+MCID 1503415 not found.
+Track find. #states =  4
+MCID 1503396 not found.
+Track find. #states =  4
+Track  1503633  assigned to cluster  7
+Track find. #states =  4
+MCID 1503415 not found.
+Track find. #states =  4
+MCID 1503415 not found.
+Reading 55 / 100 events...
+  jet energy      0.0
+  non nu energy   187.64724689865866
+something is wrong at this event 55
+MC dictionary finished. #hits = 3983  # clusters = 46
+pandora dictionary finished. #hits = 1921  # clusters = 29
+Track find. #states =  4
+Track  1576392  assigned to cluster  2
+Track find. #states =  4
+Track  1576397  assigned to cluster  22
+Track find. #states =  4
+Track  1576402  assigned to cluster  19
+Track find. #states =  4
+Track  1576407  assigned to cluster  13
+Track find. #states =  4
+Track  1576412  assigned to cluster  12
+Track find. #states =  4
+Track  1576417  assigned to cluster  32
+Track find. #states =  4
+Track  1576422  assigned to cluster  14
+Track find. #states =  4
+Track  1576427  assigned to cluster  0
+Track find. #states =  4
+Track  1576432  assigned to cluster  17
+Track find. #states =  4
+Track  1576437  assigned to cluster  43
+Track find. #states =  4
+Track  1576442  assigned to cluster  1
+Track find. #states =  4
+MCID 1576279 not found.
+Track find. #states =  4
+Track  1576452  assigned to cluster  29
+Track find. #states =  4
+MCID 1576169 not found.
+Track find. #states =  4
+Track  1576462  assigned to cluster  40
+Track find. #states =  4
+Track  1576467  assigned to cluster  9
+Track find. #states =  4
+MCID 1576166 not found.
+Track find. #states =  4
+MCID 1576166 not found.
+Track find. #states =  4
+Track  1576482  assigned to cluster  37
+Track find. #states =  4
+0.9655172228813171
+MCID 1576167 not found.
+Track find. #states =  4
+0.9242424368858337
+Track  1576492  assigned to cluster  8
+Track find. #states =  4
+MCID 1576234 not found.
+     trackID :  1576497  ,  energy :  8.715016502670256
+Reading 56 / 100 events...
+  jet energy      0.0
+  non nu energy   37.89668287050805
+something is wrong at this event 56
+MC dictionary finished. #hits = 3345  # clusters = 27
+pandora dictionary finished. #hits = 1788  # clusters = 22
+Track find. #states =  4
+Track  1604853  assigned to cluster  26
+Track find. #states =  4
+Track  1604858  assigned to cluster  2
+Track find. #states =  4
+MCID 1604738 not found.
+Track find. #states =  4
+Track  1604868  assigned to cluster  16
+Track find. #states =  4
+Track  1604873  assigned to cluster  21
+Track find. #states =  4
+Track  1604878  assigned to cluster  17
+Track find. #states =  4
+Track  1604883  assigned to cluster  9
+Track find. #states =  4
+Track  1604888  assigned to cluster  15
+Track find. #states =  4
+Track  1604893  assigned to cluster  18
+Track find. #states =  4
+Track  1604898  assigned to cluster  19
+Track find. #states =  4
+Track  1604903  assigned to cluster  8
+Track find. #states =  4
+Track  1604908  assigned to cluster  8
+     clusterId  8  have multiple tracks  1604903    1604908 MC momentum  -0.5346556901931763 0.1246563270688057 0.18859082460403442
+Reading 57 / 100 events...
+  jet energy      0.0
+  non nu energy   170.9325193140857
+something is wrong at this event 57
+MC dictionary finished. #hits = 2859  # clusters = 25
+pandora dictionary finished. #hits = 1731  # clusters = 24
+Track find. #states =  4
+Track  1629001  assigned to cluster  5
+Track find. #states =  4
+Track  1629006  assigned to cluster  17
+Track find. #states =  4
+Track  1629011  assigned to cluster  3
+Track find. #states =  4
+Track  1629016  assigned to cluster  0
+Track find. #states =  4
+Track  1629021  assigned to cluster  15
+Track find. #states =  4
+Track  1629026  assigned to cluster  4
+Track find. #states =  4
+Track  1629031  assigned to cluster  14
+Track find. #states =  4
+Track  1629036  assigned to cluster  16
+Track find. #states =  4
+Track  1629041  assigned to cluster  20
+Track find. #states =  4
+Track  1629046  assigned to cluster  8
+Track find. #states =  4
+MCID 1628880 not found.
+Track find. #states =  4
+MCID 1628911 not found.
+Track find. #states =  4
+Track  1629061  assigned to cluster  16
+     clusterId  16  have multiple tracks  1629036    1629061 MC momentum  0.4371289312839508 0.33173421025276184 0.7640985250473022
+Reading 58 / 100 events...
+  jet energy      0.0
+  non nu energy   54.09540281944595
+something is wrong at this event 58
+MC dictionary finished. #hits = 3518  # clusters = 25
+pandora dictionary finished. #hits = 1819  # clusters = 23
+Track find. #states =  4
+Track  1648736  assigned to cluster  22
+Track find. #states =  4
+Track  1648741  assigned to cluster  9
+Track find. #states =  4
+Track  1648746  assigned to cluster  21
+Track find. #states =  4
+Track  1648751  assigned to cluster  23
+Track find. #states =  4
+Track  1648756  assigned to cluster  14
+Track find. #states =  4
+Track  1648761  assigned to cluster  13
+Track find. #states =  4
+Track  1648766  assigned to cluster  11
+Track find. #states =  4
+Track  1648771  assigned to cluster  12
+Track find. #states =  4
+Track  1648776  assigned to cluster  2
+Track find. #states =  4
+Track  1648781  assigned to cluster  17
+Track find. #states =  4
+Track  1648786  assigned to cluster  7
+Track find. #states =  4
+Track  1648791  assigned to cluster  24
+Track find. #states =  4
+Track  1648796  assigned to cluster  10
+Track find. #states =  4
+Track  1648801  assigned to cluster  18
+Reading 59 / 100 events...
+  jet energy      0.0
+  non nu energy   250.8749235940024
+something is wrong at this event 59
+MC dictionary finished. #hits = 3116  # clusters = 43
+pandora dictionary finished. #hits = 1413  # clusters = 33
+Track find. #states =  4
+MCID 1671660 not found.
+Track find. #states =  4
+Track  1671920  assigned to cluster  2
+Track find. #states =  4
+Track  1671925  assigned to cluster  25
+Track find. #states =  4
+Track  1671930  assigned to cluster  40
+Track find. #states =  4
+Track  1671935  assigned to cluster  22
+Track find. #states =  4
+Track  1671940  assigned to cluster  7
+Track find. #states =  4
+Track  1671945  assigned to cluster  8
+Track find. #states =  4
+Track  1671950  assigned to cluster  29
+Track find. #states =  4
+Track  1671955  assigned to cluster  31
+Track find. #states =  4
+Track  1671960  assigned to cluster  28
+Track find. #states =  4
+MCID 1671768 not found.
+Track find. #states =  4
+Track  1671970  assigned to cluster  21
+Track find. #states =  4
+MCID 1671686 not found.
+     trackID :  1671975  ,  energy :  7.515388157970091
+Track find. #states =  4
+Track  1671980  assigned to cluster  30
+Track find. #states =  4
+MCID 1671662 not found.
+Track find. #states =  4
+MCID 1671662 not found.
+Track find. #states =  4
+MCID 1671662 not found.
+Track find. #states =  4
+MCID 1671662 not found.
+Track find. #states =  4
+MCID 1671662 not found.
+Track find. #states =  4
+MCID 1671662 not found.
+Reading 60 / 100 events...
+  jet energy      0.0
+  non nu energy   32.52228354213357
+something is wrong at this event 60
+MC dictionary finished. #hits = 3330  # clusters = 23
+pandora dictionary finished. #hits = 1722  # clusters = 19
+Track find. #states =  4
+Track  1741664  assigned to cluster  22
+Track find. #states =  4
+Track  1741669  assigned to cluster  2
+Track find. #states =  4
+Track  1741674  assigned to cluster  6
+Track find. #states =  4
+MCID 1741496 not found.
+Track find. #states =  4
+Track  1741684  assigned to cluster  9
+Track find. #states =  4
+Track  1741689  assigned to cluster  4
+Track find. #states =  4
+Track  1741694  assigned to cluster  3
+Track find. #states =  4
+Track  1741699  assigned to cluster  5
+Track find. #states =  4
+Track  1741704  assigned to cluster  21
+Track find. #states =  4
+Track  1741709  assigned to cluster  7
+Track find. #states =  4
+Track  1741714  assigned to cluster  10
+Track find. #states =  4
+Track  1741719  assigned to cluster  8
+Track find. #states =  4
+Track  1741724  assigned to cluster  15
+Track find. #states =  4
+Track  1741729  assigned to cluster  15
+     clusterId  15  have multiple tracks  1741724    1741729 MC momentum  0.21553386747837067 0.2217189371585846 -0.07452843338251114
+Reading 61 / 100 events...
+  jet energy      0.0
+  non nu energy   110.39284714289265
+something is wrong at this event 61
+MC dictionary finished. #hits = 3960  # clusters = 32
+pandora dictionary finished. #hits = 1756  # clusters = 31
+Track find. #states =  4
+Track  1770003  assigned to cluster  6
+Track find. #states =  4
+Track  1770008  assigned to cluster  12
+Track find. #states =  4
+Track  1770013  assigned to cluster  5
+Track find. #states =  4
+Track  1770018  assigned to cluster  13
+Track find. #states =  4
+Track  1770023  assigned to cluster  19
+Track find. #states =  4
+Track  1770028  assigned to cluster  31
+Track find. #states =  4
+Track  1770033  assigned to cluster  18
+Track find. #states =  4
+Track  1770038  assigned to cluster  9
+Track find. #states =  4
+Track  1770043  assigned to cluster  7
+Track find. #states =  4
+Track  1770048  assigned to cluster  4
+Track find. #states =  4
+Track  1770053  assigned to cluster  21
+Track find. #states =  4
+Track  1770058  assigned to cluster  29
+Track find. #states =  4
+Track  1770063  assigned to cluster  26
+Track find. #states =  4
+Track  1770068  assigned to cluster  8
+Track find. #states =  4
+Track  1770073  assigned to cluster  20
+Track find. #states =  4
+Track  1770078  assigned to cluster  30
+Reading 62 / 100 events...
+  jet energy      0.0
+  non nu energy   41.097543377552746
+something is wrong at this event 62
+MC dictionary finished. #hits = 2905  # clusters = 31
+pandora dictionary finished. #hits = 1270  # clusters = 20
+Track find. #states =  4
+MCID 1792383 not found.
+Track find. #states =  4
+Track  1792477  assigned to cluster  6
+Track find. #states =  4
+Track  1792482  assigned to cluster  24
+Track find. #states =  4
+Track  1792487  assigned to cluster  4
+Track find. #states =  4
+Track  1792492  assigned to cluster  3
+Track find. #states =  4
+Track  1792497  assigned to cluster  5
+Track find. #states =  4
+Track  1792502  assigned to cluster  14
+Track find. #states =  4
+Track  1792507  assigned to cluster  12
+Track find. #states =  4
+Track  1792512  assigned to cluster  25
+Track find. #states =  4
+Track  1792517  assigned to cluster  23
+Track find. #states =  4
+Track  1792522  assigned to cluster  0
+Track find. #states =  4
+MCID 1792358 not found.
+Track find. #states =  4
+MCID 1792341 not found.
+     trackID :  1792532  ,  energy :  1.1295154150883777
+Track find. #states =  4
+Track  1792537  assigned to cluster  0
+     clusterId  0  have multiple tracks  1792522    1792537 MC momentum  -4.2245564460754395 -0.9374403953552246 -0.2530604302883148
+Track find. #states =  4
+Track  1792542  assigned to cluster  13
+Reading 63 / 100 events...
+  jet energy      0.0
+  non nu energy   33.215708318190366
+something is wrong at this event 63
+MC dictionary finished. #hits = 3923  # clusters = 29
+pandora dictionary finished. #hits = 1794  # clusters = 25
+Track find. #states =  4
+Track  1824993  assigned to cluster  13
+Track find. #states =  4
+Track  1824998  assigned to cluster  9
+Track find. #states =  4
+Track  1825003  assigned to cluster  1
+Track find. #states =  4
+Track  1825008  assigned to cluster  6
+Track find. #states =  4
+Track  1825013  assigned to cluster  2
+Track find. #states =  4
+Track  1825018  assigned to cluster  16
+Track find. #states =  4
+MCID 1824851 not found.
+Track find. #states =  4
+Track  1825028  assigned to cluster  10
+Track find. #states =  4
+Track  1825033  assigned to cluster  28
+Track find. #states =  4
+Track  1825038  assigned to cluster  3
+Track find. #states =  4
+Track  1825043  assigned to cluster  20
+Track find. #states =  4
+Track  1825048  assigned to cluster  23
+Track find. #states =  4
+Track  1825053  assigned to cluster  22
+Track find. #states =  4
+Track  1825058  assigned to cluster  19
+Reading 64 / 100 events...
+  jet energy      0.0
+  non nu energy   86.5969351526749
+something is wrong at this event 64
+MC dictionary finished. #hits = 3262  # clusters = 36
+pandora dictionary finished. #hits = 1336  # clusters = 18
+Track find. #states =  4
+Track  1904629  assigned to cluster  7
+Track find. #states =  4
+Track  1904634  assigned to cluster  9
+Track find. #states =  4
+MCID 1904485 not found.
+Track find. #states =  4
+0.991304337978363
+MCID 1904509 not found.
+     trackID :  1904644  ,  energy :  2.3789785742940426
+Track find. #states =  4
+Track  1904649  assigned to cluster  20
+Track find. #states =  4
+Track  1904654  assigned to cluster  1
+Track find. #states =  4
+Track  1904659  assigned to cluster  19
+Track find. #states =  4
+Track  1904664  assigned to cluster  3
+Track find. #states =  4
+Track  1904669  assigned to cluster  0
+Track find. #states =  4
+Track  1904674  assigned to cluster  22
+Track find. #states =  4
+Track  1904679  assigned to cluster  4
+Track find. #states =  4
+Track  1904684  assigned to cluster  8
+Track find. #states =  4
+Track  1904689  assigned to cluster  34
+Track find. #states =  4
+Track  1904694  assigned to cluster  30
+Track find. #states =  4
+MCID 1904487 not found.
+     trackID :  1904699  ,  energy :  1.3573792327329117
+Reading 65 / 100 events...
+  jet energy      0.0
+  non nu energy   114.66999296225708
+something is wrong at this event 65
+MC dictionary finished. #hits = 2807  # clusters = 19
+pandora dictionary finished. #hits = 949  # clusters = 16
+Track find. #states =  4
+Track  1924509  assigned to cluster  1
+Track find. #states =  4
+Track  1924514  assigned to cluster  6
+Track find. #states =  4
+Track  1924519  assigned to cluster  18
+Track find. #states =  4
+Track  1924524  assigned to cluster  8
+Track find. #states =  4
+Track  1924529  assigned to cluster  7
+Track find. #states =  4
+Track  1924534  assigned to cluster  16
+Track find. #states =  4
+Track  1924539  assigned to cluster  9
+Track find. #states =  4
+Track  1924544  assigned to cluster  17
+Track find. #states =  4
+Track  1924549  assigned to cluster  2
+Track find. #states =  4
+Track  1924554  assigned to cluster  15
+Track find. #states =  4
+MCID 1924368 not found.
+Reading 66 / 100 events...
+  jet energy      0.0
+  non nu energy   173.94509652967935
+something is wrong at this event 66
+MC dictionary finished. #hits = 4114  # clusters = 44
+pandora dictionary finished. #hits = 1775  # clusters = 30
+Track find. #states =  4
+Track  1947929  assigned to cluster  38
+Track find. #states =  4
+Track  1947934  assigned to cluster  35
+Track find. #states =  4
+Track  1947939  assigned to cluster  11
+Track find. #states =  4
+Track  1947944  assigned to cluster  16
+Track find. #states =  4
+Track  1947949  assigned to cluster  6
+Track find. #states =  4
+Track  1947954  assigned to cluster  10
+Track find. #states =  4
+Track  1947959  assigned to cluster  8
+Track find. #states =  4
+Track  1947964  assigned to cluster  15
+Track find. #states =  4
+Track  1947969  assigned to cluster  7
+Track find. #states =  4
+Track  1947974  assigned to cluster  25
+Track find. #states =  4
+Track  1947979  assigned to cluster  18
+Track find. #states =  4
+Track  1947984  assigned to cluster  17
+Track find. #states =  4
+MCID 1947666 not found.
+Track find. #states =  4
+MCID 1947791 not found.
+Track find. #states =  4
+MCID 1947662 not found.
+Track find. #states =  4
+0.5555555820465088
+Track  1948004  assigned to cluster  28
+Track find. #states =  4
+MCID 1947795 not found.
+Track find. #states =  4
+MCID 1947795 not found.
+Track find. #states =  4
+MCID 1947666 not found.
+Track find. #states =  4
+Track  1948024  assigned to cluster  5
+Track find. #states =  4
+MCID 1947663 not found.
+Track find. #states =  4
+Track  1948034  assigned to cluster  29
+Track find. #states =  4
+MCID 1947769 not found.
+     trackID :  1948039  ,  energy :  4.420243549423203
+Track find. #states =  4
+MCID 1947770 not found.
+Track find. #states =  4
+MCID 1947701 not found.
+Reading 67 / 100 events...
+  jet energy      0.0
+  non nu energy   36.85676792810685
+something is wrong at this event 67
+MC dictionary finished. #hits = 2565  # clusters = 20
+pandora dictionary finished. #hits = 1257  # clusters = 18
+Track find. #states =  4
+Track  1970583  assigned to cluster  12
+Track find. #states =  4
+Track  1970588  assigned to cluster  2
+Track find. #states =  4
+Track  1970593  assigned to cluster  6
+Track find. #states =  4
+Track  1970598  assigned to cluster  13
+Track find. #states =  4
+Track  1970603  assigned to cluster  5
+Track find. #states =  4
+Track  1970608  assigned to cluster  3
+Track find. #states =  4
+Track  1970613  assigned to cluster  15
+Track find. #states =  4
+Track  1970618  assigned to cluster  16
+Track find. #states =  4
+Track  1970623  assigned to cluster  0
+Track find. #states =  4
+Track  1970628  assigned to cluster  1
+Track find. #states =  4
+Track  1970633  assigned to cluster  18
+Track find. #states =  4
+Track  1970638  assigned to cluster  4
+Track find. #states =  4
+Track  1970643  assigned to cluster  17
+Track find. #states =  4
+Track  1970648  assigned to cluster  7
+Reading 68 / 100 events...
+  jet energy      0.0
+  non nu energy   41.19719094673124
+something is wrong at this event 68
+MC dictionary finished. #hits = 2480  # clusters = 20
+pandora dictionary finished. #hits = 1620  # clusters = 17
+Track find. #states =  4
+Track  2001860  assigned to cluster  10
+Track find. #states =  4
+Track  2001865  assigned to cluster  13
+Track find. #states =  4
+Track  2001870  assigned to cluster  15
+Track find. #states =  4
+Track  2001875  assigned to cluster  6
+Track find. #states =  4
+Track  2001880  assigned to cluster  19
+Track find. #states =  4
+Track  2001885  assigned to cluster  3
+Track find. #states =  4
+Track  2001890  assigned to cluster  16
+Track find. #states =  4
+Track  2001895  assigned to cluster  14
+Track find. #states =  4
+Track  2001900  assigned to cluster  9
+Reading 69 / 100 events...
+  jet energy      0.0
+  non nu energy   46.322839490971276
+something is wrong at this event 69
+MC dictionary finished. #hits = 3409  # clusters = 26
+pandora dictionary finished. #hits = 1877  # clusters = 25
+Track find. #states =  4
+Track  2021439  assigned to cluster  15
+Track find. #states =  4
+Track  2021444  assigned to cluster  5
+Track find. #states =  4
+Track  2021449  assigned to cluster  13
+Track find. #states =  4
+Track  2021454  assigned to cluster  17
+Track find. #states =  4
+Track  2021459  assigned to cluster  16
+Track find. #states =  4
+Track  2021464  assigned to cluster  20
+Track find. #states =  4
+Track  2021469  assigned to cluster  25
+Track find. #states =  4
+Track  2021474  assigned to cluster  3
+Track find. #states =  4
+Track  2021479  assigned to cluster  6
+Track find. #states =  4
+Track  2021484  assigned to cluster  14
+Track find. #states =  4
+Track  2021489  assigned to cluster  0
+Track find. #states =  4
+Track  2021494  assigned to cluster  8
+Track find. #states =  4
+Track  2021499  assigned to cluster  22
+Reading 70 / 100 events...
+  jet energy      0.0
+  non nu energy   29.006850079824403
+something is wrong at this event 70
+MC dictionary finished. #hits = 3256  # clusters = 22
+pandora dictionary finished. #hits = 1114  # clusters = 16
+Track find. #states =  4
+Track  2040274  assigned to cluster  20
+Track find. #states =  4
+Track  2040279  assigned to cluster  9
+Track find. #states =  4
+Track  2040284  assigned to cluster  6
+Track find. #states =  4
+Track  2040289  assigned to cluster  11
+Track find. #states =  4
+Track  2040294  assigned to cluster  7
+Track find. #states =  4
+Track  2040299  assigned to cluster  8
+Track find. #states =  4
+Track  2040304  assigned to cluster  2
+Track find. #states =  4
+MCID 2040178 not found.
+Track find. #states =  4
+Track  2040314  assigned to cluster  1
+Track find. #states =  4
+Track  2040319  assigned to cluster  3
+Track find. #states =  4
+MCID 2040132 not found.
+Track find. #states =  4
+Track  2040329  assigned to cluster  15
+Track find. #states =  4
+Track  2040334  assigned to cluster  13
+Track find. #states =  4
+Track  2040339  assigned to cluster  12
+Reading 71 / 100 events...
+  jet energy      0.0
+  non nu energy   32.83020232285132
+something is wrong at this event 71
+MC dictionary finished. #hits = 3049  # clusters = 26
+pandora dictionary finished. #hits = 1640  # clusters = 23
+Track find. #states =  4
+Track  2076407  assigned to cluster  22
+Track find. #states =  4
+Track  2076412  assigned to cluster  25
+Track find. #states =  4
+Track  2076417  assigned to cluster  1
+Track find. #states =  4
+Track  2076422  assigned to cluster  13
+Track find. #states =  4
+Track  2076427  assigned to cluster  18
+Track find. #states =  4
+Track  2076432  assigned to cluster  9
+Track find. #states =  4
+Track  2076437  assigned to cluster  20
+Track find. #states =  4
+Track  2076442  assigned to cluster  2
+Track find. #states =  4
+Track  2076447  assigned to cluster  19
+Track find. #states =  4
+Track  2076452  assigned to cluster  17
+Track find. #states =  4
+MCID 2076288 not found.
+Track find. #states =  4
+Track  2076462  assigned to cluster  21
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076288 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076297 not found.
+Track find. #states =  4
+MCID 2076254 not found.
+Reading 72 / 100 events...
+  jet energy      0.0
+  non nu energy   75.61275583927281
+something is wrong at this event 72
+MC dictionary finished. #hits = 3393  # clusters = 33
+pandora dictionary finished. #hits = 1858  # clusters = 21
+Track find. #states =  4
+Track  2123475  assigned to cluster  10
+Track find. #states =  4
+Track  2123480  assigned to cluster  18
+Track find. #states =  4
+MCID 2123259 not found.
+     trackID :  2123485  ,  energy :  7.436856684528284
+Track find. #states =  4
+Track  2123490  assigned to cluster  13
+Track find. #states =  4
+Track  2123495  assigned to cluster  8
+Track find. #states =  4
+Track  2123500  assigned to cluster  32
+Track find. #states =  4
+Track  2123505  assigned to cluster  17
+Track find. #states =  4
+Track  2123510  assigned to cluster  16
+Track find. #states =  4
+Track  2123515  assigned to cluster  9
+Track find. #states =  4
+Track  2123520  assigned to cluster  0
+Reading 73 / 100 events...
+  jet energy      0.0
+  non nu energy   163.65718317823672
+something is wrong at this event 73
+MC dictionary finished. #hits = 3125  # clusters = 27
+pandora dictionary finished. #hits = 1335  # clusters = 26
+Track find. #states =  4
+Track  2140353  assigned to cluster  24
+Track find. #states =  4
+Track  2140358  assigned to cluster  6
+Track find. #states =  4
+Track  2140363  assigned to cluster  14
+Track find. #states =  4
+Track  2140368  assigned to cluster  20
+Track find. #states =  4
+Track  2140373  assigned to cluster  0
+Track find. #states =  4
+Track  2140378  assigned to cluster  23
+Track find. #states =  4
+Track  2140383  assigned to cluster  11
+Track find. #states =  4
+Track  2140388  assigned to cluster  17
+Track find. #states =  4
+Track  2140393  assigned to cluster  2
+Track find. #states =  4
+Track  2140398  assigned to cluster  1
+Track find. #states =  4
+Track  2140403  assigned to cluster  3
+Track find. #states =  4
+Track  2140408  assigned to cluster  26
+Reading 74 / 100 events...
+  jet energy      0.0
+  non nu energy   188.0450868159287
+something is wrong at this event 74
+MC dictionary finished. #hits = 4064  # clusters = 33
+pandora dictionary finished. #hits = 1757  # clusters = 27
+Track find. #states =  4
+MCID 2165017 not found.
+Track find. #states =  4
+Track  2165156  assigned to cluster  15
+Track find. #states =  4
+Track  2165161  assigned to cluster  4
+Track find. #states =  4
+Track  2165166  assigned to cluster  11
+Track find. #states =  4
+Track  2165171  assigned to cluster  5
+Track find. #states =  4
+Track  2165176  assigned to cluster  6
+Track find. #states =  4
+Track  2165181  assigned to cluster  14
+Track find. #states =  4
+Track  2165186  assigned to cluster  26
+Track find. #states =  4
+Track  2165191  assigned to cluster  8
+Track find. #states =  4
+Track  2165196  assigned to cluster  16
+Track find. #states =  4
+Track  2165201  assigned to cluster  7
+Track find. #states =  4
+Track  2165206  assigned to cluster  10
+Track find. #states =  4
+Track  2165211  assigned to cluster  22
+Track find. #states =  4
+Track  2165216  assigned to cluster  9
+Track find. #states =  4
+Track  2165221  assigned to cluster  12
+Track find. #states =  4
+Track  2165226  assigned to cluster  27
+Track find. #states =  4
+Track  2165231  assigned to cluster  13
+Track find. #states =  4
+Track  2165236  assigned to cluster  30
+Track find. #states =  4
+Track  2165241  assigned to cluster  30
+     clusterId  30  have multiple tracks  2165236    2165241 MC momentum  -0.5373194813728333 0.25252532958984375 -0.8439749479293823
+Reading 75 / 100 events...
+  jet energy      0.0
+  non nu energy   39.28611407490642
+something is wrong at this event 75
+MC dictionary finished. #hits = 2941  # clusters = 25
+pandora dictionary finished. #hits = 1595  # clusters = 22
+Track find. #states =  4
+MCID 2188853 not found.
+     trackID :  2188987  ,  energy :  8.156706320090759
+Track find. #states =  4
+Track  2188992  assigned to cluster  9
+Track find. #states =  4
+Track  2188997  assigned to cluster  22
+Track find. #states =  4
+Track  2189002  assigned to cluster  10
+Track find. #states =  4
+Track  2189007  assigned to cluster  3
+Track find. #states =  4
+Track  2189012  assigned to cluster  13
+Track find. #states =  4
+MCID 2188843 not found.
+     trackID :  2189017  ,  energy :  1.559412453653403
+Track find. #states =  4
+Track  2189022  assigned to cluster  17
+Track find. #states =  4
+Track  2189027  assigned to cluster  23
+Track find. #states =  4
+Track  2189032  assigned to cluster  2
+Track find. #states =  4
+Track  2189037  assigned to cluster  24
+Track find. #states =  4
+Track  2189042  assigned to cluster  19
+Track find. #states =  4
+0.6530612111091614
+Track  2189047  assigned to cluster  19
+     clusterId  19  have multiple tracks  2189042    2189047 MC momentum  0.27533644437789917 -0.4950830936431885 -0.768076479434967
+Track find. #states =  4
+MCID 2188877 not found.
+     trackID :  2189052  ,  energy :  1.5767633497570945
+Track find. #states =  4
+Track  2189057  assigned to cluster  7
+Track find. #states =  4
+Track  2189062  assigned to cluster  8
+Track find. #states =  4
+Track  2189067  assigned to cluster  16
+Reading 76 / 100 events...
+  jet energy      0.0
+  non nu energy   158.16242618485188
+something is wrong at this event 76
+MC dictionary finished. #hits = 3975  # clusters = 49
+pandora dictionary finished. #hits = 1960  # clusters = 30
+Track find. #states =  4
+Track  2211809  assigned to cluster  20
+Track find. #states =  4
+Track  2211814  assigned to cluster  32
+Track find. #states =  4
+Track  2211819  assigned to cluster  31
+Track find. #states =  4
+Track  2211824  assigned to cluster  13
+Track find. #states =  4
+Track  2211829  assigned to cluster  26
+Track find. #states =  4
+Track  2211834  assigned to cluster  29
+Track find. #states =  4
+Track  2211839  assigned to cluster  30
+Track find. #states =  4
+MCID 2211471 not found.
+     trackID :  2211844  ,  energy :  4.48469508806789
+Track find. #states =  4
+Track  2211849  assigned to cluster  44
+Track find. #states =  4
+Track  2211854  assigned to cluster  21
+Track find. #states =  4
+0.9954751133918762
+Track  2211859  assigned to cluster  1
+Track find. #states =  4
+MCID 2211566 not found.
+Track find. #states =  4
+0.9615384340286255
+Track  2211869  assigned to cluster  39
+Track find. #states =  4
+Track  2211874  assigned to cluster  18
+Track find. #states =  4
+0.9868420958518982
+Track  2211879  assigned to cluster  34
+Track find. #states =  4
+Track  2211884  assigned to cluster  15
+Track find. #states =  4
+Track  2211889  assigned to cluster  22
+Reading 77 / 100 events...
+  jet energy      0.0
+  non nu energy   57.560844826638466
+something is wrong at this event 77
+MC dictionary finished. #hits = 4134  # clusters = 29
+pandora dictionary finished. #hits = 2083  # clusters = 28
+Track find. #states =  4
+Track  2240107  assigned to cluster  13
+Track find. #states =  4
+Track  2240112  assigned to cluster  17
+Track find. #states =  4
+Track  2240117  assigned to cluster  28
+Track find. #states =  4
+Track  2240122  assigned to cluster  4
+Track find. #states =  4
+Track  2240127  assigned to cluster  0
+Track find. #states =  4
+Track  2240132  assigned to cluster  9
+Track find. #states =  4
+Track  2240137  assigned to cluster  19
+Track find. #states =  4
+Track  2240142  assigned to cluster  5
+Track find. #states =  4
+Track  2240147  assigned to cluster  12
+Track find. #states =  4
+Track  2240152  assigned to cluster  14
+Track find. #states =  4
+Track  2240157  assigned to cluster  20
+Reading 78 / 100 events...
+  jet energy      0.0
+  non nu energy   223.1714972412031
+something is wrong at this event 78
+MC dictionary finished. #hits = 4616  # clusters = 41
+pandora dictionary finished. #hits = 1979  # clusters = 31
+Track find. #states =  4
+Track  2263523  assigned to cluster  19
+Track find. #states =  4
+Track  2263528  assigned to cluster  7
+Track find. #states =  4
+Track  2263533  assigned to cluster  1
+Track find. #states =  4
+Track  2263538  assigned to cluster  6
+Track find. #states =  4
+Track  2263543  assigned to cluster  29
+Track find. #states =  4
+Track  2263548  assigned to cluster  28
+Track find. #states =  4
+Track  2263553  assigned to cluster  16
+Track find. #states =  4
+Track  2263558  assigned to cluster  4
+Track find. #states =  4
+Track  2263563  assigned to cluster  22
+Track find. #states =  4
+Track  2263568  assigned to cluster  25
+Track find. #states =  4
+MCID 2263364 not found.
+     trackID :  2263573  ,  energy :  2.5645565150998424
+Track find. #states =  4
+Track  2263578  assigned to cluster  8
+Track find. #states =  4
+Track  2263583  assigned to cluster  34
+Track find. #states =  4
+Track  2263588  assigned to cluster  5
+Track find. #states =  4
+Track  2263593  assigned to cluster  9
+Track find. #states =  4
+MCID 2263196 not found.
+Track find. #states =  4
+Track  2263603  assigned to cluster  0
+Track find. #states =  4
+Track  2263608  assigned to cluster  33
+Track find. #states =  4
+MCID 2263247 not found.
+Track find. #states =  4
+MCID 2263250 not found.
+Track find. #states =  4
+MCID 2263246 not found.
+     trackID :  2263623  ,  energy :  1.0753423876494501
+Track find. #states =  4
+Track  2263628  assigned to cluster  31
+Track find. #states =  4
+MCID 2263304 not found.
+     trackID :  2263633  ,  energy :  1.052944537719413
+Track find. #states =  4
+MCID 2263304 not found.
+     trackID :  2263638  ,  energy :  1.052944537719413
+Track find. #states =  4
+Track  2263643  assigned to cluster  12
+Track find. #states =  4
+MCID 2263249 not found.
+Track find. #states =  4
+MCID 2263251 not found.
+Track find. #states =  4
+MCID 2263251 not found.
+Track find. #states =  4
+Track  2263663  assigned to cluster  13
+Track find. #states =  4
+MCID 2263363 not found.
+Track find. #states =  4
+MCID 2263236 not found.
+     trackID :  2263673  ,  energy :  3.7077514186485745
+Reading 79 / 100 events...
+  jet energy      0.0
+  non nu energy   22.67107964174439
+something is wrong at this event 79
+MC dictionary finished. #hits = 2702  # clusters = 17
+pandora dictionary finished. #hits = 1364  # clusters = 17
+Track find. #states =  4
+Track  2303533  assigned to cluster  15
+Track find. #states =  4
+Track  2303538  assigned to cluster  9
+Track find. #states =  4
+Track  2303543  assigned to cluster  8
+Track find. #states =  4
+Track  2303548  assigned to cluster  12
+Track find. #states =  4
+Track  2303553  assigned to cluster  7
+Track find. #states =  4
+Track  2303558  assigned to cluster  1
+Track find. #states =  4
+Track  2303563  assigned to cluster  14
+Track find. #states =  4
+Track  2303568  assigned to cluster  0
+Track find. #states =  4
+Track  2303573  assigned to cluster  2
+Track find. #states =  4
+Track  2303578  assigned to cluster  3
+Reading 80 / 100 events...
+  jet energy      0.0
+  non nu energy   31.459554217318573
+something is wrong at this event 80
+MC dictionary finished. #hits = 1653  # clusters = 18
+pandora dictionary finished. #hits = 1394  # clusters = 17
+Track find. #states =  4
+Track  2318691  assigned to cluster  6
+Track find. #states =  4
+Track  2318696  assigned to cluster  4
+Track find. #states =  4
+Track  2318701  assigned to cluster  10
+Track find. #states =  4
+Track  2318706  assigned to cluster  17
+Track find. #states =  4
+Track  2318711  assigned to cluster  16
+Track find. #states =  4
+Track  2318716  assigned to cluster  15
+Track find. #states =  4
+Track  2318721  assigned to cluster  2
+Track find. #states =  4
+Track  2318726  assigned to cluster  2
+     clusterId  2  have multiple tracks  2318721    2318726 MC momentum  2.010209083557129 -1.3211218118667603 -2.3207688331604004
+Track find. #states =  4
+Track  2318731  assigned to cluster  13
+Track find. #states =  4
+Track  2318736  assigned to cluster  9
+Reading 81 / 100 events...
+  jet energy      0.0
+  non nu energy   69.53679067733091
+something is wrong at this event 81
+MC dictionary finished. #hits = 2691  # clusters = 20
+pandora dictionary finished. #hits = 1341  # clusters = 17
+Track find. #states =  4
+Track  2333055  assigned to cluster  2
+Track find. #states =  4
+Track  2333060  assigned to cluster  13
+Track find. #states =  4
+Track  2333065  assigned to cluster  11
+Track find. #states =  4
+Track  2333070  assigned to cluster  0
+Track find. #states =  4
+Track  2333075  assigned to cluster  7
+Track find. #states =  4
+Track  2333080  assigned to cluster  14
+Track find. #states =  4
+Track  2333085  assigned to cluster  1
+Track find. #states =  4
+Track  2333090  assigned to cluster  15
+Track find. #states =  4
+Track  2333095  assigned to cluster  6
+Track find. #states =  4
+Track  2333100  assigned to cluster  8
+Track find. #states =  4
+Track  2333105  assigned to cluster  12
+Track find. #states =  4
+Track  2333110  assigned to cluster  12
+     clusterId  12  have multiple tracks  2333105    2333110 MC momentum  0.47993388772010803 0.3829023838043213 0.23739495873451233
+Track find. #states =  4
+MCID 2332949 not found.
+Reading 82 / 100 events...
+  jet energy      0.0
+  non nu energy   78.83987257872403
+something is wrong at this event 82
+MC dictionary finished. #hits = 3238  # clusters = 19
+pandora dictionary finished. #hits = 1499  # clusters = 14
+Track find. #states =  4
+Track  2353904  assigned to cluster  0
+Track find. #states =  4
+Track  2353909  assigned to cluster  14
+Track find. #states =  4
+Track  2353914  assigned to cluster  8
+Track find. #states =  4
+Track  2353919  assigned to cluster  13
+Track find. #states =  4
+Track  2353924  assigned to cluster  2
+Track find. #states =  4
+Track  2353929  assigned to cluster  10
+Track find. #states =  4
+Track  2353934  assigned to cluster  1
+Track find. #states =  4
+Track  2353939  assigned to cluster  15
+Track find. #states =  4
+Track  2353944  assigned to cluster  16
+Track find. #states =  4
+Track  2353949  assigned to cluster  7
+Track find. #states =  4
+Track  2353954  assigned to cluster  17
+Track find. #states =  4
+MCID 2353813 not found.
+Reading 83 / 100 events...
+  jet energy      0.0
+  non nu energy   68.54070695867516
+something is wrong at this event 83
+MC dictionary finished. #hits = 4068  # clusters = 25
+pandora dictionary finished. #hits = 1562  # clusters = 22
+Track find. #states =  4
+Track  2376172  assigned to cluster  24
+Track find. #states =  4
+Track  2376177  assigned to cluster  8
+Track find. #states =  4
+Track  2376182  assigned to cluster  7
+Track find. #states =  4
+Track  2376187  assigned to cluster  22
+Track find. #states =  4
+Track  2376192  assigned to cluster  13
+Track find. #states =  4
+Track  2376197  assigned to cluster  0
+Track find. #states =  4
+Track  2376202  assigned to cluster  16
+Track find. #states =  4
+Track  2376207  assigned to cluster  15
+Track find. #states =  4
+Track  2376212  assigned to cluster  6
+Track find. #states =  4
+Track  2376217  assigned to cluster  11
+Track find. #states =  4
+Track  2376222  assigned to cluster  12
+Track find. #states =  4
+MCID 2376006 not found.
+     trackID :  2376227  ,  energy :  2.3641001734403173
+Track find. #states =  4
+Track  2376232  assigned to cluster  14
+Track find. #states =  4
+Track  2376237  assigned to cluster  10
+Reading 84 / 100 events...
+  jet energy      0.0
+  non nu energy   111.19810437153114
+something is wrong at this event 84
+MC dictionary finished. #hits = 3477  # clusters = 26
+pandora dictionary finished. #hits = 1828  # clusters = 24
+Track find. #states =  4
+Track  2400356  assigned to cluster  12
+Track find. #states =  4
+Track  2400361  assigned to cluster  14
+Track find. #states =  4
+0.9956331849098206
+Track  2400366  assigned to cluster  0
+Track find. #states =  4
+Track  2400371  assigned to cluster  16
+Track find. #states =  4
+Track  2400376  assigned to cluster  15
+Track find. #states =  4
+Track  2400381  assigned to cluster  7
+Track find. #states =  4
+Track  2400386  assigned to cluster  2
+Track find. #states =  4
+Track  2400391  assigned to cluster  9
+Track find. #states =  4
+Track  2400396  assigned to cluster  3
+Track find. #states =  4
+Track  2400401  assigned to cluster  3
+     clusterId  3  have multiple tracks  2400396    2400401 MC momentum  5.298664569854736 2.637479782104492 5.976686000823975
+Reading 85 / 100 events...
+  jet energy      0.0
+  non nu energy   31.074011395950127
+something is wrong at this event 85
+MC dictionary finished. #hits = 1902  # clusters = 17
+pandora dictionary finished. #hits = 1062  # clusters = 15
+Track find. #states =  4
+Track  2414418  assigned to cluster  2
+Track find. #states =  4
+Track  2414423  assigned to cluster  4
+Track find. #states =  4
+Track  2414428  assigned to cluster  7
+Track find. #states =  4
+Track  2414433  assigned to cluster  9
+Track find. #states =  4
+MCID 2414304 not found.
+Track find. #states =  4
+Track  2414443  assigned to cluster  3
+Track find. #states =  4
+Track  2414448  assigned to cluster  11
+Track find. #states =  4
+Track  2414453  assigned to cluster  8
+Track find. #states =  4
+Track  2414458  assigned to cluster  12
+Track find. #states =  4
+Track  2414463  assigned to cluster  14
+Track find. #states =  4
+Track  2414468  assigned to cluster  9
+     clusterId  9  have multiple tracks  2414433    2414468 MC momentum  0.18962284922599792 -0.659664511680603 0.036930181086063385
+Reading 86 / 100 events...
+  jet energy      0.0
+  non nu energy   58.52725914770272
+something is wrong at this event 86
+MC dictionary finished. #hits = 2395  # clusters = 20
+pandora dictionary finished. #hits = 1513  # clusters = 19
+Track find. #states =  4
+Track  2464676  assigned to cluster  9
+Track find. #states =  4
+Track  2464681  assigned to cluster  11
+Track find. #states =  4
+Track  2464686  assigned to cluster  2
+Track find. #states =  4
+Track  2464691  assigned to cluster  1
+Track find. #states =  4
+Track  2464696  assigned to cluster  8
+Track find. #states =  4
+Track  2464701  assigned to cluster  5
+Track find. #states =  4
+Track  2464706  assigned to cluster  0
+Track find. #states =  4
+Track  2464711  assigned to cluster  17
+Track find. #states =  4
+Track  2464716  assigned to cluster  12
+Track find. #states =  4
+Track  2464721  assigned to cluster  10
+Track find. #states =  4
+Track  2464726  assigned to cluster  18
+Reading 87 / 100 events...
+  jet energy      0.0
+  non nu energy   74.77060716035743
+something is wrong at this event 87
+MC dictionary finished. #hits = 2992  # clusters = 23
+pandora dictionary finished. #hits = 1247  # clusters = 18
+Track find. #states =  4
+Track  2483596  assigned to cluster  15
+Track find. #states =  4
+Track  2483601  assigned to cluster  0
+Track find. #states =  4
+Track  2483606  assigned to cluster  7
+Track find. #states =  4
+Track  2483611  assigned to cluster  8
+Track find. #states =  4
+Track  2483616  assigned to cluster  11
+Track find. #states =  4
+MCID 2483496 not found.
+     trackID :  2483621  ,  energy :  7.400635189189214
+Track find. #states =  4
+Track  2483626  assigned to cluster  14
+Track find. #states =  4
+Track  2483631  assigned to cluster  1
+Track find. #states =  4
+Track  2483636  assigned to cluster  5
+Track find. #states =  4
+Track  2483641  assigned to cluster  6
+Track find. #states =  4
+Track  2483646  assigned to cluster  2
+Track find. #states =  4
+Track  2483651  assigned to cluster  16
+Reading 88 / 100 events...
+  jet energy      0.0
+  non nu energy   12.540911559759985
+something is wrong at this event 88
+MC dictionary finished. #hits = 1509  # clusters = 14
+pandora dictionary finished. #hits = 994  # clusters = 12
+Track find. #states =  4
+Track  2499863  assigned to cluster  11
+Track find. #states =  4
+Track  2499868  assigned to cluster  5
+Track find. #states =  4
+Track  2499873  assigned to cluster  10
+Track find. #states =  4
+Track  2499878  assigned to cluster  13
+Track find. #states =  4
+Track  2499883  assigned to cluster  8
+Track find. #states =  4
+Track  2499888  assigned to cluster  7
+Track find. #states =  4
+Track  2499893  assigned to cluster  0
+Track find. #states =  4
+Track  2499898  assigned to cluster  6
+Track find. #states =  4
+MCID 2499786 not found.
+Reading 89 / 100 events...
+  jet energy      0.0
+  non nu energy   49.70589334874056
+something is wrong at this event 89
+MC dictionary finished. #hits = 2997  # clusters = 29
+pandora dictionary finished. #hits = 1678  # clusters = 28
+Track find. #states =  4
+Track  2517763  assigned to cluster  0
+Track find. #states =  4
+Track  2517768  assigned to cluster  1
+Track find. #states =  4
+Track  2517773  assigned to cluster  9
+Track find. #states =  4
+Track  2517778  assigned to cluster  21
+Track find. #states =  4
+Track  2517783  assigned to cluster  10
+Track find. #states =  4
+Track  2517788  assigned to cluster  6
+Track find. #states =  4
+Track  2517793  assigned to cluster  8
+Track find. #states =  4
+Track  2517798  assigned to cluster  16
+Track find. #states =  4
+MCID 2517669 not found.
+Track find. #states =  4
+Track  2517808  assigned to cluster  15
+Reading 90 / 100 events...
+  jet energy      0.0
+  non nu energy   115.2203667849742
+something is wrong at this event 90
+MC dictionary finished. #hits = 3797  # clusters = 24
+pandora dictionary finished. #hits = 1214  # clusters = 19
+Track find. #states =  4
+Track  2535475  assigned to cluster  14
+Track find. #states =  4
+Track  2535480  assigned to cluster  0
+Track find. #states =  4
+Track  2535485  assigned to cluster  5
+Track find. #states =  4
+Track  2535490  assigned to cluster  12
+Track find. #states =  4
+Track  2535495  assigned to cluster  8
+Track find. #states =  4
+Track  2535500  assigned to cluster  11
+Track find. #states =  4
+Track  2535505  assigned to cluster  6
+Track find. #states =  4
+Track  2535510  assigned to cluster  1
+Track find. #states =  4
+MCID 2535349 not found.
+Track find. #states =  4
+Track  2535520  assigned to cluster  9
+Track find. #states =  4
+Track  2535525  assigned to cluster  23
+Track find. #states =  4
+Track  2535530  assigned to cluster  2
+Track find. #states =  4
+Track  2535535  assigned to cluster  13
+Track find. #states =  4
+0.9795918464660645
+Track  2535540  assigned to cluster  18
+Reading 91 / 100 events...
+  jet energy      0.0
+  non nu energy   64.5326660412327
+something is wrong at this event 91
+MC dictionary finished. #hits = 4663  # clusters = 27
+pandora dictionary finished. #hits = 2103  # clusters = 23
+Track find. #states =  4
+Track  2560372  assigned to cluster  5
+Track find. #states =  4
+Track  2560377  assigned to cluster  19
+Track find. #states =  4
+Track  2560382  assigned to cluster  4
+Track find. #states =  4
+Track  2560387  assigned to cluster  23
+Track find. #states =  4
+Track  2560392  assigned to cluster  2
+Track find. #states =  4
+Track  2560397  assigned to cluster  15
+Track find. #states =  4
+Track  2560402  assigned to cluster  12
+Track find. #states =  4
+Track  2560407  assigned to cluster  3
+Track find. #states =  4
+Track  2560412  assigned to cluster  9
+Track find. #states =  4
+Track  2560417  assigned to cluster  6
+Track find. #states =  4
+Track  2560422  assigned to cluster  18
+Track find. #states =  4
+Track  2560427  assigned to cluster  21
+Track find. #states =  4
+MCID 2560228 not found.
+Reading 92 / 100 events...
+  jet energy      0.0
+  non nu energy   65.7569034768083
+something is wrong at this event 92
+MC dictionary finished. #hits = 4296  # clusters = 40
+pandora dictionary finished. #hits = 2180  # clusters = 26
+Track find. #states =  4
+Track  2583979  assigned to cluster  38
+Track find. #states =  4
+Track  2583984  assigned to cluster  13
+Track find. #states =  4
+Track  2583989  assigned to cluster  15
+Track find. #states =  4
+Track  2583994  assigned to cluster  22
+Track find. #states =  4
+Track  2583999  assigned to cluster  29
+Track find. #states =  4
+Track  2584004  assigned to cluster  20
+Track find. #states =  4
+Track  2584009  assigned to cluster  3
+Track find. #states =  4
+Track  2584014  assigned to cluster  4
+Track find. #states =  4
+Track  2584019  assigned to cluster  9
+Track find. #states =  4
+Track  2584024  assigned to cluster  36
+Track find. #states =  4
+MCID 2583787 not found.
+Track find. #states =  4
+Track  2584034  assigned to cluster  16
+Track find. #states =  4
+Track  2584039  assigned to cluster  14
+Track find. #states =  4
+MCID 2583855 not found.
+Track find. #states =  4
+0.5833333134651184
+MCID 2583754 not found.
+     trackID :  2584049  ,  energy :  2.0560858669457955
+Track find. #states =  4
+Track  2584054  assigned to cluster  10
+Track find. #states =  4
+Track  2584059  assigned to cluster  24
+Track find. #states =  4
+Track  2584064  assigned to cluster  25
+Track find. #states =  4
+Track  2584069  assigned to cluster  32
+Track find. #states =  4
+Track  2584074  assigned to cluster  34
+Reading 93 / 100 events...
+  jet energy      0.0
+  non nu energy   97.17846953355179
+something is wrong at this event 93
+MC dictionary finished. #hits = 2784  # clusters = 29
+pandora dictionary finished. #hits = 1527  # clusters = 24
+Track find. #states =  4
+MCID 2613842 not found.
+Track find. #states =  4
+Track  2613965  assigned to cluster  1
+Track find. #states =  4
+Track  2613970  assigned to cluster  4
+Track find. #states =  4
+Track  2613975  assigned to cluster  9
+Track find. #states =  4
+Track  2613980  assigned to cluster  7
+Track find. #states =  4
+Track  2613985  assigned to cluster  10
+Track find. #states =  4
+Track  2613990  assigned to cluster  5
+Track find. #states =  4
+Track  2613995  assigned to cluster  18
+Track find. #states =  4
+Track  2614000  assigned to cluster  12
+Track find. #states =  4
+Track  2614005  assigned to cluster  13
+Track find. #states =  4
+Track  2614010  assigned to cluster  19
+Track find. #states =  4
+Track  2614015  assigned to cluster  6
+Track find. #states =  4
+Track  2614020  assigned to cluster  14
+Track find. #states =  4
+Track  2614025  assigned to cluster  11
+Track find. #states =  4
+Track  2614030  assigned to cluster  16
+Track find. #states =  4
+Track  2614035  assigned to cluster  23
+Track find. #states =  4
+Track  2614040  assigned to cluster  23
+     clusterId  23  have multiple tracks  2614035    2614040 MC momentum  -0.2510320544242859 -0.062245164066553116 -0.06611283123493195
+Track find. #states =  4
+Track  2614045  assigned to cluster  1
+     clusterId  1  have multiple tracks  2613965    2614045 MC momentum  -0.062112610787153244 -0.3606199622154236 -0.056352242827415466
+Track find. #states =  4
+Track  2614050  assigned to cluster  15
+Reading 94 / 100 events...
+  jet energy      0.0
+  non nu energy   62.662479609631426
+something is wrong at this event 94
+MC dictionary finished. #hits = 2569  # clusters = 21
+pandora dictionary finished. #hits = 1535  # clusters = 19
+Track find. #states =  4
+Track  2645620  assigned to cluster  7
+Track find. #states =  4
+Track  2645625  assigned to cluster  14
+Track find. #states =  4
+Track  2645630  assigned to cluster  0
+Track find. #states =  4
+Track  2645635  assigned to cluster  2
+Track find. #states =  4
+Track  2645640  assigned to cluster  12
+Track find. #states =  4
+Track  2645645  assigned to cluster  15
+Track find. #states =  4
+Track  2645650  assigned to cluster  4
+Track find. #states =  4
+Track  2645655  assigned to cluster  16
+Track find. #states =  4
+Track  2645660  assigned to cluster  11
+Track find. #states =  4
+Track  2645665  assigned to cluster  9
+Track find. #states =  4
+Track  2645670  assigned to cluster  12
+     clusterId  12  have multiple tracks  2645640    2645670 MC momentum  -0.11925595253705978 -0.9419815540313721 0.007366866338998079
+Track find. #states =  4
+Track  2645675  assigned to cluster  12
+     clusterId  12  have multiple tracks  2645640    2645675 MC momentum  -0.11925595253705978 -0.9419815540313721 0.007366866338998079
+Track find. #states =  4
+Track  2645680  assigned to cluster  8
+Track find. #states =  4
+Track  2645685  assigned to cluster  12
+     clusterId  12  have multiple tracks  2645640    2645685 MC momentum  -0.11925595253705978 -0.9419815540313721 0.007366866338998079
+Track find. #states =  4
+Track  2645690  assigned to cluster  12
+     clusterId  12  have multiple tracks  2645640    2645690 MC momentum  -0.11925595253705978 -0.9419815540313721 0.007366866338998079
+Track find. #states =  4
+Track  2645695  assigned to cluster  12
+     clusterId  12  have multiple tracks  2645640    2645695 MC momentum  -0.11925595253705978 -0.9419815540313721 0.007366866338998079
+Track find. #states =  4
+Track  2645700  assigned to cluster  12
+     clusterId  12  have multiple tracks  2645640    2645700 MC momentum  -0.11925595253705978 -0.9419815540313721 0.007366866338998079
+Track find. #states =  4
+Track  2645705  assigned to cluster  12
+     clusterId  12  have multiple tracks  2645640    2645705 MC momentum  -0.11925595253705978 -0.9419815540313721 0.007366866338998079
+Reading 95 / 100 events...
+  jet energy      0.0
+  non nu energy   164.2008174923036
+something is wrong at this event 95
+MC dictionary finished. #hits = 3976  # clusters = 31
+pandora dictionary finished. #hits = 1836  # clusters = 23
+Track find. #states =  4
+Track  2690148  assigned to cluster  20
+Track find. #states =  4
+Track  2690153  assigned to cluster  23
+Track find. #states =  4
+Track  2690158  assigned to cluster  5
+Track find. #states =  4
+Track  2690163  assigned to cluster  4
+Track find. #states =  4
+Track  2690168  assigned to cluster  16
+Track find. #states =  4
+Track  2690173  assigned to cluster  3
+Track find. #states =  4
+Track  2690178  assigned to cluster  10
+Track find. #states =  4
+Track  2690183  assigned to cluster  13
+Track find. #states =  4
+Track  2690188  assigned to cluster  28
+Track find. #states =  4
+Track  2690193  assigned to cluster  22
+Track find. #states =  4
+Track  2690198  assigned to cluster  19
+Track find. #states =  4
+Track  2690203  assigned to cluster  8
+Track find. #states =  4
+Track  2690208  assigned to cluster  7
+Track find. #states =  4
+Track  2690213  assigned to cluster  1
+Track find. #states =  4
+Track  2690218  assigned to cluster  2
+Track find. #states =  4
+MCID 2690033 not found.
+Track find. #states =  4
+MCID 2690033 not found.
+Track find. #states =  4
+MCID 2690033 not found.
+Track find. #states =  4
+Track  2690238  assigned to cluster  6
+Reading 96 / 100 events...
+  jet energy      0.0
+  non nu energy   61.626958448714944
+something is wrong at this event 96
+MC dictionary finished. #hits = 4304  # clusters = 35
+pandora dictionary finished. #hits = 2002  # clusters = 28
+Track find. #states =  4
+Track  2717973  assigned to cluster  28
+Track find. #states =  4
+Track  2717978  assigned to cluster  30
+Track find. #states =  4
+Track  2717983  assigned to cluster  34
+Track find. #states =  4
+Track  2717988  assigned to cluster  10
+Track find. #states =  4
+Track  2717993  assigned to cluster  12
+Track find. #states =  4
+Track  2717998  assigned to cluster  2
+Track find. #states =  4
+Track  2718003  assigned to cluster  11
+Track find. #states =  4
+Track  2718008  assigned to cluster  15
+Track find. #states =  4
+Track  2718013  assigned to cluster  9
+Track find. #states =  4
+Track  2718018  assigned to cluster  13
+Track find. #states =  4
+Track  2718023  assigned to cluster  6
+Track find. #states =  4
+MCID 2717832 not found.
+Track find. #states =  4
+MCID 2717825 not found.
+Track find. #states =  4
+MCID 2717756 not found.
+     trackID :  2718038  ,  energy :  1.0066100499481554
+Track find. #states =  4
+Track  2718043  assigned to cluster  29
+Track find. #states =  4
+Track  2718048  assigned to cluster  8
+Track find. #states =  4
+MCID 2717825 not found.
+Track find. #states =  4
+MCID 2717825 not found.
+Track find. #states =  4
+0.949999988079071
+Track  2718063  assigned to cluster  16
+Track find. #states =  4
+MCID 2717798 not found.
+Track find. #states =  4
+Track  2718073  assigned to cluster  7
+Reading 97 / 100 events...
+  jet energy      0.0
+  non nu energy   50.29214138948494
+something is wrong at this event 97
+MC dictionary finished. #hits = 2665  # clusters = 21
+pandora dictionary finished. #hits = 1285  # clusters = 18
+Track find. #states =  4
+Track  2740878  assigned to cluster  2
+Track find. #states =  4
+Track  2740883  assigned to cluster  12
+Track find. #states =  4
+Track  2740888  assigned to cluster  6
+Track find. #states =  4
+Track  2740893  assigned to cluster  20
+Track find. #states =  4
+0.9912280440330505
+Track  2740898  assigned to cluster  13
+Track find. #states =  4
+Track  2740903  assigned to cluster  11
+Track find. #states =  4
+Track  2740908  assigned to cluster  18
+Track find. #states =  4
+Track  2740913  assigned to cluster  17
+Track find. #states =  4
+Track  2740918  assigned to cluster  19
+Track find. #states =  4
+Track  2740923  assigned to cluster  3
+Reading 98 / 100 events...
+  jet energy      0.0
+  non nu energy   26.96213209282181
+something is wrong at this event 98
+MC dictionary finished. #hits = 2532  # clusters = 15
+pandora dictionary finished. #hits = 1139  # clusters = 14
+Track find. #states =  4
+Track  2758842  assigned to cluster  9
+Track find. #states =  4
+Track  2758847  assigned to cluster  2
+Track find. #states =  4
+Track  2758852  assigned to cluster  7
+Track find. #states =  4
+Track  2758857  assigned to cluster  6
+Track find. #states =  4
+Track  2758862  assigned to cluster  5
+Track find. #states =  4
+Track  2758867  assigned to cluster  8
+Track find. #states =  4
+Track  2758872  assigned to cluster  10
+Track find. #states =  4
+Track  2758877  assigned to cluster  13
+Track find. #states =  4
+MCID 2758756 not found.
+Track find. #states =  4
+MCID 2758751 not found.
+Track find. #states =  4
+MCID 2758774 not found.
+Reading 99 / 100 events...
+  jet energy      0.0
+  non nu energy   40.20608863006312
+something is wrong at this event 99
+MC dictionary finished. #hits = 3791  # clusters = 27
+pandora dictionary finished. #hits = 1792  # clusters = 26
+Track find. #states =  4
+Track  2781479  assigned to cluster  22
+Track find. #states =  4
+Track  2781484  assigned to cluster  12
+Track find. #states =  4
+Track  2781489  assigned to cluster  21
+Track find. #states =  4
+Track  2781494  assigned to cluster  7
+Track find. #states =  4
+Track  2781499  assigned to cluster  15
+Track find. #states =  4
+Track  2781504  assigned to cluster  9
+Track find. #states =  4
+Track  2781509  assigned to cluster  4
+Track find. #states =  4
+Track  2781514  assigned to cluster  8
+Track find. #states =  4
+Track  2781519  assigned to cluster  26
+Track find. #states =  4
+Track  2781524  assigned to cluster  10
+Track find. #states =  4
+Track  2781529  assigned to cluster  20
+Track find. #states =  4
+Track  2781534  assigned to cluster  11
+notStopped :  10    decayedInTracker :  50     abnormal_virtual_hit :  52   pi  36    k  0
+
+
+PS:
+
+Read file <errors.80443036> for stderr output of this job.
+
