@@ -544,112 +544,84 @@ def makeAk(filename, outfilename, maxread, skip):
             continue
 
         ###################################################################
-        # ここで先にreltrackから適当なdictionaryを作って
-        # MCParticleに紐づいていないtrackはそもそものぞく(labelもfeatもなし)
-        # trackが一つしかないMCParticleのtrackはそのまま
-        # ２つ以上のtrackが同じMCParticleについていたらinnermosthitが一番外側のtrackを採用
-        #   そのさいにMCParticleをmergeしているときにはdecayする前のtrackを採用
-        # 
-        # vertex のmomentumも入れるように変更
-        # MCParticleごとに最も外側のtrackを保持
-        bestTrackForMC = {}
+        # track -> MCParticle対応を一意化:
+        # - 1つのMCParticleに複数trackが紐づく場合は、
+        #   (merge時は decay 前MC を優先した上で) innermostHit半径が最大のtrackを採用
+        # - 非採用trackは feat/label を作らない
+        bestCandidateForTrack = {}
+        groupedCandidatesForMC = {}
+
         for colname in TrackList:
             if not colname in colnames: continue
             col = event.getCollection(colname)
             for track in col:
-                print(track.id(), track.getRadiusOfInnermostHit())
-                trackStates = track.getTrackStates()
-                r_max = -1.0
-                # for ts in trackStates:
-                #     ref = ts.getReferencePoint()
-                #     x, y, z = ref[0], ref[1], ref[2]
-                #     r = math.sqrt(x*x + y*y)
-                #     if r > r_max:
-                #         r_max = r
-                # if r_max < 0:
-                #     continue
-                for ts in trackStates:
-                    # ts = track.getTrackState(4) # at calorimeter
-                    point = ts.getReferencePoint()
-                    print("  track state position : ", point[0], point[1], point[2])
-
-                    ref = ts.getReferencePoint()
-                    x, y, z = ref[0], ref[1], ref[2]
-                    r = math.sqrt(x*x + y*y)
-                    if r > r_max:
-                        r_max = r
-                if r_max < 0:
+                rin = track.getRadiusOfInnermostHit()
+                if rin <= 0:
+                    # fallback: track stateの参照点から半径を計算
+                    rin = -1.0
+                    for ts in track.getTrackStates():
+                        ref = ts.getReferencePoint()
+                        r = math.sqrt(ref[0]*ref[0] + ref[1]*ref[1] + ref[2]*ref[2])
+                        if r > rin:
+                            rin = r
+                if rin < 0:
                     continue
-                
+
+                bestRelForTrack = None
                 for relcolname in RelTrackList:
                     if relcolname not in colnames: continue
-
                     relcol = event.getCollection(relcolname)
                     nav = LCRelationNavigator(relcol)
+                    for rel, w in zip(nav.getRelatedToObjects(track), nav.getRelatedToWeights(track)):
+                        if w <= 0.5: continue
 
-                    related = nav.getRelatedToObjects(track)
-                    weights = nav.getRelatedToWeights(track)
-
-                    for rel, w in zip(related, weights):
-                    
-                        if w < 0.5:
+                        # mergeしている場合は merge先(=decay前側)のMCIDを用いる
+                        mapped_mcp = dictSkimmed[rel.id()] if rel.id() in dictSkimmed else rel
+                        mapped_mcid = mapped_mcp.id()
+                        if mapped_mcid not in dictClusterIdx:
                             continue
 
-                        mcid = rel.id()
-
-                        # 既に登録済みなら r を比較
-                        if mcid in bestTrackForMC:
-                            if r_max > bestTrackForMC[mcid]["r"]:
-                                bestTrackForMC[mcid] = {
-                                    "track": track,
-                                    "r": r_max
-                                }
+                        candidate = {
+                            "track": track,
+                            "mcid": mapped_mcid,
+                            "weight": w,
+                            "rin": rin,
+                            "is_pre_decay": (rel.id() == mapped_mcid)
+                        }
+                        if bestRelForTrack is None:
+                            bestRelForTrack = candidate
                         else:
-                            bestTrackForMC[mcid] = {
-                                "track": track,
-                                "r": r_max
-                            }
+                            # 同一trackに複数候補がある場合は、weight優先で代表を1つにする
+                            if (candidate["weight"], candidate["is_pre_decay"], candidate["rin"]) > (
+                                bestRelForTrack["weight"], bestRelForTrack["is_pre_decay"], bestRelForTrack["rin"]
+                            ):
+                                bestRelForTrack = candidate
 
-            # ===== 選ばれたtrackのみ処理 =====
-            selectedTracks = [v["track"] for v in bestTrackForMC.values()]
+                if bestRelForTrack is not None:
+                    bestCandidateForTrack[track.id()] = bestRelForTrack
+                    mcid = bestRelForTrack["mcid"]
+                    if mcid not in groupedCandidatesForMC:
+                        groupedCandidatesForMC[mcid] = []
+                    groupedCandidatesForMC[mcid].append(bestRelForTrack)
 
-            for track in selectedTracks:
-                # ここに既存処理を書く
-                print("Selected track ID:", track.id())
-
-
-
-
-        for relcolname in RelTrackList:
-            if not relcolname in colnames: continue
-            relcol = event.getCollection(relcolname)
-            nav = LCRelationNavigator(relcol)
-            for rel,w in zip(nav.getRelatedToObjects(track),nav.getRelatedToWeights(track)):
-                if w > 0.5:
-                    if w < 1: print (w)
-                    if rel.id() not in dictClusterIdx:
-                        print("MCID", rel.id(), "not found.")
-                        if rel.getEnergy()>1:
-                            print("     trackID : ", track.id(), " ,  energy : ", rel.getEnergy())
-                            if not rel.isStopped():
-                                notStopped = notStopped + 1
-                            if rel.isDecayedInTracker():
-                                decayedInTracker = decayedInTracker + 1
-                            abnormal_virtual_hit = abnormal_virtual_hit + 1
-                            if rel.getPDG() ==211 or rel.getPDG() == -211:
-                                npi = npi+1
-                            if rel.getPDG() == 321 or rel.getPDG() == -321:
-                                nk = nk+1
-                        continue
-                    labels = dictClusterIdx[rel.id()]
-                    hitid = -track.id()
-        ###################################################################
-
+        selectedTrackInfo = {}
+        for mcid, candidates in groupedCandidatesForMC.items():
+            print("MCID", mcid, "candidates", candidates, "track ids", [c["track"].id() for c in candidates])
+            if len(candidates) == 1:
+                winner = candidates[0]
+            else:
+                pre_decay_candidates = [c for c in candidates if c["is_pre_decay"]]
+                pool = pre_decay_candidates if len(pre_decay_candidates) > 0 else candidates
+                # innermostHitが最も外側(半径最大)のtrackを採用
+                winner = max(pool, key=lambda c: (c["rin"], c["weight"], -c["track"].id()))
+            selectedTrackInfo[winner["track"].id()] = {"mcid": mcid}
+        print(selectedTrackInfo)
 
         for colname in TrackList:
             if not colname in colnames: continue
             col = event.getCollection(colname)
             for track in col:
+                if track.id() not in selectedTrackInfo: continue
                 nstates = track.getTrackStates().size()
                 print("Track find. #states = ", nstates)
                 if nstates > 0:
@@ -688,33 +660,44 @@ def makeAk(filename, outfilename, maxread, skip):
                         b_feat.real(py_vertex)
                         b_feat.real(pz_vertex)
 
+                    # b_label.begin_list()
+                    # hitid=0
+                    # 
+                    # for relcolname in RelTrackList:
+                    #     if not relcolname in colnames: continue
+                    #     relcol = event.getCollection(relcolname)
+                    #     nav = LCRelationNavigator(relcol)
+                    #     for rel,w in zip(nav.getRelatedToObjects(track),nav.getRelatedToWeights(track)):
+                    #         if w > 0.5:
+                    #             if w < 1: print (w)
+                    #             if rel.id() not in dictClusterIdx:
+                    #                 print("MCID", rel.id(), "not found.")
+                    #                 if rel.getEnergy()>1:
+                    #                     print("     trackID : ", track.id(), " ,  energy : ", rel.getEnergy())
+                    #                     if not rel.isStopped():
+                    #                         notStopped = notStopped + 1
+                    #                     if rel.isDecayedInTracker():
+                    #                         decayedInTracker = decayedInTracker + 1
+                    #                     abnormal_virtual_hit = abnormal_virtual_hit + 1
+                    #                     if rel.getPDG() ==211 or rel.getPDG() == -211:
+                    #                         npi = npi+1
+                    #                     if rel.getPDG() == 321 or rel.getPDG() == -321:
+                    #                         nk = nk+1
+                    #                 continue
+                    #             labels = dictClusterIdx[rel.id()]
+                    #             hitid = -track.id()
+                    # 
+                    # b_label.real(hitid)
+
                     b_label.begin_list()
-                    hitid=0
-
-                    for relcolname in RelTrackList:
-                        if not relcolname in colnames: continue
-                        relcol = event.getCollection(relcolname)
-                        nav = LCRelationNavigator(relcol)
-                        for rel,w in zip(nav.getRelatedToObjects(track),nav.getRelatedToWeights(track)):
-                            if w > 0.5:
-                                if w < 1: print (w)
-                                if rel.id() not in dictClusterIdx:
-                                    print("MCID", rel.id(), "not found.")
-                                    if rel.getEnergy()>1:
-                                        print("     trackID : ", track.id(), " ,  energy : ", rel.getEnergy())
-                                        if not rel.isStopped():
-                                            notStopped = notStopped + 1
-                                        if rel.isDecayedInTracker():
-                                            decayedInTracker = decayedInTracker + 1
-                                        abnormal_virtual_hit = abnormal_virtual_hit + 1
-                                        if rel.getPDG() ==211 or rel.getPDG() == -211:
-                                            npi = npi+1
-                                        if rel.getPDG() == 321 or rel.getPDG() == -321:
-                                            nk = nk+1
-                                    continue
-                                labels = dictClusterIdx[rel.id()]
-                                hitid = -track.id()
-
+                    labels = None
+                    hitid = 0
+                    selected_mcid = selectedTrackInfo[track.id()]["mcid"]
+                    if selected_mcid in dictClusterIdx:
+                        labels = dictClusterIdx[selected_mcid]
+                        hitid = -track.id()
+                    else:
+                        print("MCID", selected_mcid, "not found.")
                     b_label.real(hitid)
 
                     #print("Track pos", point[0], point[1], point[2], "momentum", px, py, pz)
@@ -722,7 +705,7 @@ def makeAk(filename, outfilename, maxread, skip):
                     # if hitid == 0:
                         print("Track ", -hitid, " assigned to cluster ", labels["id"])
 
-                    if(hitid != 0):
+                    if(hitid != 0 and labels is not None):
                         b_label.real(labels["id"])
                         b_label.real(labels["pdg"])
                         b_label.real(labels["charge"])
