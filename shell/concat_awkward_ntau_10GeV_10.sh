@@ -11,12 +11,12 @@
 # done
 cd .. 
 
-# sample=train
-# num=0
+sample=train
+num=0
 # sample=validation
 # num=800
-sample=test
-num=900
+# sample=test
+# num=900
 
 
 type=ntau_10GeV_10

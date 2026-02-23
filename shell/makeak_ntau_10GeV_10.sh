@@ -4,7 +4,7 @@ cd ..
 
 datadir=../gpfs/data/skimmed/pandora/ntau_10GeV_10
 
-type=validation
+type=train
 
 mkdir -p ${datadir}/log_${type}Samples/
 mkdir -p ${datadir}/awkd_${type}Samples/
