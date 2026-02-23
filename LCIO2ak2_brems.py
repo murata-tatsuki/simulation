@@ -260,27 +260,35 @@ def makeAk(filename, outfilename, maxread, skip):
                 if mcpSkimmed.getParents().size()==0:
                     dictSkimmed[mcpSkimmed.id()] = mcpSkimmed
                     continue
-                if checkPi02gamma(mcpSkimmed) and mcpSkimmed.getDaughters().size()==0:
-                    photon1Pos = get_entry_point_from_simhits(mcpSkimmed.getParents()[0].getDaughters()[0], event, SimHitNameList)
-                    photon2Pos = get_entry_point_from_simhits(mcpSkimmed.getParents()[0].getDaughters()[1], event, SimHitNameList)
-                    print(mcpSkimmed.id(), mcpSkimmed.getParents()[0].getEnergy(), mcpSkimmed.getParents()[0].getDaughters()[0].getEnergy(), mcpSkimmed.getParents()[0].getDaughters()[1].getEnergy())
-                    if checkDistance(photon1Pos, photon2Pos):
-                        dictSkimmed[mcpSkimmed.id()] = mcpSkimmed.getParents()[0] if checkDistance(photon1Pos, photon2Pos) else mcpSkimmed
-                        n_decayedpi0_near = n_decayedpi0_near + 1
-                    else:
-                        dictSkimmed[mcpSkimmed.id()] = mcpSkimmed
-                    n_decayedpi0 = n_decayedpi0 + 1
-                elif checkBrems(mcpSkimmed) and mcpSkimmed.getDaughters().size()==0:
-                    photonPos = get_entry_point_from_simhits(mcpSkimmed, event, SimHitNameList)
-                    electronPos = get_calo_entry_from_mcp_via_track(mcpSkimmed.getParents()[0], event, TrackList, RelTrackList)
-                    if electronPos is None or not checkDistance(photonPos, electronPos):
-                        dictSkimmed[mcpSkimmed.id()] = mcpSkimmed
-                        n_brems = n_brems +1
-                    else: 
-                        dictSkimmed[mcpSkimmed.id()] = mcpSkimmed.getParents()[0] 
-                        n_brems_near = n_brems_near +1
-                else:
-                    dictSkimmed[mcpSkimmed.id()] = mcpSkimmed
+                mergedMCP = mcpSkimmed
+                while mergedMCP.getParents().size() > 0:
+                    # pi0 -> gamma gamma が近接していれば親(pi0)へマージ
+                    if checkPi02gamma(mergedMCP):
+                        parent = mergedMCP.getParents()[0]
+                        photon1Pos = get_entry_point_from_simhits(parent.getDaughters()[0], event, SimHitNameList)
+                        photon2Pos = get_entry_point_from_simhits(parent.getDaughters()[1], event, SimHitNameList)
+                        print(mergedMCP.id(), parent.getEnergy(), parent.getDaughters()[0].getEnergy(), parent.getDaughters()[1].getEnergy())
+                        n_decayedpi0 = n_decayedpi0 + 1
+                        if checkDistance(photon1Pos, photon2Pos):
+                            mergedMCP = parent
+                            n_decayedpi0_near = n_decayedpi0_near + 1
+                            continue
+                        break
+                    # brems が近接していれば親(e-/e+)へマージ
+                    if checkBrems(mergedMCP):
+                        parent = mergedMCP.getParents()[0]
+                        photonPos = get_entry_point_from_simhits(mergedMCP, event, SimHitNameList)
+                        electronPos = get_calo_entry_from_mcp_via_track(parent, event, TrackList, RelTrackList)
+                        if electronPos is None or not checkDistance(photonPos, electronPos):
+                            n_brems = n_brems + 1
+                            break
+                        mergedMCP = parent
+                        n_brems_near = n_brems_near + 1
+                        continue
+                    # どちらの条件にも当てはまらなければ終了
+                    break
+
+                dictSkimmed[mcpSkimmed.id()] = mergedMCP
 
         b_event.begin_list()
 
