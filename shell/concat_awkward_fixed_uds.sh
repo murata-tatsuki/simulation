@@ -4,12 +4,15 @@ cd ..
 
 partType=ss     # uu dd ss
 basedir=../gpfs/data/skimmed/pandora/fixed_uds/${partType}/awkd
-jobdir=job/skimmed/pandora/${partType}
+jobdir=job/skimmed/pandora/concat/${partType}
 
 mkdir -p ${basedir}/concat
 mkdir -p ${jobdir}/concat
 
 # =Pn23n23h_
+
+rm -rf ${jobdir}/concat/filelists
+mkdir -p ${jobdir}/concat/filelists
 
 a=0
 for file in `cat filelists/pfa_${partType}.list`; do
@@ -58,15 +61,19 @@ for file in `cat filelists/pfa_${partType}.list`; do
     fi
 
     if [ -e ${basedir}/concat/${ene}GeV/${partType}_${num}.h5 ]; then 
-        echo "${basedir}/concat/${ene}GeV/${partType}_${num}.h5 already exist "
+        echo "${basedir}/concat/${ene}GeV/${partType}_${num}.h5 already exist " $fileNum
         continue;
     fi
 
-    echo "processing ${filename}.h5 => ${partType}_${num}.h5"
-    ls ${basedir}/${filename}/${filename}_*.h5 > temp/temp.list
+    mkdir -p ${jobdir}/concat/filelists/${ene}GeV
+    # rm ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt
+    touch ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt
 
-    bsub -q s -o ${jobdir}/concat/output.%J -e ${jobdir}/concat/errors.%J "python concat_awkward.py temp/temp.list ${basedir}/concat/${ene}GeV/${partType}_${num}.h5"
-    # python concat_awkward.py temp/temp.list ${basedir}/concat/uds91_${num}.h5
+    echo "processing ${filename}.h5 => ${partType}_${num}.h5"
+    ls ${basedir}/${filename}/${filename}_*.h5 > ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt
+
+    bsub -q s -o ${jobdir}/concat/output.%J -e ${jobdir}/concat/errors.%J "python concat_awkward.py ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt ${basedir}/concat/${ene}GeV/${partType}_${num}.h5"
+    # python concat_awkward.py ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt ${basedir}/concat/uds91_${num}.h5
     # bsub -q s "python LCIO2ak2_edit.py $file ${basedir}/${filename}_${S}.h5 10 ${a} > ../gpfs/data/uds/log/${filename}_${S}.log"
 done
 

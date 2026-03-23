@@ -95,6 +95,128 @@ def checkDistance(pos1, pos2):
 
     return distance < 20
 
+B_FIELD_TESLA = 3.5
+
+def get_track_momentum_at_point(track, x, y, z):
+    """
+    trackの指定点に最も近いTrackStateから運動量を計算。
+    p = 0.3 * B / |omega| (GeV/c), omegaは1/mm。
+    """
+    state = track.getClosestTrackState(x, y, z)
+    if state is None:
+        return None
+    p = -.001 / state.getOmega() * 0.3 * B_FIELD_TESLA
+    px = p * math.cos(state.getPhi())
+    py = p * math.sin(state.getPhi())
+    pz = p * state.getTanLambda()
+    return (px, py, pz)
+
+def find_track_for_mcp_at_brems(mc, event, TrackList, RelTrackList, dictSkimmed, colnames):
+    """
+    MC粒子に紐づくtrackのうち、brems後のセグメント(最外周)を返す。
+    brems点に最も近いtrack stateを持つtrackを優先。
+    """
+    brems_daughters = [d for d in mc.getDaughters() if d.getPDG() == 22 and d.vertexIsNotEndpointOfParent()]
+    if not brems_daughters:
+        return None
+    brems_vtx = brems_daughters[0].getVertex()
+    bx, by, bz = brems_vtx[0], brems_vtx[1], brems_vtx[2]
+
+    best_track = None
+    best_rin = -1.0
+
+    for colname in TrackList:
+        if colname not in colnames: continue
+        col = event.getCollection(colname)
+        for track in col:
+            rin = track.getRadiusOfInnermostHit()
+            if rin <= 0:
+                # fallback: track stateの参照点からinnermost(最小半径)を計算
+                rin = 1e30
+                for ts in track.getTrackStates():
+                    ref = ts.getReferencePoint()
+                    r = math.sqrt(ref[0]**2 + ref[1]**2 + ref[2]**2)
+                    if r < rin:
+                        rin = r
+                if rin >= 1e30:
+                    rin = -1.0
+            if rin < 0:
+                continue
+
+            for relcolname in RelTrackList:
+                if relcolname not in colnames: continue
+                relcol = event.getCollection(relcolname)
+                nav = LCRelationNavigator(relcol)
+                for rel, w in zip(nav.getRelatedToObjects(track), nav.getRelatedToWeights(track)):
+                    if w <= 0.5:
+                        continue
+                    mapped_mcp = dictSkimmed[rel.id()] if rel.id() in dictSkimmed else rel
+                    if mapped_mcp.id() != mc.id():
+                        continue
+                    if rin > best_rin:
+                        best_rin = rin
+                        best_track = track
+                    break
+
+    return best_track
+
+def _get_brems_photons(mc):
+    """
+    複数回bremsしてもelectronは同じ粒子のまま。brems光子はすべて直接の娘。
+    """
+    return [d for d in mc.getDaughters() if d.getPDG() == 22 and d.vertexIsNotEndpointOfParent()]
+
+def _is_photon_merged_to_mc(photon, mc, dictSkimmed):
+    """
+    photonがこのmcにmergeされているか。
+    dictSkimmed[photon_id] == mc ならmerge済み（差し引かない）。
+    """
+    if photon.id() not in dictSkimmed:
+        return False
+    return dictSkimmed[photon.id()].id() == mc.id()
+
+def get_brems_corrected_energy_momentum(mc, event, TrackList, RelTrackList, dictSkimmed, colnames):
+    """
+    bremsを起こしているe-/e+について補正する。
+    - Energy: mc.getEnergy()はbrems光子分も含むため、光子分を差し引く。
+    - merge済みの光子(photon_n, photon_(n-1)など)は差し引かない。photon_1〜photon_(n-2)のみ差し引く。
+    - Momentum: trackのbrems点での運動量を使用（磁場補正）。merge済み光子の運動量は引かない。
+    """
+    energy = mc.getEnergy()
+    px, py, pz = mc.getMomentum()[0], mc.getMomentum()[1], mc.getMomentum()[2]
+    if mc.getPDG() not in [11, -11]:
+        return energy, (px, py, pz)
+
+    all_brems = _get_brems_photons(mc)
+    # merge済みの光子は差し引かない
+    to_subtract = [d for d in all_brems if not _is_photon_merged_to_mc(d, mc, dictSkimmed)]
+    if not to_subtract:
+        return energy, (px, py, pz)
+
+    for d in to_subtract:
+        energy -= d.getEnergy()
+
+    track = find_track_for_mcp_at_brems(mc, event, TrackList, RelTrackList, dictSkimmed, colnames)
+    if track is not None and all_brems:
+        brems_vtx = max(all_brems, key=lambda d: math.sqrt(d.getVertex()[0]**2 + d.getVertex()[1]**2 + d.getVertex()[2]**2)).getVertex()
+        mom_at_brems = get_track_momentum_at_point(track, brems_vtx[0], brems_vtx[1], brems_vtx[2])
+        if mom_at_brems is not None:
+            px, py, pz = mom_at_brems[0], mom_at_brems[1], mom_at_brems[2]
+        else:
+            px, py, pz = mc.getMomentum()[0], mc.getMomentum()[1], mc.getMomentum()[2]
+            for d in to_subtract:
+                px -= d.getMomentum()[0]
+                py -= d.getMomentum()[1]
+                pz -= d.getMomentum()[2]
+    else:
+        px, py, pz = mc.getMomentum()[0], mc.getMomentum()[1], mc.getMomentum()[2]
+        for d in to_subtract:
+            px -= d.getMomentum()[0]
+            py -= d.getMomentum()[1]
+            pz -= d.getMomentum()[2]
+
+    return energy, (px, py, pz)
+
 def get_entry_point_from_simhits(mcp, event, calo_hits):
     """
     mcp: EVENT.MCParticle
@@ -267,7 +389,7 @@ def makeAk(filename, outfilename, maxread, skip):
                         parent = mergedMCP.getParents()[0]
                         photon1Pos = get_entry_point_from_simhits(parent.getDaughters()[0], event, SimHitNameList)
                         photon2Pos = get_entry_point_from_simhits(parent.getDaughters()[1], event, SimHitNameList)
-                        print(mergedMCP.id(), parent.getEnergy(), parent.getDaughters()[0].getEnergy(), parent.getDaughters()[1].getEnergy())
+                        # print(mergedMCP.id(), parent.getEnergy(), parent.getDaughters()[0].getEnergy(), parent.getDaughters()[1].getEnergy())
                         n_decayedpi0 = n_decayedpi0 + 1
                         if checkDistance(photon1Pos, photon2Pos):
                             mergedMCP = parent
@@ -369,13 +491,19 @@ def makeAk(filename, outfilename, maxread, skip):
                 #### print("  ", simhit.id(), dictSimMc[simhit.id()])
                 if not mcid in dictClusterIdx.keys():
                     #isDeltaRay(mc)
-                    dictClusterIdx[mcid] = {"id":len(dictClusterIdx),"energy":mc.getEnergy(), "pdg":mc.getPDG(), "charge":mc.getCharge(), "mass":mc.getMass(), "momentum":mc.getMomentum(), "status":mc.getSimulatorStatus(), "conversionBrems":dictMCP[mcid]}
+                    # bremsでenergyが下がっている場合は補正（同一MCの全labelで同じ値を使う）
+                    # trackのbrems点での運動量を使うためevent等を渡す
+                    corr_energy, corr_momentum = get_brems_corrected_energy_momentum(mc, event, TrackList, RelTrackList, dictSkimmed, colnames)
+                    dictClusterIdx[mcid] = {"id":len(dictClusterIdx),"energy":corr_energy, "energy_mcp":mc.getEnergy(), "pdg":mc.getPDG(), "charge":mc.getCharge(), "mass":mc.getMass(), "momentum":corr_momentum,  "momentum_mcp":{mc.getMomentum()[0],mc.getMomentum()[1],mc.getMomentum()[2]}, "momentum_mcp_x":mc.getMomentum()[0], "momentum_mcp_y":mc.getMomentum()[1], "momentum_mcp_z":mc.getMomentum()[2], "momentum_mcp_at_end_x":mc.getMomentumAtEndpoint()[0],"momentum_mcp_at_end_y":mc.getMomentumAtEndpoint()[1],"momentum_mcp_at_end_z":mc.getMomentumAtEndpoint()[2], "status":mc.getSimulatorStatus(), "conversionBrems":dictMCP[mcid]}
                     # print("    ", mcid, "id", len(dictClusterIdx),"energy",mc.getEnergy(), "pdg",mc.getPDG(), "charge",mc.getCharge(), "mass",mc.getMass(), "momentum",mc.getMomentum()[0],mc.getMomentum()[1],mc.getMomentum()[2], "status",mc.getSimulatorStatus())
                     # print("                      ", "energy",mc.getEnergy(), "calc energy",math.sqrt(mc.getMass()**2+mc.getMomentum()[0]**2+mc.getMomentum()[1]**2+mc.getMomentum()[2]**2))
 
                     #if mc.getPDG() == 22 and mc.getParents().size() > 0 and mc.getParents()[0].getCharge() != 0:
                     #    pmc = mc.getParents()[0]
                     #    print("Photon with parent",pmc.getPDG(), "MC_ID", dictClusterIdx[mcid]["id"], "PMC_ID", pmc.id(), "photon momentum", mc.getMomentum()[0], mc.getMomentum()[1], mc.getMomentum()[2])
+
+        for key, value in dictClusterIdx.items():
+            if(value["energy"]!= value["energy_mcp"]): print(key, value)
 
         ncalhit = 0
         ncluster = 0
@@ -484,6 +612,7 @@ def makeAk(filename, outfilename, maxread, skip):
                     b_label.integer(labels["pdg"])
                     b_label.real(labels["charge"])
                     b_label.real(labels["mass"])
+                    # print(labels["momentum"], labels["momentum"][0], labels["momentum"][1], labels["momentum"][2])
                     b_label.real(labels["momentum"][0])
                     b_label.real(labels["momentum"][1])
                     b_label.real(labels["momentum"][2])
@@ -565,13 +694,15 @@ def makeAk(filename, outfilename, maxread, skip):
             for track in col:
                 rin = track.getRadiusOfInnermostHit()
                 if rin <= 0:
-                    # fallback: track stateの参照点から半径を計算
-                    rin = -1.0
+                    # fallback: track stateの参照点からinnermost(最小半径)を計算
+                    rin = 1e30
                     for ts in track.getTrackStates():
                         ref = ts.getReferencePoint()
                         r = math.sqrt(ref[0]*ref[0] + ref[1]*ref[1] + ref[2]*ref[2])
-                        if r > rin:
+                        if r < rin:
                             rin = r
+                    if rin >= 1e30:
+                        rin = -1.0
                 if rin < 0:
                     continue
 

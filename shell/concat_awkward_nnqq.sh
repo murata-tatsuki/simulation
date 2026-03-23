@@ -8,6 +8,7 @@ jobdir=job/skimmed/pandora/${partType}
 
 mkdir -p ${basedir}/concat
 mkdir -p ${jobdir}/concat
+mkdir -p ${jobdir}/concat/filelists
 
 # =Pn23n23h_
 
@@ -40,11 +41,14 @@ for file in `cat filelists/nnqq.txt`; do
         continue;
     fi
 
-    echo "processing ${filename}.h5 => nnqq_${num}_${name}.h5"
-    ls ${basedir}/${filename}/${filename}_*.h5 > temp/temp.list
+    rm ${jobdir}/concat/filelists/nnqq_${num}_${name}.txt
+    touch ${jobdir}/concat/filelists/nnqq_${num}_${name}.txt
 
-    bsub -q s -o ${jobdir}/concat/output.%J -e ${jobdir}/concat/errors.%J "python concat_awkward.py temp/temp.list ${basedir}/concat/nnqq_${num}_${name}.h5"
-    # python concat_awkward.py temp/temp.list ${basedir}/concat/uds91_${num}.h5
+    echo "processing ${filename}.h5 => nnqq_${num}_${name}.h5"
+    ls ${basedir}/${filename}/${filename}_*.h5 > ${jobdir}/concat/filelists/nnqq_${num}_${name}.txt
+
+    bsub -q s -o ${jobdir}/concat/output.%J -e ${jobdir}/concat/errors.%J "python concat_awkward.py ${jobdir}/concat/filelists/nnqq_${num}_${name}.txt ${basedir}/concat/nnqq_${num}_${name}.h5"
+    # python concat_awkward.py ${jobdir}/concat/filelists/nnqq_${num}_${name}.txt ${basedir}/concat/uds91_${num}.h5
     # bsub -q s "python LCIO2ak2_edit.py $file ${basedir}/${filename}_${S}.h5 10 ${a} > ../gpfs/data/uds/log/${filename}_${S}.log"
     let num++
 done

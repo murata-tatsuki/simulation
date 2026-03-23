@@ -19,7 +19,7 @@ num=0
 # num=900
 
 
-type=ntau_10GeV_10
+type=ntau_10GeV_10_brems
 basedir=../gpfs/data/skimmed/pandora/${type}/awkd_${sample}Samples
 
 mkdir -p $basedir/concat

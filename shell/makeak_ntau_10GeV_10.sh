@@ -2,14 +2,14 @@
 
 cd ..
 
-datadir=../gpfs/data/skimmed/pandora/ntau_10GeV_10
+datadir=../gpfs/data/skimmed/pandora/ntau_10GeV_10_brems
 
-type=train
+type=validation
 
 mkdir -p ${datadir}/log_${type}Samples/
 mkdir -p ${datadir}/awkd_${type}Samples/
-mkdir -p job/skimmed/pandora/ntau_10GeV_10
-mkdir -p job/skimmed/pandora/ntau_10GeV_10/output
+mkdir -p job/skimmed/pandora/ntau_10GeV_10_brems
+mkdir -p job/skimmed/pandora/ntau_10GeV_10_brems/output
 
 lcio_path=/home/ilc/suehara/gpfs/doublePG/example/data/ntau_10GeV_10/reco/
 
@@ -39,7 +39,7 @@ for file in `cat filelists/ntau_10GeV_10_${type}Samples.txt`; do
         echo "   ${datadir}/awkd_${type}Samples/${filename}_${S}.h5 already exist "
         continue;
     fi
-    bsub -q s -o job/skimmed/pandora/ntau_10GeV_10/output.%J -e job/skimmed/pandora/ntau_10GeV_10/errors.%J "python LCIO2ak2.py ${lcio_path}${file} ${datadir}/awkd_${type}Samples/${filename}_${S}.h5 5 ${a} > ${datadir}/log_${type}Samples/${filename}_${S}.log"
+    bsub -q s -o job/skimmed/pandora/ntau_10GeV_10_brems/output.%J -e job/skimmed/pandora/ntau_10GeV_10_brems/errors.%J "python LCIO2ak2_brems.py ${lcio_path}${file} ${datadir}/awkd_${type}Samples/${filename}_${S}.h5 5 ${a} > ${datadir}/log_${type}Samples/${filename}_${S}.log"
 
     # bsub -q s -o job/${type}/${filename}/output.%J -e job/${type}/${filename}/errors.%J "python LCIO2ak2_edit.py $file ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
     # echo python LCIO2ak2_edit.py $file ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log

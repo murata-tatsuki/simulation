@@ -2,7 +2,7 @@
 
 cd ..
 
-partType=dd           # uu, dd, ss, uu_brems, dd_brems, ss_brems
+partType=cc           # uu, dd, ss, uu_brems, dd_brems, ss_brems
 datadir=../gpfs/data/skimmed/pandora/fixed_uds/${partType}
 
 ####  40,  91, 200, 350, 500 GeV
@@ -17,7 +17,7 @@ for file in `cat filelists/pfa_${partType}.list`; do
 
   mkdir -p ${datadir}/log/${filename}
   mkdir -p ${datadir}/awkd/${filename}
-  jobdir=job/skimmed/pandora/${partType}/${filename}
+  jobdir=job/skimmed/pandora/fixed_uds/${partType}/${filename}
   mkdir -p ${jobdir}
   
   echo ${filename}
@@ -39,6 +39,12 @@ for file in `cat filelists/pfa_${partType}.list`; do
   fi
   echo ${nevent}
 
+  event_number=$(lcio_event_counter $file)
+  if [ ${event_number} -ne $(((${nevent}+1)*5)) ]; then
+    echo "wrong event numbers"
+    continue
+  fi
+
 
   for i in `seq 0 ${nevent}`; do
     a=$((i*5))
@@ -53,7 +59,8 @@ for file in `cat filelists/pfa_${partType}.list`; do
         echo "   ${datadir}/awkd/${filename}/${filename}_${S}.h5 already exist "
         continue;
     fi
-    bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2.py ${file} ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
+    
+    bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_brems.py ${file} ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
     # echo "python LCIO2ak2_edit_skimmed_pandora.py $file ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
     # echo "finish"
   done
