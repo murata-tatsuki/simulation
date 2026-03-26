@@ -2,7 +2,7 @@
 
 cd ..
 
-partType=cc           # uu, dd, ss, uu_brems, dd_brems, ss_brems
+partType=bb           # uu, dd, ss, uu_brems, dd_brems, ss_brems
 datadir=../gpfs/data/skimmed/pandora/fixed_uds/${partType}
 
 ####  40,  91, 200, 350, 500 GeV

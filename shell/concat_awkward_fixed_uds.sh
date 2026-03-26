@@ -2,7 +2,7 @@
 
 cd ..
 
-partType=ss     # uu dd ss
+partType=bb     # uu dd ss
 basedir=../gpfs/data/skimmed/pandora/fixed_uds/${partType}/awkd
 jobdir=job/skimmed/pandora/concat/${partType}
 

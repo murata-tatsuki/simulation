@@ -39,7 +39,13 @@ for file in `cat filelists/neutron.list`; do
   name=${filename%${last}}
   echo ${filename}
 
-  bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_single_particle.py ${file} ${datadir}/awkd/concat/${name}.h5 1000 ${a} > ${datadir}/log/concat/${name}.log"
+  if [ -e ${datadir}/awkd/concat/${name}.h5 ]; then 
+    echo "   ${datadir}/awkd/concat/${name}.h5 already exist "
+    continue;
+  fi
+
+  bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_brems.py ${file} ${datadir}/awkd/concat/${name}.h5 1000 ${a} > ${datadir}/log/concat/${name}.log"
+  # bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_single_particle.py ${file} ${datadir}/awkd/concat/${name}.h5 1000 ${a} > ${datadir}/log/concat/${name}.log"
 
 << COMMENTOUT
   for i in `seq 0 99`; do

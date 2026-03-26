@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/gpfs/home/ilc/murata/simulation/LCIO2ak2.py", line 5, in <module>
-    from pyLCIO.io import LcioReader
-  File "/cvmfs/sw.hsf.org/key4hep/releases/2026-02-01/x86_64-almalinux9-gcc14.2.0-opt/lcio/2.23.1-4fc34c/python/pyLCIO/__init__.py", line 15, in <module>
-    from .base.HandleExceptions import setupExceptionHandling
-  File "/cvmfs/sw.hsf.org/key4hep/releases/2026-02-01/x86_64-almalinux9-gcc14.2.0-opt/lcio/2.23.1-4fc34c/python/pyLCIO/base/HandleExceptions.py", line 17, in <module>
-    from libcppyy import CPPOverload
-ModuleNotFoundError: No module named 'libcppyy'
