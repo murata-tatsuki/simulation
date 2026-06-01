@@ -2,7 +2,7 @@
 
 cd ..
 
-partType=bb           # uu, dd, ss, uu_brems, dd_brems, ss_brems
+partType=uu           # uu, dd, ss, uu_brems, dd_brems, ss_brems
 datadir=../gpfs/data/skimmed/pandora/fixed_uds/${partType}
 
 ####  40,  91, 200, 350, 500 GeV
@@ -60,7 +60,7 @@ for file in `cat filelists/pfa_${partType}.list`; do
         continue;
     fi
     
-    bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_brems.py ${file} ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
+    bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_brems_fixed_uds_event.py ${file} ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
     # echo "python LCIO2ak2_edit_skimmed_pandora.py $file ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
     # echo "finish"
   done
