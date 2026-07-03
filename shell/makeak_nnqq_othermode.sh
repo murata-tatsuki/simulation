@@ -34,16 +34,11 @@ for file in `cat filelists/pn23n23h.lst`; do
   mkdir -p ${jobdir}
 
   event_count=$(lcio_event_counter "$file" | tr -dc '0-9')
-    
-  if [ "$event_count" -ne 400 ]; then
-    echo " "
-    echo " !!!!!!!!!!!!!!!!!!!!!!!!! number of events is NOT 400 !!!!!!!!!!!!!!!!!!!"
-    echo "                                            is ${event_count}"
-    echo " "
-    break;
-  fi
+  max_loop=$(( (event_count + 4) / 5 ))
+  last_index=$(( max_loop - 1 ))
 
-  for i in `seq 0 79`; do
+  #for i in `seq 0 79`; do
+  for i in $(seq 0 $last_index); do
     a=$((i*5))
     S=$(printf "%03d\n" "${a}")
     # filename=${name}${S}"_reco_REC"

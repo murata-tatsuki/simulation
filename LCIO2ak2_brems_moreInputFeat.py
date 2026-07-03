@@ -3,7 +3,7 @@ from __future__ import print_function
 import os,pprint,glob,json
 
 from pyLCIO.io import LcioReader
-from pyLCIO.UTIL import LCRelationNavigator
+from pyLCIO.UTIL import LCRelationNavigator, BitField64
 
 #import ROOT
 import numpy as np
@@ -293,6 +293,66 @@ def get_calo_entry_from_mcp_via_track(mcp, event, TrkList, RelTrkList):
     return result
 
 
+def infer_calo_flags_from_collection_name(colname):
+    lowered = colname.lower()
+    is_ecal = 1.0 if "ecal" in lowered else 0.0
+    is_hcal = 1.0 if "hcal" in lowered else 0.0
+    is_barrel = 1.0 if "barrel" in lowered else 0.0
+    is_endcap = 1.0 if "endcap" in lowered else 0.0
+    return is_ecal, is_hcal, is_barrel, is_endcap
+
+
+def extract_layer_field_names(field_description):
+    field_names = []
+    for token in field_description.split(","):
+        token = token.strip()
+        if ":" not in token:
+            continue
+        name = token.split(":")[0].strip()
+        if name:
+            field_names.append(name)
+
+    # Keep names that are likely to encode layer first.
+    preferred = [name for name in field_names if "layer" in name.lower()]
+    for fallback in ("K-1", "K"):
+        if fallback in field_names and fallback not in preferred:
+            preferred.append(fallback)
+    return preferred
+
+
+def build_cellid_decoder_info(collection):
+    try:
+        encoding = collection.getParameters().getStringVal("CellIDEncoding")
+        if not encoding:
+            return {"decoder": None, "layer_fields": []}
+        decoder = BitField64(encoding)
+        layer_fields = extract_layer_field_names(decoder.fieldDescription())
+        return {"decoder": decoder, "layer_fields": layer_fields}
+    except Exception:
+        return {"decoder": None, "layer_fields": []}
+
+
+def decode_layer_id(hit, decoder_info):
+    decoder = decoder_info["decoder"]
+    if decoder is None:
+        return -1
+
+    try:
+        cellid0 = int(hit.getCellID0()) & 0xFFFFFFFF
+        cellid1 = int(hit.getCellID1()) & 0xFFFFFFFF
+        full_cellid = cellid0 | (cellid1 << 32)
+        decoder.setValue(full_cellid)
+    except Exception:
+        return -1
+
+    for field_name in decoder_info["layer_fields"]:
+        try:
+            return int(decoder[field_name])
+        except Exception:
+            continue
+    return -1
+
+
 
 #===========================================================================================
 def makeAk(filename, outfilename, maxread, skip):
@@ -336,6 +396,7 @@ def makeAk(filename, outfilename, maxread, skip):
     n_decayedpi0_near = 0
     n_brems = 0
     n_brems_near = 0
+    cellid_decoder_cache = {}
 
     for idx,event in enumerate(reader):
         b_feat = ak.ArrayBuilder()
@@ -564,6 +625,10 @@ def makeAk(filename, outfilename, maxread, skip):
         for colname in CaloHitNameList:
             if not colname in colnames: continue
             col = event.getCollection(colname)
+            if colname not in cellid_decoder_cache:
+                cellid_decoder_cache[colname] = build_cellid_decoder_info(col)
+            decoder_info = cellid_decoder_cache[colname]
+            is_ecal, is_hcal, is_barrel, is_endcap = infer_calo_flags_from_collection_name(colname)
             for hit in col:
                 #print(hit.id(),hit.getEnergy(), hit.getPosition()[0], hit.getPosition()[1], hit.getPosition()[2], hit.getTime())
 
@@ -574,6 +639,7 @@ def makeAk(filename, outfilename, maxread, skip):
                     havehit = 1
 
                 with b_feat.list(): # for hit
+                    layer_id = decode_layer_id(hit, decoder_info)
                     b_feat.real(hit.getEnergy())
                     b_feat.real(hit.getPosition()[0])
                     b_feat.real(hit.getPosition()[1])
@@ -587,6 +653,12 @@ def makeAk(filename, outfilename, maxread, skip):
                     b_feat.real(0) # px_vertex for track
                     b_feat.real(0) # py_vertex for track
                     b_feat.real(0) # pz_vertex for track
+                    # Calorimeter topology features for GNN input
+                    b_feat.real(layer_id)
+                    b_feat.real(is_ecal)
+                    b_feat.real(is_hcal)
+                    b_feat.real(is_barrel)
+                    b_feat.real(is_endcap)
                 #print ("features finished.")
 
                 b_label.begin_list()
@@ -798,6 +870,12 @@ def makeAk(filename, outfilename, maxread, skip):
                         b_feat.real(px_vertex) # momentum at vertex or IP
                         b_feat.real(py_vertex)
                         b_feat.real(pz_vertex)
+                        # Placeholder values to keep the same feature dimension as calorimeter hits
+                        b_feat.real(-1.) # layer_id
+                        b_feat.real(0.)  # is_ecal
+                        b_feat.real(0.)  # is_hcal
+                        b_feat.real(0.)  # is_barrel
+                        b_feat.real(0.)  # is_endcap
 
                     # b_label.begin_list()
                     # hitid=0
