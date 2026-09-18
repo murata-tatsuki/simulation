@@ -2,9 +2,11 @@
 
 cd ..
 
-partType=cc     # uu dd ss
-basedir=/gpfs/group/ilc/users/murata/pfa/data/skimmed/pandora/fixed_uds/${partType}/awkd
-jobdir=job/skimmed/pandora/concat/${partType}
+partType=ss     # uu dd ss
+# basedir=/gpfs/group/ilc/users/murata/pfa/data/skimmed/pandora/fixed_uds_pandoraFixed/${partType}/awkd
+# jobdir=job/skimmed/pandora/fixed_uds_pandoraFixed/${partType}
+basedir=/gpfs/group/ilc/users/murata/pfa/data/skimmed/pandora/fixed_uds_pandoraFixed_nobrems/${partType}/awkd
+jobdir=job/skimmed/pandora/fixed_uds_pandoraFixed_nobrems/${partType}
 
 mkdir -p ${basedir}/concat
 mkdir -p ${jobdir}/concat
@@ -52,8 +54,7 @@ for file in `cat filelists/pfa_${partType}.list`; do
     
     mkdir -p ${basedir}/concat/${ene}GeV
 
-
-    fileNum=`ls ${basedir}/${filename}/ | wc -w`
+    fileNum=$(/bin/ls -1 "${basedir}/${filename}/" | wc -l)
 
     if [ $fileNum -ne $nevent ]; then 
         echo "did not correctly generate ${filename}"
@@ -66,13 +67,18 @@ for file in `cat filelists/pfa_${partType}.list`; do
     fi
 
     mkdir -p ${jobdir}/concat/filelists/${ene}GeV
-    # rm ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt
-    touch ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt
+    listfile=${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt
 
     echo "processing ${filename}.h5 => ${partType}_${num}.h5"
-    ls ${basedir}/${filename}/${filename}_*.h5 > ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt
+    printf '%s\n' "${basedir}/${filename}/${filename}_"*.h5 > "${listfile}"
 
-    bsub -q s -o ${jobdir}/concat/output.%J -e ${jobdir}/concat/errors.%J "python concat_awkward.py ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt ${basedir}/concat/${ene}GeV/${partType}_${num}.h5"
+    nlist=$(wc -l < "${listfile}")
+    if [ "$nlist" -ne "$nevent" ] || grep -q '^$' "${listfile}"; then
+        echo "filelist incomplete for ${filename}: ${nlist} != ${nevent}, skip bsub"
+        continue
+    fi
+
+    bsub -q s -o ${jobdir}/concat/output.%J -e ${jobdir}/concat/errors.%J "python concat_awkward.py ${listfile} ${basedir}/concat/${ene}GeV/${partType}_${num}.h5"
     # python concat_awkward.py ${jobdir}/concat/filelists/${ene}GeV/${partType}_${num}.txt ${basedir}/concat/uds91_${num}.h5
     # bsub -q s "python LCIO2ak2_edit.py $file ${basedir}/${filename}_${S}.h5 10 ${a} > ../gpfs/data/uds/log/${filename}_${S}.log"
 done

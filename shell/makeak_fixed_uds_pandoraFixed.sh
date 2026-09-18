@@ -2,8 +2,9 @@
 
 cd ..
 
-partType=cc           # uu, dd, ss, uu_brems, dd_brems, ss_brems
-datadir=/gpfs/group/ilc/users/murata/pfa/data/skimmed/pandora/fixed_uds/${partType}
+partType=ss           # uu, dd, ss, uu_brems, dd_brems, ss_brems
+# datadir=/gpfs/group/ilc/users/murata/pfa/data/skimmed/pandora/fixed_uds_pandoraFixed/${partType}
+datadir=/gpfs/group/ilc/users/murata/pfa/data/skimmed/pandora/fixed_uds_pandoraFixed_nobrems/${partType}
 
 ####  40,  91, 200, 350, 500 GeV
 #### 500  500  200  200  100 events/file
@@ -17,7 +18,8 @@ for file in `cat filelists/pfa_${partType}.list`; do
 
   mkdir -p ${datadir}/log/${filename}
   mkdir -p ${datadir}/awkd/${filename}
-  jobdir=job/skimmed/pandora/fixed_uds/${partType}/${filename}
+  # jobdir=job/skimmed/pandora/fixed_uds_pandoraFixed/${partType}/${filename}
+  jobdir=job/skimmed/pandora/fixed_uds_pandoraFixed_nobrems/${partType}/${filename}
   mkdir -p ${jobdir}
   
   echo ${filename}
@@ -60,7 +62,7 @@ for file in `cat filelists/pfa_${partType}.list`; do
         continue;
     fi
     
-    bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_brems_fixed_uds_event.py ${file} ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a}"
+    bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_brems_fixed_uds_event_pandoraFixed.py ${file} ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a}"
     #bsub -q s -o ${jobdir}/output.%J -e ${jobdir}/errors.%J "python LCIO2ak2_brems_fixed_uds_event.py ${file} ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
     # echo "python LCIO2ak2_edit_skimmed_pandora.py $file ${datadir}/awkd/${filename}/${filename}_${S}.h5 5 ${a} > ${datadir}/log/${filename}/${filename}_${S}.log"
     # echo "finish"

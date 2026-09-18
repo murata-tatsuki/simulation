@@ -194,10 +194,12 @@ def get_brems_corrected_energy_momentum(mc, event, TrackList, RelTrackList, dict
     bremsを起こしているe-/e+について補正する。
     - Energy: mc.getEnergy()はbrems光子分も含むため、光子分を差し引く。
     - merge済みの光子(photon_n, photon_(n-1)など)は差し引かない。photon_1〜photon_(n-2)のみ差し引く。
-    - Momentum: trackのbrems点での運動量を使用（磁場補正）。merge済み光子の運動量は引かない。
+    - Momentum: 未merge光子の運動量を差し引く。reco trackでの上書きは無効。
+    差し引きは無効。Restore するには直後の return を消す。
     """
     energy = mc.getEnergy()
     px, py, pz = mc.getMomentum()[0], mc.getMomentum()[1], mc.getMomentum()[2]
+    return energy, (px, py, pz)
     if mc.getPDG() not in [11, -11]:
         return energy, (px, py, pz)
 
@@ -211,7 +213,8 @@ def get_brems_corrected_energy_momentum(mc, event, TrackList, RelTrackList, dict
         energy -= d.getEnergy()
 
     track = find_track_for_mcp_at_brems(mc, event, TrackList, RelTrackList, dictSkimmed, colnames)
-    if track is not None and all_brems:
+    # Reco-track p at the brems vertex can be unphysical. Restore by removing "False and".
+    if False and track is not None and all_brems:
         brems_vtx = max(all_brems, key=lambda d: math.sqrt(d.getVertex()[0]**2 + d.getVertex()[1]**2 + d.getVertex()[2]**2)).getVertex()
         mom_at_brems = get_track_momentum_at_point(track, brems_vtx[0], brems_vtx[1], brems_vtx[2])
         if mom_at_brems is not None:
@@ -373,9 +376,12 @@ def makeAk(filename, outfilename, maxread, skip):
         # making dictionary for MC clusters
         dictClusterIdx = {}
         dictSimMc = {}
-        # making dictionary for Pandora clusters
-        dictPandora = {}    # calhit to pandora cluster id
-        dictPandoraPrediction = {}    # pandora cluster id to pandora predictions and MC trith
+        # Keep the legacy Pandora output unchanged, and store corrected
+        # PFO-level associations in additional columns.
+        dictPandora = {}             # calorimeter hit ID -> legacy and PFO association
+        dictPandoraTrack = {}        # track ID -> PFO association
+        dictPandoraPrediction = {}   # raw cluster ID -> legacy cluster/PFO properties
+        dictPandoraPFO = {}          # event-local PFO ID -> corrected PFO properties
 
         dictSkimmed = {}    # MCparticlesSkimmed
         skimmedIds = []     # skimmed Id
@@ -406,7 +412,8 @@ def makeAk(filename, outfilename, maxread, skip):
                     dictSkimmed[mcpSkimmed.id()] = mcpSkimmed
                     continue
                 mergedMCP = mcpSkimmed
-                while mergedMCP.getParents().size() > 0:
+                # Nearby pi0/brems merge. Restore by removing "False and".
+                while False and mergedMCP.getParents().size() > 0:
                     # pi0 -> gamma gamma が近接していれば親(pi0)へマージ
                     if checkPi02gamma(mergedMCP):
                         parent = mergedMCP.getParents()[0]
@@ -563,49 +570,111 @@ def makeAk(filename, outfilename, maxread, skip):
 
         ncalhit = 0
         ncluster = 0
+        npfo = 0
+
+        pandora_truth_nav = None
+        for relcolname in RelPandoraList:
+            if relcolname in colnames:
+                pandora_truth_nav = LCRelationNavigator(event.getCollection(relcolname))
+                break
+
         for colname in PandoraList:
             if not colname in colnames: continue
             col = event.getCollection(colname)
-            for hit in col:
-                # print("Pandora ", hit, hit.id(), hit.getEnergy(), hit.getParticles(), hit.getClusters().size(), hit.getParticleIDs())
+            for pfo in col:
+                npfo += 1
+                localPfoId = len(dictPandoraPFO)
+
                 pids = []
-                for pid in hit.getParticleIDs():
+                for pid in pfo.getParticleIDs():
                     pids.append([pid.getPDG(), pid.getLikelihood(), pid.getAlgorithmType()])
-                for cluster in hit.getClusters():
+
+                # Keep the highest-weight PFO -> MCParticle relation. Do not
+                # require a truth match to retain the Pandora association.
+                bestTruth = None
+                bestTruthWeight = -1.0
+                legacyTruth = None
+                if pandora_truth_nav is not None:
+                    for rel, w in zip(
+                        pandora_truth_nav.getRelatedToObjects(pfo),
+                        pandora_truth_nav.getRelatedToWeights(pfo),
+                    ):
+                        # The legacy fields used the first relation above 0.5,
+                        # or the last relation if none passed that threshold.
+                        legacyTruth = rel
+                        if w > 0.5:
+                            break
+
+                    for rel, w in zip(
+                        pandora_truth_nav.getRelatedToObjects(pfo),
+                        pandora_truth_nav.getRelatedToWeights(pfo),
+                    ):
+                        if w > bestTruthWeight:
+                            bestTruth = rel
+                            bestTruthWeight = w
+
+                pfoMomentum = pfo.getMomentum()
+                dictPandoraPFO[localPfoId] = {
+                    "pfoId": pfo.id(),
+                    "mcTruthPFOEnergy": bestTruth.getEnergy() if bestTruth is not None else 0.0,
+                    "truthWeight": bestTruthWeight if bestTruth is not None else 0.0,
+                    "predictedPandoraPFOsEnergy": pfo.getEnergy(),
+                    "type": pfo.getType(),
+                    "pid": pids,
+                    "momentum": (pfoMomentum[0], pfoMomentum[1], pfoMomentum[2]),
+                }
+
+                association = {
+                    "pfoId": pfo.id(),
+                    "localPfoId": localPfoId,
+                }
+
+                for cluster in pfo.getClusters():
                     ncluster += 1
                     clusterId = cluster.id()
-                    # print("    cluster : ", cluster.id())
 
-                    for relcolname in RelPandoraList:
-                        if not relcolname in colnames: continue
-                        relcol = event.getCollection(relcolname)
-                        nav = LCRelationNavigator(relcol)
-                        for rel,w in zip(nav.getRelatedToObjects(hit),nav.getRelatedToWeights(hit)):
-                            if w > 0.5:
-                                if w < 1: print (w)
-                                # mcp = dictClusterIdx[rel.id()]
-                                # print("    MCID",rel.id(),"assigned to",mcid)
-                                # if mcp["energy"] != rel.getEnergy():
-                                #     print("-------------------------------------------------------------", mcp["energy"], rel.getEnergy())
-                                # # labels = dictClusterIdx[mcid]
-                                # # hitid = hit.id()
-                                break
-                    if not clusterId in dictPandoraPrediction.keys():
-                        dictPandoraPrediction[clusterId] = {"id":len(dictPandoraPrediction), "mcTruthClusterEnergy":rel.getEnergy(), "predictedPandoraPFOsEnergy":hit.getEnergy(), "predictedClusterEnergy":cluster.getEnergy(), "type":cluster.getType(), "pid":pids}
-                        # print(hit.getEnergy(), cluster.getEnergy())
+                    if clusterId not in dictPandoraPrediction:
+                        dictPandoraPrediction[clusterId] = {
+                            "mcTruthClusterEnergy": (
+                                legacyTruth.getEnergy() if legacyTruth is not None else 0.0
+                            ),
+                            "predictedPandoraPFOsEnergy": pfo.getEnergy(),
+                            "predictedClusterEnergy": cluster.getEnergy(),
+                            "type": cluster.getType(),
+                            "pid": pids,
+                        }
 
                     for calhit in cluster.getCalorimeterHits():
                         ncalhit += 1
-                        # print("        calhit : ", calhit.id() ,clusterId, cluster.id())
                         calhitid = calhit.id()
-                        if not calhitid in dictPandora.keys():
-                            #isDeltaRay(mc)
-                            # dictPandora[calhitid] = {"id":len(dictPandora), "clusterId":clusterId}#cluster.id()}#, "energy":hit.getEnergy(), "pdg":hit.getParticleIDs(), "charge":hit.getCharge(), "mass":hit.getMass(), "momentum":hit.getMomentum()}#, "status":hit.getSimulatorStatus()}
-                            dictPandora[calhitid] = {"id":len(dictPandora), "clusterId":clusterId}#, "mcTruthClusterEnergy":rel.getEnergy(), "predictedClusterEnergy":cluster.getEnergy(), "type":cluster.getType(), "pid":pids}#, "energy":hit.getEnergy(), "pdg":hit.getParticleIDs(), "charge":hit.getCharge(), "mass":hit.getMass(), "momentum":hit.getMomentum()}#, "status":hit.getSimulatorStatus()}
-                            # print(calhitid, "id",len(dictPandora), "clusterId", cluster.id(), clusterId)#, "energy":hit.getEnergy(), "pdg":hit.getParticleIDs(), "charge":hit.getCharge(), "mass":hit.getMass(), "momentum":hit.getMomentum()}#, "status":hit.getSimulatorStatus()}
+                        if calhitid not in dictPandora:
+                            dictPandora[calhitid] = {
+                                "id": len(dictPandora),
+                                "clusterId": clusterId,
+                                "pfoId": association["pfoId"],
+                                "localPfoId": association["localPfoId"],
+                            }
+                        elif dictPandora[calhitid]["localPfoId"] != localPfoId:
+                            print(
+                                "Calorimeter hit", calhitid,
+                                "belongs to multiple Pandora PFOs; keeping the first association"
+                            )
+
+                for track in pfo.getTracks():
+                    trackid = track.id()
+                    if trackid not in dictPandoraTrack:
+                        dictPandoraTrack[trackid] = association
+                    elif dictPandoraTrack[trackid]["localPfoId"] != localPfoId:
+                        print(
+                            "Track", trackid,
+                            "belongs to multiple Pandora PFOs; keeping the first association"
+                        )
 
         print("MC dictionary finished. #hits =", nsimhit, " # clusters =", len(dictClusterIdx))
-        print("pandora dictionary finished. #hits =", ncalhit, " # clusters =", ncluster)#len(dictPandora))
+        print(
+            "pandora dictionary finished. #hits =", ncalhit,
+            " # clusters =", ncluster, " # PFOs =", npfo
+        )
 
         if nsimhit == 0:
             print("# simhit = 0; skipping event #", idx)
@@ -686,50 +755,59 @@ def makeAk(filename, outfilename, maxread, skip):
                 #print ("labels finished.")
                 b_label.end_list()
 
+                pandoraHitId = hit.id()
+                pfoPandoras = dictPandora.get(pandoraHitId)
+
+                # Columns 0-8 retain the legacy layout except that index 2 is
+                # the corrected event-local PFO ID:
+                # [truth-matched hit ID, per-hit ID, local PFO ID,
+                #  legacy truth energy, PFO energy, cluster type, 0, 0, 0].
+                legacyPandoras = dictPandora.get(hitid)
                 b_pandora.begin_list()
                 b_pandora.real(hitid)
-                if(hitid in dictPandora):
-                    pandoras = dictPandora[hitid]
-                    # print("  found hitid:", hitid, "clusterId", pandoras["clusterId"])
+                if legacyPandoras is not None:
+                    legacyPrediction = dictPandoraPrediction[legacyPandoras["clusterId"]]
+                    b_pandora.integer(legacyPandoras["id"])
+                    b_pandora.integer(pfoPandoras["localPfoId"])
+                    b_pandora.real(legacyPrediction["mcTruthClusterEnergy"])
+                    b_pandora.real(legacyPrediction["predictedPandoraPFOsEnergy"])
+                    b_pandora.real(legacyPrediction["type"])
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
                 else:
-                    # print("  not found ", hitid)
-                    pandoras = None
-                if(pandoras):
-                    pandoraPrediction = dictPandoraPrediction[pandoras["clusterId"]]
-                    b_pandora.integer(pandoras["id"])
-                    b_pandora.integer(pandoras["clusterId"])
-                    b_pandora.real(pandoraPrediction["mcTruthClusterEnergy"])
-                    # b_pandora.real(pandoraPrediction["predictedClusterEnergy"])
-                    b_pandora.real(pandoraPrediction["predictedPandoraPFOsEnergy"])
-                    b_pandora.real(pandoraPrediction["type"])
-                    # b_pandora.real(pandoraPrediction["pid"])
+                    b_pandora.integer(-1)
+                    b_pandora.integer(-1)
                     b_pandora.real(0)
                     b_pandora.real(0)
                     b_pandora.real(0)
-                    # b_pandora.real(pandoras["id"])
-                    # b_pandora.real(pandoras["clusterId"])
-                    # b_pandora.real(pandoras["energy"])
-                    # b_pandora.real(0)
-                    # b_pandora.real(pandoras["charge"])
-                    # b_pandora.real(pandoras["mass"])
-                    # b_pandora.real(0)
-                    # b_pandora.real(0)
-                    # if(hit.getPosition()[0]<0 and hit.getPosition()[0]>-1500 and hit.getPosition()[2]>1000 and hit.getPosition()[1]<-1000):
-                    # print(hitid, pandoras["id"], pandoras["clusterId"]+1, hit.getPosition()[0], hit.getPosition()[1], hit.getPosition()[2])
-                    # if(pandoras["clusterId"]+1 == 6100):
-                    #     print("      6100", hitid, pandoras["id"], pandoras["clusterId"]+1, hit.getPosition()[0], hit.getPosition()[1], hit.getPosition()[2])
-                    # print(pandoras["clusterId"]+1)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+
+                # Columns 9-17 contain the corrected PFO-level association:
+                # [actual input ID, raw PFO ID, raw cluster ID, truth energy,
+                #  PFO energy, PFO type, PFO px, PFO py, PFO pz].
+                b_pandora.real(pandoraHitId)
+                if pfoPandoras is not None:
+                    pfoPrediction = dictPandoraPFO[pfoPandoras["localPfoId"]]
+                    b_pandora.integer(pfoPandoras["pfoId"])
+                    b_pandora.integer(pfoPandoras["clusterId"])
+                    b_pandora.real(pfoPrediction["mcTruthPFOEnergy"])
+                    b_pandora.real(pfoPrediction["predictedPandoraPFOsEnergy"])
+                    b_pandora.real(pfoPrediction["type"])
+                    b_pandora.real(pfoPrediction["momentum"][0])
+                    b_pandora.real(pfoPrediction["momentum"][1])
+                    b_pandora.real(pfoPrediction["momentum"][2])
                 else:
-                    b_pandora.integer(-1) #labels["id"])
-                    b_pandora.integer(-1) #labels["pdg"])
-                    b_pandora.real(0) #labels["charge"])
-                    b_pandora.real(0) #labels["mass"])
-                    b_pandora.real(0) #labels["momentum"][0])
-                    b_pandora.real(0) #labels["momentum"][1])
-                    b_pandora.real(0) #labels["momentum"][2])
-                    b_pandora.real(0) #labels["status"])
-                    # print(0)
-                    # print(hitid, -1, 0, hit.getPosition()[0], hit.getPosition()[1], hit.getPosition()[2])
+                    b_pandora.integer(-1)
+                    b_pandora.integer(-1)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
                 b_pandora.end_list()
 
         if havehit == 0:
@@ -925,18 +1003,45 @@ def makeAk(filename, outfilename, maxread, skip):
                         print("no matched MCParticle at track ", track.id())
                     b_label.end_list()
 
+                    pandoras = dictPandoraTrack.get(track.id())
+
+                    # Keep the original track fields in columns 0-8, except
+                    # that index 2 contains the corrected local PFO ID.
                     b_pandora.begin_list()
                     b_pandora.real(hitid)
-                    b_pandora.real(0) #labels["id"])
-                    b_pandora.real(-1) #labels["pdg"])
-                    b_pandora.real(0) #labels["charge"])
-                    b_pandora.real(0) #labels["mass"])
-                    b_pandora.real(0) #labels["momentum"][0])
-                    b_pandora.real(0) #labels["momentum"][1])
-                    b_pandora.real(0) #labels["momentum"][2])
-                    b_pandora.real(0) #labels["status"])
+                    b_pandora.real(0)
+                    b_pandora.integer(
+                        pandoras["localPfoId"] if pandoras is not None else -1
+                    )
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+                    b_pandora.real(0)
+
+                    # Append the corrected PFO-level association in columns 9-17.
+                    b_pandora.real(-track.id())
+                    if pandoras is not None:
+                        pandoraPrediction = dictPandoraPFO[pandoras["localPfoId"]]
+                        b_pandora.integer(pandoras["pfoId"])
+                        b_pandora.integer(-1)
+                        b_pandora.real(pandoraPrediction["mcTruthPFOEnergy"])
+                        b_pandora.real(pandoraPrediction["predictedPandoraPFOsEnergy"])
+                        b_pandora.real(pandoraPrediction["type"])
+                        b_pandora.real(pandoraPrediction["momentum"][0])
+                        b_pandora.real(pandoraPrediction["momentum"][1])
+                        b_pandora.real(pandoraPrediction["momentum"][2])
+                    else:
+                        b_pandora.integer(-1)
+                        b_pandora.integer(-1)
+                        b_pandora.real(0)
+                        b_pandora.real(0)
+                        b_pandora.real(0)
+                        b_pandora.real(0)
+                        b_pandora.real(0)
+                        b_pandora.real(0)
                     b_pandora.end_list()
-                    # print(hitid, 0, 0, hit.getPosition()[0], hit.getPosition()[1], hit.getPosition()[2])
 
         b_feat.end_list() # list for event
         b_label.end_list()
